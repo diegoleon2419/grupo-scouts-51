@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Grupo Scout 51</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--black:#1A1A1A;--blue:#1565C0;--gold:#F5C500;--gray-600:#6B6B6B;--gray-800:#2D2D2D;--navy:#1A237E;--off-white:#F8F7F4;--red:#BE1A2D;--whatsapp:#25D366;--white:#FFFFFF}
+    html{scroll-behavior:smooth}body{font-family:'Manrope',sans-serif;color:var(--black);background:var(--white)}.page{max-width:1440px;margin:0 auto}img{display:block}
+    .navbar{display:flex;align-items:center;justify-content:space-between;background:var(--black);height:72px;padding:0 24px}.nav-logo{display:flex;align-items:center;gap:12px}.nav-logo-circle{width:44px;height:44px;border-radius:50%;background:url('../Grupo 51.jpeg') center/cover;flex-shrink:0}.nav-logo-text{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:2px}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{font-size:14px;font-weight:500;color:#FFFFFFD9;text-decoration:none}.nav-links a:hover{color:var(--white)}.nav-cta{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--black);background:var(--gold);padding:10px 24px;border-radius:4px;text-decoration:none;letter-spacing:1px}
+    .hero{height:400px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px 64px 24px;gap:16px;background:linear-gradient(135deg,#BE1A2DCC,#1A1A1ABF)}
+    .hero-title{font-family:'Oswald',sans-serif;font-size:64px;font-weight:700;color:var(--white);text-align:center}.hero-desc{font-size:18px;color:#FFFFFFD9;text-align:center;line-height:1.7;max-width:560px}
+    .contact-cards{display:flex;gap:24px;background:var(--white);padding:64px 48px}.contact-card{flex:1;display:flex;flex-direction:column;align-items:center;gap:12px;background:var(--off-white);border-radius:12px;padding:32px;border:1px solid #0000000A}.cc-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center}.cc-icon i{width:28px;height:28px;color:var(--white)}.cc-icon.wa{background:var(--whatsapp)}.cc-icon.ph{background:var(--blue)}.cc-icon.em{background:var(--red)}.cc-icon.ig{background:linear-gradient(135deg,#833AB4,#E1306C 50%,#F77737)}.cc-title{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700}.cc-value{font-size:16px;font-weight:600}.cc-desc{font-size:13px;color:var(--gray-600)}
+    .schedule-map{display:flex;gap:64px;background:var(--off-white);padding:80px 48px}.sched-info{flex:1;display:flex;flex-direction:column;gap:32px}.sched-info h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700}.sched-item{display:flex;align-items:center;gap:16px}.sched-item i{width:24px;height:24px;color:var(--red);flex-shrink:0}.si-content{display:flex;flex-direction:column;gap:4px}.si-label{font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;color:var(--gray-600);letter-spacing:2px}.si-value{font-size:18px;font-weight:600}.si-value.sm{font-size:16px;font-weight:500;line-height:1.5}.map-img{flex:1;border-radius:8px;overflow:hidden;height:400px}.map-img img{width:100%;height:100%;object-fit:cover}
+    .faq{display:flex;flex-direction:column;align-items:center;background:var(--white);padding:80px 48px;gap:48px}.faq h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700}.faq-list{width:720px;display:flex;flex-direction:column}.faq-item{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid #0000000F}.faq-item:last-child{border-bottom:none}.faq-item span{font-size:16px;font-weight:600}.faq-item i{width:20px;height:20px;color:var(--gray-600);flex-shrink:0}
+    .cta{display:flex;flex-direction:column;align-items:center;background:var(--red);padding:80px 48px;gap:24px}.cta h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:var(--white);text-align:center}.cta>p{font-size:18px;color:#FFFFFFCC;text-align:center}.cta-btn{display:flex;align-items:center;gap:10px;background:var(--whatsapp);color:var(--white);padding:16px 36px;border-radius:4px;text-decoration:none}.cta-btn i{width:20px;height:20px}.cta-btn span{font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;letter-spacing:1px}
+    .footer{display:flex;flex-direction:column;align-items:center;background:var(--black);padding:48px 48px 24px 48px;gap:32px}.footer-top{display:flex;align-items:center;justify-content:space-between;width:100%}.footer-logo{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--white)}.footer-links{display:flex;align-items:center;gap:24px}.footer-links a{font-size:14px;color:#FFFFFFAA;text-decoration:none}.footer-divider{width:100%;height:1px;background:#FFFFFF1A}.footer-copy{font-size:12px;color:#FFFFFF66}
+  </style>
+</head>
+<body>
+<div class="page">
+  <nav class="navbar"><div class="nav-logo"><div class="nav-logo-circle"></div><span class="nav-logo-text">GRUPO SCOUT 51</span></div><div class="nav-links"><a href="nosotros.html">Nosotros</a><a href="lahinis.html">Lahinis y Lobatos</a><a href="sikas.html">Sikas y Centinelas</a><a href="pioneros.html">Pioneros</a><a href="clan.html">Clan</a><a href="contacto.html">Contacto</a></div><a href="contacto.html" class="nav-cta">UNETE &rarr;</a></nav>
+
+  <section class="hero"><h1 class="hero-title">CONTACTO</h1><p class="hero-desc">Escríbenos, llámanos o visítanos cualquier sábado. Estamos para ti.</p></section>
+
+  <section class="contact-cards">
+    <div class="contact-card"><div class="cc-icon wa"><i data-lucide="message-circle"></i></div><span class="cc-title">WHATSAPP</span><span class="cc-value">55 3031 0438</span><span class="cc-desc">Escribenos directamente</span></div>
+    <div class="contact-card"><div class="cc-icon ph"><i data-lucide="phone"></i></div><span class="cc-title">TELEFONO</span><span class="cc-value">55 4876 1332</span><span class="cc-desc">Llamanos en horario de oficina</span></div>
+    <div class="contact-card"><div class="cc-icon em"><i data-lucide="mail"></i></div><span class="cc-title">EMAIL</span><span class="cc-value">jefaturadegrupo@gmail.com</span><span class="cc-desc">Para informes y documentos</span></div>
+    <div class="contact-card"><div class="cc-icon ig"><i data-lucide="instagram"></i></div><span class="cc-title">INSTAGRAM</span><span class="cc-value">@gruposcout51</span><span class="cc-desc">Siguenos para fotos y novedades</span></div>
+  </section>
+
+  <section class="schedule-map">
+    <div class="sched-info">
+      <h2>DÓNDE Y CUÁNDO NOS REUNIMOS</h2>
+      <div class="sched-item"><i data-lucide="calendar"></i><div class="si-content"><span class="si-label">DIA</span><span class="si-value">Todos los sábados</span></div></div>
+      <div class="sched-item"><i data-lucide="timer"></i><div class="si-content"><span class="si-label">HORARIO</span><span class="si-value">4:00 — 7:45 PM</span></div></div>
+      <div class="sched-item"><i data-lucide="map-pin"></i><div class="si-content"><span class="si-label">LUGAR</span><span class="si-value sm">Parque Luis Barragán, Jardines del Pedregal, CDMX</span></div></div>
+    </div>
+    <div class="map-img"><img src="../6C38D88C-B798-4F31-A8BC-A4C61B58DB33.jpeg" alt="Mapa ubicación"></div>
+  </section>
+
+  <section class="faq">
+    <h2>PREGUNTAS FRECUENTES</h2>
+    <div class="faq-list">
+      <div class="faq-item"><span>¿Qué necesita mi hijo para entrar?</span><i data-lucide="chevron-down"></i></div>
+      <div class="faq-item"><span>¿Cuánto cuesta?</span><i data-lucide="chevron-down"></i></div>
+      <div class="faq-item"><span>¿Necesita experiencia previa?</span><i data-lucide="chevron-down"></i></div>
+      <div class="faq-item"><span>¿Qué debe llevar a las reuniones?</span><i data-lucide="chevron-down"></i></div>
+    </div>
+  </section>
+
+  <section class="cta"><h2>VEN A CONOCERNOS</h2><p>Escríbenos por WhatsApp y ven cualquier sábado. Te esperamos.</p><a href="#" class="cta-btn"><i data-lucide="message-circle"></i><span>ESCRIBENOS POR WHATSAPP</span></a></section>
+
+  <footer class="footer"><div class="footer-top"><span class="footer-logo">GRUPO SCOUT 51</span><div class="footer-links"><a href="home.html">Inicio</a><a href="nosotros.html">Nosotros</a><a href="home.html#secciones">Secciones</a><a href="contacto.html">Contacto</a></div></div><div class="footer-divider"></div><span class="footer-copy">&copy; 2025 Grupo Scout 51 — Asociación de Scouts de México, A.C.</span></footer>
+</div>
+<script>lucide.createIcons();</script>
+</body>
+</html>

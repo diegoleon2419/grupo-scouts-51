@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lahinis y Lobatos - Grupo Scout 51</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --black: #1A1A1A;
+            --blue: #1565C0;
+            --gold: #F5C500;
+            --gray-600: #6B6B6B;
+            --gray-800: #2D2D2D;
+            --navy: #1A237E;
+            --off-white: #F8F7F4;
+            --red: #BE1A2D;
+            --whatsapp: #25D366;
+            --white: #FFF;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            color: var(--black);
+            background: var(--white);
+            max-width: 1440px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--black);
+            height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-image: url('../Grupo 51.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-family: 'Manrope', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .cta-button {
+            font-family: 'Oswald', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--black);
+            background: var(--gold);
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 480px;
+            background-image: linear-gradient(135deg, rgba(26, 35, 126, 0.8), rgba(26, 26, 26, 0.75)), url('../Manadas/Manadas Aniversario 68.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 24px 64px 24px;
+            gap: 16px;
+        }
+
+        .hero-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        .hero-desc {
+            font-family: 'Manrope', sans-serif;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        /* Section Logo */
+        .section-logo {
+            background: var(--off-white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 48px 0;
+        }
+
+        .logo-ellipse {
+            width: 120px;
+            height: 120px;
+            background-image: url('../logo manadas_edited.png');
+            background-size: cover;
+            background-position: center;
+            border: 3px solid var(--navy);
+            border-radius: 50%;
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--white);
+            display: flex;
+            padding: 80px 48px;
+            gap: 64px;
+        }
+
+        .about-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-right {
+            flex: 1;
+        }
+
+        .about-right img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .section-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .body-text {
+            font-family: 'Manrope', sans-serif;
+            font-size: 16px;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        .highlight {
+            border-left: 4px solid var(--navy);
+            padding-left: 20px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--black);
+            line-height: 1.7;
+        }
+
+        /* Objetivos Section */
+        .objetivos-section {
+            background: var(--off-white);
+            display: flex;
+            padding: 80px 48px;
+            gap: 64px;
+        }
+
+        .objetivos-left {
+            flex: 1;
+        }
+
+        .objetivos-left img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .objetivos-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .quote-block {
+            border-radius: 0 8px 8px 0;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 20px 24px;
+            border-left: 4px solid var(--navy);
+            font-family: 'Manrope', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--black);
+            line-height: 1.7;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: var(--off-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 48px;
+            gap: 48px;
+            overflow: hidden;
+        }
+
+        .gallery-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--black);
+            text-align: center;
+        }
+
+        .gallery-subtitle {
+            font-family: 'Manrope', sans-serif;
+            font-size: 16px;
+            color: var(--gray-600);
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: flex;
+            gap: 12px;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .gallery-grid img {
+            width: 420px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Activities Section */
+        .activities-section {
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 48px;
+            gap: 48px;
+        }
+
+        .activities-cards {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .activity-card {
+            flex: 1;
+            border-radius: 8px;
+            background: var(--off-white);
+            padding: 40px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .activity-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--navy);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .activity-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--black);
+            text-align: center;
+        }
+
+        .activity-desc {
+            font-family: 'Manrope', sans-serif;
+            font-size: 14px;
+            color: var(--gray-600);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Servicio Section */
+        .servicio-section {
+            background: var(--navy);
+            display: flex;
+            padding: 80px 48px;
+            gap: 64px;
+        }
+
+        .servicio-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .servicio-right {
+            flex: 1;
+        }
+
+        .servicio-right img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .section-heading-white {
+            font-family: 'Oswald', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .body-text-white {
+            font-family: 'Manrope', sans-serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+        }
+
+        .servicio-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .servicio-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+        }
+
+        .servicio-item:not(:last-child) {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .servicio-arrow {
+            font-family: 'Manrope', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .servicio-text {
+            font-family: 'Manrope', sans-serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 48px;
+            gap: 24px;
+        }
+
+        .cta-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-desc {
+            font-family: 'Manrope', sans-serif;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        .whatsapp-button {
+            background: var(--whatsapp);
+            border-radius: 4px;
+            padding: 16px 36px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            opacity: 0.9;
+        }
+
+        .whatsapp-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 48px 48px 24px 48px;
+            gap: 32px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-family: 'Manrope', sans-serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.67);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        .footer-copyright {
+            font-family: 'Manrope', sans-serif;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 16px 24px;
+                gap: 16px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .about-section, .objetivos-section, .servicio-section {
+                flex-direction: column;
+            }
+
+            .gallery-grid {
+                overflow-x: auto;
+            }
+
+            .activities-cards {
+                flex-direction: column;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 24px;
+                align-items: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-circle"></div>
+            <span class="logo-text">GRUPO SCOUT 51</span>
+        </div>
+        <div class="nav-links">
+            <a href="#nosotros">Nosotros</a>
+            <a href="#lahinis">Lahinis y Lobatos</a>
+            <a href="#sikas">Sikas y Centinelas</a>
+            <a href="#pioneros">Pioneros</a>
+            <a href="#clan">Clan</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#unete" class="cta-button">UNETE →</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">LAHINIS Y LOBATOS</h1>
+        <p class="hero-subtitle">7 — 11 AÑOS</p>
+        <p class="hero-desc">La mística de El Libro de la Selva — con Akela y Raksha como guías, un mundo de fantasía, juego y aprendizaje.</p>
+    </section>
+
+    <!-- Section Logo -->
+    <section class="section-logo">
+        <div class="logo-ellipse"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-left">
+            <h2 class="section-heading">BIENVENIDOS A LA MANADA</h2>
+            <p class="body-text">La Manada es la sección más joven del Grupo Scout 51. Aquí, niños y niñas de 7 a 11 años viven la aventura del escultismo a través de la mística de El Libro de la Selva de Rudyard Kipling.</p>
+            <p class="body-text">A través del juego, las historias, las canciones y el contacto con la naturaleza, los integrantes de la Manada aprenden valores como la solidaridad, el respeto y la responsabilidad.</p>
+            <p class="highlight">La Manada se divide en dos subsecciones: las Lahinis (niñas) y los Lobatos (niños), cada una con su propia dinámica pero unidas por la misma mística y aventura.</p>
+        </div>
+        <div class="about-right">
+            <img src="../Lahinis Aniversario 68.jpeg" alt="Lahinis Aniversario 68">
+        </div>
+    </section>
+
+    <!-- Objetivos Section -->
+    <section class="objetivos-section">
+        <div class="objetivos-left">
+            <img src="../9ae7f257-9e7b-4705-8bed-1535dedde3c3.jpg" alt="Manada en acción">
+        </div>
+        <div class="objetivos-right">
+            <h2 class="section-heading">NUESTROS OBJETIVOS</h2>
+            <p class="body-text">En la Manada buscamos que cada niño y niña descubra el mundo que lo rodea, desarrolle su creatividad y aprenda a convivir con los demás en un ambiente seguro y lleno de fantasía.</p>
+            <div class="quote-block">"El cachorro que guarda la Ley de la Manada es artesano de su propia felicidad." — Akela</div>
+            <p class="body-text">Cada actividad está diseñada para que aprendan jugando: trabajo en equipo, respeto por la naturaleza, responsabilidad personal y el valor de la amistad.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <h2 class="gallery-title">NUESTRA MANADA EN ACCIÓN</h2>
+        <p class="gallery-subtitle">Momentos de juego, aventura y aprendizaje junto a la familia de la selva.</p>
+        <div class="gallery-grid">
+            <img src="../Manadas/Lobatos Aniversario 68.jpeg" alt="Lobatos Aniversario 68">
+            <img src="../WhatsApp Image 2026-02-12 at 17.43.58.jpeg" alt="Manada actividad 1">
+            <img src="../WhatsApp Image 2026-02-12 at 17.43.59.jpeg" alt="Manada actividad 2">
+            <img src="../3e9cb57a-c36a-4f4b-bcc9-55c7367c943d.jpg" alt="Manada actividad 3">
+            <img src="../Manadas/WhatsApp Image 2026-02-10 at 20.07.30.jpeg" alt="Manada actividad 4">
+            <img src="../0152cde4-d602-4447-a98d-904068db55c2.jpg" alt="Manada actividad 5">
+            <img src="../Manadas/WhatsApp Image 2026-02-12 at 17.50.39.jpeg" alt="Manada actividad 6">
+            <img src="../Manadas/WhatsApp Image 2026-02-12 at 17.51.37.jpeg" alt="Manada actividad 7">
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities-section">
+        <h2 class="gallery-title">ACTIVIDADES DE LA MANADA</h2>
+        <div class="activities-cards">
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <i data-lucide="tent"></i>
+                </div>
+                <h3 class="activity-title">CAMPAMENTOS</h3>
+                <p class="activity-desc">Acampamos bajo las estrellas, aprendemos sobre la naturaleza y fortalecemos nuestra amistad como familia de la selva.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <i data-lucide="book-open"></i>
+                </div>
+                <h3 class="activity-title">HISTORIAS</h3>
+                <p class="activity-desc">Vivimos las aventuras de Mowgli, Baloo y Bagheera mientras aprendemos las lecciones de la Ley de la Manada.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <i data-lucide="gamepad-2"></i>
+                </div>
+                <h3 class="activity-title">JUEGOS</h3>
+                <p class="activity-desc">A través del juego desarrollamos habilidades físicas, mentales y sociales mientras nos divertimos en equipo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicio Section -->
+    <section class="servicio-section">
+        <div class="servicio-left">
+            <h2 class="section-heading-white">LA BUENA ACCIÓN</h2>
+            <p class="body-text-white">Desde pequeños aprendemos el valor del servicio a los demás. La Manada participa activamente en proyectos comunitarios que nos enseñan a ser mejores personas y mejores ciudadanos.</p>
+            <div class="servicio-list">
+                <div class="servicio-item">
+                    <span class="servicio-arrow">→</span>
+                    <span class="servicio-text">Cuidado del medio ambiente y reforestación</span>
+                </div>
+                <div class="servicio-item">
+                    <span class="servicio-arrow">→</span>
+                    <span class="servicio-text">Visitas a casas hogar y asilos</span>
+                </div>
+                <div class="servicio-item">
+                    <span class="servicio-arrow">→</span>
+                    <span class="servicio-text">Campañas de reciclaje y limpieza</span>
+                </div>
+            </div>
+        </div>
+        <div class="servicio-right">
+            <img src="../DSC09330.jpeg" alt="Servicio comunitario">
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="cta-title">ÚNETE A LA MANADA</h2>
+        <p class="cta-desc">Ven a conocernos y vive la aventura de la selva con nosotros.</p>
+        <a href="https://wa.me/1234567890" class="whatsapp-button">
+            <i data-lucide="message-circle"></i>
+            <span class="whatsapp-text">ESCRÍBENOS POR WHATSAPP</span>
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <span class="footer-logo">GRUPO SCOUT 51</span>
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#secciones">Secciones</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-copyright">© 2025 Grupo Scout 51 — Asociación de Scouts de México, A.C.</p>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
