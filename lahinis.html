@@ -161,10 +161,16 @@
             padding: 48px 0;
         }
 
-        .logo-ellipse {
+        .section-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .section-logo-img {
             width: 120px;
             height: 120px;
-            background-image: url('logo_manadas_edited.png');
             background-size: cover;
             background-position: center;
             border: 3px solid var(--navy);
@@ -574,19 +580,19 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">
-            <div class="logo-circle"></div>
-            <span class="logo-text">GRUPO SCOUT 51</span>
-        </div>
-        <div class="nav-links">
-            <a href="#nosotros">Nosotros</a>
-            <a href="#lahinis">Lahinis y Lobatos</a>
-            <a href="#sikas">Sikas y Centinelas</a>
-            <a href="#pioneros">Pioneros</a>
-            <a href="#clan">Clan</a>
-            <a href="#contacto">Contacto</a>
-            <a href="#unete" class="cta-button">UNETE →</a>
-        </div>
+      <div class="nav-logo">
+        <div class="nav-logo-circle"></div>
+        <span class="nav-logo-text">GRUPO SCOUT 51</span>
+      </div>
+      <div class="nav-links">
+        <a href="nosotros.html">Nosotros</a>
+        <a href="lahinis.html">Lahinis y Lobatos</a>
+        <a href="sikas.html">Sikas y Centinelas</a>
+        <a href="pioneros.html">Pioneros</a>
+        <a href="clan.html">Clan</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <a href="contacto.html" class="nav-cta">UNETE &rarr;</a>
     </nav>
 
     <!-- Hero Section -->
@@ -598,7 +604,10 @@
 
     <!-- Section Logo -->
     <section class="section-logo">
-        <div class="logo-ellipse"></div>
+      <div class="section-logos">
+        <div class="section-logo-img" style="background:url('logo_lahinis.jpeg') center/cover"></div>
+        <div class="section-logo-img" style="background:url('logo_manadas_edited.png') center/cover"></div>
+      </div>
     </section>
 
     <!-- About Section -->
@@ -700,7 +709,7 @@
     <section class="cta-section">
         <h2 class="cta-title">ÚNETE A LA MANADA</h2>
         <p class="cta-desc">Ven a conocernos y vive la aventura de la selva con nosotros.</p>
-        <a href="https://wa.me/1234567890" class="whatsapp-button">
+        <a href="https://wa.me/5530310438" class="whatsapp-button">
             <i data-lucide="message-circle"></i>
             <span class="whatsapp-text">ESCRÍBENOS POR WHATSAPP</span>
         </a>
