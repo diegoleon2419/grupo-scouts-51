@@ -1,821 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pioneros y Pioneras - Grupo Scout 51</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --black: #1A1A1A;
-            --blue: #1565C0;
-            --gold: #F5C500;
-            --gray-600: #6B6B6B;
-            --gray-800: #2D2D2D;
-            --navy: #1A237E;
-            --off-white: #F8F7F4;
-            --red: #BE1A2D;
-            --whatsapp: #25D366;
-            --white: #FFF;
-        }
-
-        body {
-            font-family: 'Manrope', sans-serif;
-            color: var(--black);
-            background: var(--white);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1440px;
-            margin: 0 auto;
-        }
-
-        /* Navbar */
-        .navbar {
-            background: var(--black);
-            height: 72px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 24px;
-        }
-
-        .navbar-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .navbar-logo img {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .navbar-logo span {
-            font-family: 'Oswald', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 2px;
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .navbar-links a {
-            font-family: 'Manrope', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .navbar-links a:hover {
-            color: var(--white);
-        }
-
-        .navbar-cta {
-            color: var(--gold) !important;
-            font-weight: 600;
-        }
-
-        /* Hero */
-        .hero {
-            height: 480px;
-            background: linear-gradient(135deg, rgba(190, 26, 45, 0.8) 0%, rgba(26, 26, 26, 0.75) 100%), url('Pioneres/Pioneras Camp nov 25.JPG');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 120px 24px 64px 24px;
-            gap: 16px;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(190, 26, 45, 0.8) 0%, rgba(26, 26, 26, 0.75) 100%);
-            opacity: 0.8;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .hero-tag {
-            font-family: 'Oswald', sans-serif;
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--gold);
-            letter-spacing: 3px;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 64px;
-            font-weight: 700;
-            color: var(--white);
-            text-align: center;
-            line-height: 1.1;
-        }
-
-        .hero-desc {
-            font-family: 'Manrope', sans-serif;
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.85);
-            text-align: center;
-            line-height: 1.7;
-            max-width: 560px;
-        }
-
-        /* Section Logo */
-        .section-logo {
-            background: var(--off-white);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 48px 0;
-        }
-
-        .logo-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-image: url('logo pioneres_edited.png');
-            background-size: cover;
-            background-position: center;
-            border: 3px solid var(--red);
-        }
-
-        /* About Section */
-        .about {
-            background: var(--white);
-            display: flex;
-            padding: 80px 48px;
-            gap: 64px;
-            align-items: center;
-        }
-
-        .about-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .about h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--black);
-            line-height: 1.2;
-        }
-
-        .about p {
-            font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            color: var(--gray-600);
-            line-height: 1.8;
-        }
-
-        .about-highlight {
-            border-left: 4px solid var(--red);
-            padding-left: 20px;
-            font-style: italic;
-            color: var(--gray-800);
-        }
-
-        .about-image {
-            flex: 1;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        /* Objetivos Section */
-        .objetivos {
-            background: var(--off-white);
-            display: flex;
-            padding: 80px 48px;
-            gap: 64px;
-            align-items: center;
-        }
-
-        .objetivos-image {
-            flex: 1;
-        }
-
-        .objetivos-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .objetivos-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .objetivos h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--black);
-            line-height: 1.2;
-        }
-
-        .objetivos p {
-            font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            color: var(--gray-600);
-            line-height: 1.8;
-        }
-
-        .quote-block {
-            border-radius: 0 8px 8px 0;
-            background: rgba(0, 0, 0, 0.03);
-            padding: 20px 24px;
-            border-left: 4px solid var(--red);
-            font-style: italic;
-            color: var(--gray-800);
-        }
-
-        /* Gallery */
-        .gallery {
-            background: var(--off-white);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 80px 48px;
-            gap: 48px;
-            overflow: hidden;
-        }
-
-        .gallery h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--black);
-        }
-
-        .gallery-grid {
-            display: flex;
-            gap: 12px;
-            height: 320px;
-            overflow: hidden;
-        }
-
-        .gallery-grid img {
-            width: 420px;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        /* Activities */
-        .activities {
-            background: var(--white);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 80px 48px;
-            gap: 48px;
-        }
-
-        .activities h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--black);
-        }
-
-        .activities-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            width: 100%;
-            max-width: 1200px;
-        }
-
-        .activity-card {
-            border-radius: 8px;
-            background: var(--off-white);
-            padding: 40px 28px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            text-align: center;
-        }
-
-        .activity-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-        }
-
-        .activity-card h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--black);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .activity-card p {
-            font-family: 'Manrope', sans-serif;
-            font-size: 14px;
-            color: var(--gray-600);
-            line-height: 1.6;
-        }
-
-        /* Servicio Section */
-        .servicio {
-            background: var(--red);
-            display: flex;
-            padding: 80px 48px;
-            gap: 64px;
-            align-items: center;
-        }
-
-        .servicio-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .servicio h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--white);
-            line-height: 1.2;
-        }
-
-        .servicio > .servicio-content > p {
-            font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.8;
-        }
-
-        .servicio-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .servicio-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        .servicio-item i {
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .servicio-image {
-            flex: 1;
-        }
-
-        .servicio-image img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        /* CTA Section */
-        .cta {
-            background: var(--red);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 80px 48px;
-            gap: 24px;
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .cta p {
-            font-family: 'Manrope', sans-serif;
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.85);
-            max-width: 600px;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--whatsapp);
-            color: var(--white);
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--black);
-            padding: 64px 48px 32px 48px;
-            color: var(--white);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 48px;
-            margin-bottom: 48px;
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .footer-logo img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .footer-logo span {
-            font-family: 'Oswald', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .footer-desc {
-            font-size: 14px;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 300px;
-        }
-
-        .footer-section h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-links a {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 16px;
-        }
-
-        .footer-social a {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .footer-social a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .navbar-links {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: 42px;
-            }
-
-            .about,
-            .objetivos,
-            .servicio {
-                flex-direction: column;
-            }
-
-            .activities-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                overflow-x: auto;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 16px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pioneros y Pioneras — Grupo Scout 51</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--black:#1A1A1A;--blue:#1565C0;--gold:#F5C500;--gray-600:#6B6B6B;--gray-800:#2D2D2D;--navy:#1A237E;--off-white:#F8F7F4;--red:#BE1A2D;--whatsapp:#25D366;--white:#FFFFFF}
+    html{scroll-behavior:smooth}body{font-family:'Manrope',sans-serif;color:var(--black);background:var(--white)}.page{max-width:1440px;margin:0 auto}img{display:block}
+    .navbar{display:flex;align-items:center;justify-content:space-between;background:var(--black);height:72px;padding:0 24px}.nav-logo-circle{width:44px;height:44px;border-radius:50%;background:url('Grupo_51.jpeg') center/cover;flex-shrink:0}.nav-logo-text{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:2px}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{font-size:14px;font-weight:500;color:#FFFFFFD9;text-decoration:none}.nav-links a:hover{color:var(--white)}.nav-cta{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--black);background:var(--gold);padding:10px 24px;border-radius:4px;text-decoration:none;letter-spacing:1px}
+    .hero{height:480px;background:url('Pioneres/Pineros_Aniversario_68.jpeg') center/cover;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px 64px 24px;gap:16px}.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#BE1A2DCC,#1A1A1ABF)}.hero>*{position:relative;z-index:1}
+    .hero-sub{font-family:'Oswald',sans-serif;font-size:24px;font-weight:600;color:var(--gold);letter-spacing:3px;text-align:center}.hero-title{font-family:'Oswald',sans-serif;font-size:64px;font-weight:700;color:var(--white);text-align:center}.hero-desc{font-size:18px;color:#FFFFFFD9;text-align:center;line-height:1.7;max-width:560px}
+    .section-logo{display:flex;align-items:center;justify-content:center;background:var(--off-white);padding:48px 0}.section-logo-img{width:120px;height:120px;border-radius:50%;background:url('logo_pioneres_edited.png') center/cover;border:none}
+    .about-section{display:flex;background:var(--white);padding:80px 48px;gap:64px}.about-text{flex:1;display:flex;flex-direction:column;gap:20px}.about-text h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700}.about-text>p{font-size:16px;color:var(--gray-600);line-height:1.8}.highlight{border-left:4px solid var(--red);padding-left:20px}.highlight p{font-size:16px;font-weight:500;font-style:italic;color:var(--black);line-height:1.7}.about-img{flex:1;border-radius:8px;height:400px;object-fit:cover;border:none}
+    .objetivos{display:flex;background:var(--off-white);padding:80px 48px;gap:64px}.obj-img{flex:1;border-radius:8px;height:400px;object-fit:cover;border:none}.obj-content{flex:1;display:flex;flex-direction:column;gap:20px}.obj-content h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700}.obj-content>p{font-size:16px;color:var(--gray-600);line-height:1.8}.quote-block{border-left:4px solid var(--red);border-radius:0 8px 8px 0;background:#00000008;padding:20px 24px}.quote-block p{font-size:18px;font-weight:500;font-style:italic;color:var(--black);line-height:1.7}
+    .gallery{display:flex;flex-direction:column;align-items:center;background:var(--off-white);padding:80px 48px;gap:48px;overflow:hidden}.gallery h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700}.gal-grid{display:flex;gap:12px;height:320px;overflow:hidden;width:100%}.gal-grid img{width:420px;height:100%;object-fit:cover;border-radius:8px;flex-shrink:0}
+    .activities{display:flex;flex-direction:column;align-items:center;background:var(--white);padding:80px 48px;gap:48px}.activities h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700}.act-grid{display:flex;gap:24px;width:100%}.act-card{flex:1;display:flex;flex-direction:column;align-items:center;gap:16px;background:var(--off-white);border-radius:8px;padding:40px 28px;border:1px solid #0000000F}.act-icon{width:56px;height:56px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center}.act-icon i{width:24px;height:24px;color:var(--white)}.act-card h3{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;text-align:center}.act-card p{font-size:14px;color:var(--gray-600);text-align:center;line-height:1.6}
+    .servicio{display:flex;background:var(--red);padding:80px 48px;gap:64px}.serv-content{flex:1;display:flex;flex-direction:column;gap:20px}.serv-content h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:var(--white)}.serv-content>p{font-size:16px;color:#FFFFFFD9;line-height:1.8}.serv-list{display:flex;flex-direction:column}.serv-item{display:flex;align-items:center;gap:12px;padding:12px 0}.serv-item:not(:last-child){border-bottom:1px solid #FFFFFF26}.serv-arrow{font-size:16px;font-weight:700;color:var(--gold)}.serv-item span:last-child{font-size:16px;color:#FFFFFFE6}.serv-img{flex:1;border-radius:8px;height:380px;object-fit:cover}
+    .cta{display:flex;flex-direction:column;align-items:center;background:var(--red);padding:80px 48px;gap:24px}.cta h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:var(--white);text-align:center}.cta>p{font-size:18px;color:#FFFFFFCC;text-align:center}.cta-btn{display:flex;align-items:center;gap:10px;background:var(--whatsapp);color:var(--white);padding:16px 36px;border-radius:4px;text-decoration:none}.cta-btn i{width:20px;height:20px}.cta-btn span{font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;letter-spacing:1px}
+    .footer{display:flex;flex-direction:column;align-items:center;background:var(--black);padding:48px 48px 24px 48px;gap:24px}.footer-top{display:flex;align-items:center;justify-content:space-between;width:100%}.footer-logo{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--white)}.footer-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}.footer-links a{font-size:14px;color:#FFFFFFAA;text-decoration:none}.footer-divider{width:100%;height:1px;background:#FFFFFF1A}.footer-copy{font-size:12px;color:#FFFFFF66}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Navbar -->
-        <nav class="navbar">
-            <div class="navbar-logo">
-                <img src="Grupo 51.jpeg" alt="Grupo Scout 51">
-                <span>GRUPO SCOUT 51</span>
-            </div>
-            <div class="navbar-links">
-                <a href="index.html">INICIO</a>
-                <a href="nosotros.html">NOSOTROS</a>
-                <a href="secciones.html">SECCIONES</a>
-                <a href="contacto.html">CONTACTO</a>
-                <a href="unete.html" class="navbar-cta">ÚNETE →</a>
-            </div>
-        </nav>
-
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-tag">15 — 17 AÑOS</div>
-                <h1 class="hero-title">PIONEROS Y PIONERAS</h1>
-                <p class="hero-desc">Liderazgo, servicio comunitario y crecimiento personal — la etapa donde el scout se convierte en protagonista.</p>
-            </div>
-        </section>
-
-        <!-- Section Logo -->
-        <section class="section-logo">
-            <div class="logo-circle"></div>
-        </section>
-
-        <!-- About -->
-        <section class="about">
-            <div class="about-content">
-                <h2>DE PARTICIPANTE A PROTAGONISTA</h2>
-                <p>Pioneros y Pioneras es la sección donde los jóvenes de 15 a 17 años dan el salto hacia la autonomía y el compromiso social. El método scout se centra en el servicio a la comunidad y el desarrollo personal.</p>
-                <p class="about-highlight">La transición de ser liderado a liderar es el corazón de esta etapa formativa...</p>
-            </div>
-            <div class="about-image">
-                <img src="Pineros Aniversario 68.jpeg" alt="Pioneros en acción">
-            </div>
-        </section>
-
-        <!-- Objetivos -->
-        <section class="objetivos">
-            <div class="objetivos-image">
-                <img src="DSC06727.JPG" alt="Actividades Pioneros">
-            </div>
-            <div class="objetivos-content">
-                <h2>NUESTROS OBJETIVOS</h2>
-                <p>Formamos jóvenes comprometidos con su comunidad, capaces de identificar necesidades y desarrollar proyectos de impacto social. Cultivamos líderes que inspiran a otros a través del ejemplo y el servicio desinteresado.</p>
-                <div class="quote-block">
-                    "El verdadero líder no busca seguidores — inspira a otros a encontrar su propio camino y a dejar el mundo mejor de como lo encontraron."
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery -->
-        <section class="gallery">
-            <h2>GALERÍA</h2>
-            <div class="gallery-grid">
-                <img src="8608a93e-d040-4a5c-8e29-0527937eac52.jpeg" alt="Pioneros 1">
-                <img src="IMG_2471.JPG" alt="Pioneros 2">
-                <img src="pioneres-extra2.jpeg" alt="Pioneros 3">
-                <img src="PHOTO-2023-04-24-14-29-30.jpg" alt="Pioneros 4">
-                <img src="Pioneres/pioneres-extra3.jpeg" alt="Pioneros 5">
-                <img src="Pioneres/pioneres-extra4.jpeg" alt="Pioneros 6">
-                <img src="IMG_3181.jpeg" alt="Pioneros 7">
-            </div>
-        </section>
-
-        <!-- Activities -->
-        <section class="activities">
-            <h2>QUÉ HACEMOS</h2>
-            <div class="activities-grid">
-                <div class="activity-card">
-                    <div class="activity-icon">
-                        <i data-lucide="users"></i>
-                    </div>
-                    <h3>PROYECTOS DE SERVICIO</h3>
-                    <p>Diseñamos e implementamos iniciativas de impacto social y ambiental, trabajando directamente con comunidades.</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">
-                        <i data-lucide="star"></i>
-                    </div>
-                    <h3>LIDERAZGO</h3>
-                    <p>Desarrollamos habilidades de liderazgo, toma de decisiones y trabajo en equipo a través de proyectos desafiantes.</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">
-                        <i data-lucide="rocket"></i>
-                    </div>
-                    <h3>EMPRESA PIONERA</h3>
-                    <p>Gestionamos proyectos emprendedores que combinan creatividad, planificación y ejecución autónoma.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Servicio -->
-        <section class="servicio">
-            <div class="servicio-content">
-                <h2>SERVICIO COMUNITARIO</h2>
-                <p>El servicio es el pilar fundamental de Pioneros y Pioneras. Trabajamos en proyectos que generan un cambio positivo en nuestra comunidad.</p>
-                <div class="servicio-list">
-                    <div class="servicio-item">
-                        <i data-lucide="arrow-right"></i>
-                        <span>Proyectos de impacto social y ambiental</span>
-                    </div>
-                    <div class="servicio-item">
-                        <i data-lucide="arrow-right"></i>
-                        <span>Apoyo a comunidades vulnerables</span>
-                    </div>
-                    <div class="servicio-item">
-                        <i data-lucide="arrow-right"></i>
-                        <span>Campañas de concientización y educación</span>
-                    </div>
-                </div>
-            </div>
-            <div class="servicio-image">
-                <img src="Pioneres/IMG_8640 de tamaño grande.jpeg" alt="Servicio Comunitario">
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta">
-            <h2>ÚNETE A LOS PIONEROS</h2>
-            <p>¿Tienes entre 15 y 17 años y quieres marcar la diferencia? Únete a nuestra comunidad de líderes y agentes de cambio.</p>
-            <a href="https://wa.me/50686889382" class="cta-button" target="_blank">
-                <i data-lucide="message-circle"></i>
-                Contáctanos por WhatsApp
-            </a>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="Grupo 51.jpeg" alt="Grupo Scout 51">
-                        <span>GRUPO SCOUT 51</span>
-                    </div>
-                    <p class="footer-desc">Formando líderes desde 1956. Más de 65 años educando a través del método scout en Costa Rica.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>SECCIONES</h3>
-                    <div class="footer-links">
-                        <a href="manada.html">Manada</a>
-                        <a href="tropas.html">Tropas</a>
-                        <a href="pioneros.html">Pioneros</a>
-                        <a href="caminantes.html">Caminantes</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>GRUPO</h3>
-                    <div class="footer-links">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="historia.html">Historia</a>
-                        <a href="contacto.html">Contacto</a>
-                        <a href="unete.html">Únete</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>CONTACTO</h3>
-                    <div class="footer-links">
-                        <a href="mailto:grupo51cr@gmail.com">grupo51cr@gmail.com</a>
-                        <a href="tel:+50686889382">+506 8688 9382</a>
-                        <a href="#">San José, Costa Rica</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Grupo Scout 51. Todos los derechos reservados.</p>
-                <div class="footer-social">
-                    <a href="https://facebook.com/grupo51cr" target="_blank">
-                        <i data-lucide="facebook"></i>
-                    </a>
-                    <a href="https://instagram.com/grupo51cr" target="_blank">
-                        <i data-lucide="instagram"></i>
-                    </a>
-                    <a href="https://wa.me/50686889382" target="_blank">
-                        <i data-lucide="message-circle"></i>
-                    </a>
-                </div>
-            </div>
-        </footer>
+<div class="page">
+  <nav class="navbar">
+    <a href="home.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
+      <div class="nav-logo-circle"></div>
+      <span class="nav-logo-text">GRUPO SCOUT 51</span>
+    </a>
+    <div class="nav-links">
+      <a href="nosotros.html">Nosotros</a>
+      <a href="lahinis.html">Lahinis y Lobatos</a>
+      <a href="sikas.html">Sikas y Centinelas</a>
+      <a href="pioneros.html">Pioneros y Pioneras</a>
+      <a href="clan.html">Clan</a>
+      <a href="contacto.html">Contacto</a>
     </div>
+    <a href="contacto.html" class="nav-cta">UNETE &rarr;</a>
+  </nav>
 
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-    </script>
+  <section class="hero"><span class="hero-sub">15 — 18 AÑOS</span><h1 class="hero-title">PIONEROS Y PIONERAS</h1><p class="hero-desc">Liderazgo, servicio comunitario y crecimiento personal — la etapa donde el scout se convierte en protagonista.</p></section>
+
+  <section class="section-logo"><div class="section-logo-img"></div></section>
+
+  <section class="about-section">
+    <div class="about-text">
+      <h2>DE PARTICIPANTE A PROTAGONISTA</h2>
+      <p>Pioneros y Pioneras es la sección donde los jóvenes de 15 a 17 años dan el salto hacia la autonomía y el compromiso social. El método scout se centra en el servicio a la comunidad y el desarrollo personal.</p>
+      <div class="highlight"><p>La transición de ser liderado a liderar es el corazón de esta etapa formativa...</p></div>
+    </div>
+    <img class="about-img" src="Pioneres/Pineros_Aniversario_68.jpeg" alt="Pioneros en acción">
+  </section>
+
+  <section class="objetivos">
+    <img class="obj-img" src="Pioneres/DSC06727.JPG" alt="Actividades Pioneros">
+    <div class="obj-content">
+      <h2>NUESTROS OBJETIVOS</h2>
+      <p>Formamos jóvenes comprometidos con su comunidad, capaces de identificar necesidades y desarrollar proyectos de impacto social. Cultivamos líderes que inspiran a otros a través del ejemplo y el servicio desinteresado.</p>
+      <div class="quote-block"><p>&ldquo;El verdadero líder no busca seguidores — inspira a otros a encontrar su propio camino y a dejar el mundo mejor de como lo encontraron.&rdquo;</p></div>
+    </div>
+  </section>
+
+  <section class="gallery"><h2>GALERÍA</h2><div class="gal-grid"><img src="Pioneres/8608a93e-d040-4a5c-8e29-0527937eac52.jpeg" alt=""><img src="Pioneres/IMG_2471.JPG" alt=""><img src="Pioneres/PHOTO-2023-04-24-14-29-30.jpg" alt=""><img src="Pioneres/pioneres-extra3.jpeg" alt=""><img src="Pioneres/pioneres-extra4.jpeg" alt=""><img src="Pioneres/IMG_3181.jpeg" alt=""></div></section>
+
+  <section class="activities"><h2>QUÉ HACEMOS</h2><div class="act-grid">
+    <div class="act-card"><div class="act-icon"><i data-lucide="heart-handshake"></i></div><h3>PROYECTOS DE SERVICIO</h3><p>Diseñamos e implementamos iniciativas de impacto social y ambiental, trabajando directamente con comunidades.</p></div>
+    <div class="act-card"><div class="act-icon"><i data-lucide="users"></i></div><h3>LIDERAZGO</h3><p>Desarrollamos habilidades de liderazgo, toma de decisiones y trabajo en equipo a través de proyectos desafiantes.</p></div>
+    <div class="act-card"><div class="act-icon"><i data-lucide="rocket"></i></div><h3>EMPRESA PIONERA</h3><p>Gestionamos proyectos emprendedores que combinan creatividad, planificación y ejecución autónoma.</p></div>
+  </div></section>
+
+  <section class="servicio">
+    <div class="serv-content"><h2>SERVICIO COMUNITARIO</h2><p>El servicio es el pilar fundamental de Pioneros y Pioneras. Trabajamos en proyectos que generan un cambio positivo en nuestra comunidad.</p><div class="serv-list"><div class="serv-item"><span class="serv-arrow">&rarr;</span><span>Proyectos de impacto social y ambiental</span></div><div class="serv-item"><span class="serv-arrow">&rarr;</span><span>Apoyo a comunidades vulnerables</span></div><div class="serv-item"><span class="serv-arrow">&rarr;</span><span>Campañas de concientización y educación</span></div></div></div>
+    <img class="serv-img" src="Pioneres/IMG_8640_de_tamaño_grande.jpeg" alt="Servicio Comunitario">
+  </section>
+
+  <section class="cta"><h2>ÚNETE A LOS PIONEROS</h2><p>¿Tienes entre 15 y 17 años y quieres marcar la diferencia? Únete a nuestra comunidad de líderes y agentes de cambio.</p><a href="https://wa.me/5530310438" class="cta-btn"><i data-lucide="message-circle"></i><span>CONTÁCTANOS POR WHATSAPP</span></a></section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <a href="home.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
+        <div style="width:48px;height:48px;border-radius:50%;background:url('Grupo_51.jpeg') center/cover;flex-shrink:0"></div>
+        <span class="footer-logo">GRUPO SCOUT 51</span>
+      </a>
+      <div class="footer-links">
+        <a href="home.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="lahinis.html">Lahinis y Lobatos</a>
+        <a href="sikas.html">Sikas y Centinelas</a>
+        <a href="pioneros.html">Pioneros y Pioneras</a>
+        <a href="clan.html">Clan</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <p style="font-family:'Manrope',sans-serif;font-style:italic;font-size:16px;color:#FFFFFF99;letter-spacing:1px;">Siempre listos</p>
+    <span class="footer-copy">&copy; 2025 Grupo Scout 51 — Asociación de Scouts de México, A.C.</span>
+  </footer>
+</div>
+<script>lucide.createIcons();</script>
 </body>
 </html>
