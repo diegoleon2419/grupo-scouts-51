@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lahinis y Lobatos · Grupo Scout 51</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css" />
+<style>
+/* ========== LAHINIS · Atmósfera de selva / manada ========== */
+
+:root {
+  --jungle-deep: #0A1410;
+  --jungle-mid: #142822;
+  --jungle-leaf: #1F4034;
+  --jungle-moss: #5E8A5A;
+  --fire: #E8771C;
+  --fire-bright: #FFB347;
+  --fire-deep: #B14A0D;
+}
+
+body { background: var(--jungle-deep); }
+
+/* HERO — fogata en la jungla */
+.lh-hero {
+  position: relative;
+  min-height: 86vh;
+  padding: calc(var(--nav-h) + 80px) var(--pad-x) 80px;
+  overflow: hidden;
+  display: flex; align-items: flex-end;
+}
+.lh-hero .bg {
+  position: absolute; inset: 0;
+  background: url('assets/manadas-4.jpeg') center/cover;
+  filter: brightness(0.45) saturate(1.1);
+}
+.lh-hero .bg::after {
+  content:'';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(232,119,28,0.25) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(10,20,16,0.5) 0%, rgba(10,20,16,0.95) 100%);
+}
+.lh-hero::before {
+  content:''; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(94,138,90,0.15) 0, transparent 3%),
+    radial-gradient(circle at 85% 30%, rgba(94,138,90,0.12) 0, transparent 3%),
+    radial-gradient(circle at 40% 70%, rgba(255,179,71,0.2) 0, transparent 2%),
+    radial-gradient(circle at 75% 85%, rgba(255,179,71,0.15) 0, transparent 2%);
+}
+.lh-hero-inner {
+  position: relative; z-index: 1;
+  max-width: var(--max); margin: 0 auto; width: 100%;
+}
+.lh-hero .wolf-badge {
+  width: 96px; height: 96px;
+  background: url('assets/logo-lahinis.jpeg') center/cover;
+  border-radius: 50%;
+  border: 3px solid var(--fire);
+  box-shadow: 0 0 40px rgba(232,119,28,0.4);
+  margin-bottom: 32px;
+}
+.lh-hero .eyebrow { color: var(--fire-bright); }
+.lh-hero .eyebrow::before { background: var(--fire-bright); }
+.lh-hero h1 { margin-top: 20px; max-width: 16ch; }
+.lh-hero h1 em { font-style: normal; color: var(--fire-bright); }
+.lh-hero .sub {
+  margin-top: 24px;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: rgba(255,255,255,0.85);
+  max-width: 52ch; line-height: 1.6;
+}
+.lh-hero .meta {
+  margin-top: 36px;
+  display: flex; gap: 28px; flex-wrap: wrap;
+}
+.lh-hero .meta-item {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.7);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.lh-hero .meta-item b { color: var(--fire-bright); font-weight: 500; }
+.lh-hero .meta-item strong {
+  font-family: var(--display); font-weight: 700;
+  font-size: 22px; letter-spacing: 1px; color: var(--white);
+}
+
+/* PARALLAX FOLIAGE (SVG silhouette) */
+.lh-foliage {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 120px;
+  pointer-events: none; z-index: 2;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'><path fill='%230A1410' d='M0,120 L0,50 Q60,40 100,55 T200,60 Q240,35 300,45 T420,55 Q480,30 540,50 T660,60 Q720,35 780,50 T900,55 Q960,30 1020,50 T1140,60 Q1200,40 1260,55 T1380,50 Q1420,45 1440,55 L1440,120 Z'/></svg>");
+  background-size: cover;
+  background-position: bottom;
+}
+
+/* DUAL RAMAS — Lahinis / Lobatos */
+.lh-dual {
+  padding: 96px var(--pad-x);
+  background: var(--jungle-mid);
+  position: relative;
+}
+.lh-dual-inner { max-width: var(--max); margin: 0 auto; }
+.lh-dual-head { text-align: center; margin-bottom: 56px; }
+.lh-dual-head .eyebrow { color: var(--fire-bright); }
+.lh-dual-head .eyebrow::before { background: var(--fire-bright); }
+.lh-dual-head h2 { margin-top: 18px; }
+.lh-dual-head p { color: rgba(255,255,255,0.65); margin: 18px auto 0; max-width: 52ch; }
+.lh-dual-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+}
+.lh-rama {
+  background: var(--jungle-deep);
+  padding: 48px 40px;
+  border: 1px solid rgba(94,138,90,0.2);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.lh-rama::before {
+  content:''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--fire), var(--fire-bright));
+}
+.lh-rama-head {
+  display: flex; align-items: center; gap: 20px; margin-bottom: 24px;
+}
+.lh-rama-head img { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--fire); }
+.lh-rama-head h3 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(26px, 2.6vw, 34px);
+  text-transform: uppercase; line-height: 1;
+}
+.lh-rama-head .age {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+  color: var(--fire-bright); text-transform: uppercase; margin-top: 6px;
+}
+.lh-rama-desc { color: rgba(255,255,255,0.75); font-size: 15px; line-height: 1.7; }
+.lh-rama-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(94,138,90,0.2);
+}
+.lh-rama-stats div {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.5); text-transform: uppercase;
+}
+.lh-rama-stats div b {
+  display: block; color: var(--white);
+  font-family: var(--display); font-size: 18px; margin-top: 4px;
+  letter-spacing: 0.5px; font-weight: 700;
+}
+@media (max-width: 780px) { .lh-dual-grid { grid-template-columns: 1fr; } }
+
+/* ACTIVIDADES — grid de cards con imagen */
+.lh-act {
+  padding: 96px var(--pad-x);
+  background: var(--jungle-deep);
+}
+.lh-act-inner { max-width: var(--max); margin: 0 auto; }
+.lh-act-head { margin-bottom: 48px; max-width: 700px; }
+.lh-act-head .eyebrow { color: var(--fire-bright); }
+.lh-act-head .eyebrow::before { background: var(--fire-bright); }
+.lh-act-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px;
+  grid-template-rows: 320px 320px;
+}
+.lh-act-card {
+  position: relative; overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.lh-act-card:nth-child(1) { grid-row: span 2; }
+.lh-act-card .img {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform .7s ease;
+}
+.lh-act-card:hover .img { transform: scale(1.05); }
+.lh-act-card::after {
+  content:''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(10,20,16,0.95) 100%);
+}
+.lh-act-card .body {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 24px; z-index: 1;
+}
+.lh-act-card .tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px;
+  color: var(--fire-bright); text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.lh-act-card h4 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(18px, 2vw, 24px); line-height: 1.1;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--white);
+}
+@media (max-width: 780px) {
+  .lh-act-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 220px);
+  }
+  .lh-act-card:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+}
+
+/* HISTORIA — El Libro de la Selva */
+.lh-story {
+  padding: 96px var(--pad-x);
+  background: linear-gradient(180deg, var(--jungle-deep) 0%, var(--jungle-mid) 100%);
+  position: relative;
+}
+.lh-story-inner {
+  max-width: 900px; margin: 0 auto; text-align: center;
+}
+.lh-story .paw {
+  width: 56px; height: 56px; margin: 0 auto 24px;
+  opacity: 0.5;
+}
+.lh-story .eyebrow { color: var(--fire-bright); justify-content: center; }
+.lh-story .eyebrow::before { background: var(--fire-bright); }
+.lh-story h2 { margin: 18px 0 32px; }
+.lh-story blockquote {
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(20px, 2.5vw, 32px);
+  line-height: 1.3;
+  color: rgba(255,255,255,0.9);
+  font-style: italic;
+  max-width: 26ch; margin: 0 auto;
+  letter-spacing: 0.5px;
+}
+.lh-story cite {
+  display: block; margin-top: 28px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2.5px;
+  color: var(--fire-bright); text-transform: uppercase; font-style: normal;
+}
+.lh-story .terms {
+  margin-top: 56px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+  background: rgba(94,138,90,0.2);
+  border: 1px solid rgba(94,138,90,0.2);
+}
+.lh-story .term {
+  background: var(--jungle-deep);
+  padding: 24px 16px;
+  text-align: center;
+}
+.lh-story .term b {
+  display: block; font-family: var(--display); font-weight: 700;
+  font-size: 16px; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--fire-bright); margin-bottom: 4px;
+}
+.lh-story .term span {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1px;
+  color: rgba(255,255,255,0.55); text-transform: uppercase;
+}
+@media (max-width: 640px) {
+  .lh-story .terms { grid-template-columns: 1fr 1fr; }
+}
+
+/* HORARIO + CTA */
+.lh-cta {
+  padding: 96px var(--pad-x);
+  background: var(--off-white);
+  color: var(--black);
+  position: relative;
+}
+.lh-cta-inner {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 64px); align-items: center;
+}
+.lh-cta-inner .eyebrow { color: var(--fire-deep); }
+.lh-cta-inner .eyebrow::before { background: var(--fire-deep); }
+.lh-cta h2 { color: var(--black); margin-top: 18px; }
+.lh-cta p { color: #2A2A2A; margin-top: 20px; max-width: 46ch; line-height: 1.7; }
+.lh-cta .btn-row { margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; }
+.lh-cta .schedule {
+  background: var(--black);
+  color: var(--white);
+  padding: 40px;
+  border-radius: 4px;
+  border-left: 4px solid var(--fire);
+}
+.lh-cta .schedule h3 {
+  font-family: var(--display); font-weight: 700; font-size: 20px;
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+}
+.lh-cta .schedule dl {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 14px 20px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 1px;
+}
+.lh-cta .schedule dt { color: var(--fire-bright); text-transform: uppercase; }
+.lh-cta .schedule dd { color: var(--white); letter-spacing: 0.3px; }
+@media (max-width: 780px) { .lh-cta-inner { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-page="lahinis">
+<nav data-nav></nav>
+
+<!-- HERO -->
+<header class="lh-hero" data-screen-label="01 Hero">
+  <div class="bg"></div>
+  <div class="lh-foliage"></div>
+  <div class="lh-hero-inner reveal">
+    <div class="wolf-badge"></div>
+    <span class="eyebrow">Manada de Seeonee · 7 a 11 años</span>
+    <h1 class="h-display h-huge">Lahinis<br/>&amp;<br/><em>Lobatos</em></h1>
+    <p class="sub">La primera aventura. Donde la selva es el patio de juegos, Mowgli el compañero, y cada sábado trae una nueva pista que seguir.</p>
+    <div class="meta">
+      <div class="meta-item"><b>Edad</b><strong>7 — 11 años</strong></div>
+      <div class="meta-item"><b>Encuentro</b><strong>Sábados 16:00</strong></div>
+      <div class="meta-item"><b>Tribu</b><strong>Manada de Seeonee</strong></div>
+    </div>
+  </div>
+</header>
+
+<!-- RAMAS -->
+<section class="lh-dual" data-screen-label="02 Ramas">
+  <div class="lh-dual-inner reveal">
+    <div class="lh-dual-head">
+      <span class="eyebrow">Dos manadas, una sección</span>
+      <h2 class="h-display h-big">Lahinis y Lobatos</h2>
+      <p>La rama menor se divide en dos manadas según edad. Cada una tiene su propio jefe y su propia aventura, pero comparten la misma selva.</p>
+    </div>
+    <div class="lh-dual-grid">
+      <article class="lh-rama">
+        <div class="lh-rama-head">
+          <img src="assets/logo-lahinis.jpeg" alt="" />
+          <div>
+            <h3>Lahinis</h3>
+            <div class="age">7 — 8 años · Primer año</div>
+          </div>
+        </div>
+        <p class="lh-rama-desc">La entrada a la aventura. Los Lahinis descubren el escultismo con juegos, canciones, cuentos y dinámicas. Aprenden a trabajar en equipo, a compartir y a respetar la naturaleza mientras se divierten.</p>
+        <div class="lh-rama-stats">
+          <div>Seisena<b>5—6 niños</b></div>
+          <div>Distintivo<b>Pañoleta verde</b></div>
+        </div>
+      </article>
+      <article class="lh-rama">
+        <div class="lh-rama-head">
+          <img src="assets/logo-manadas.png" alt="" />
+          <div>
+            <h3>Lobatos</h3>
+            <div class="age">9 — 11 años · Manada</div>
+          </div>
+        </div>
+        <p class="lh-rama-desc">La manada en plena cacería. Los Lobatos viven el Libro de la Selva de Kipling, progresan en habilidades y asumen sus primeras responsabilidades: liderar seisenas, conducir ceremonias, cuidar del más chico.</p>
+        <div class="lh-rama-stats">
+          <div>Seisena<b>6—7 niños</b></div>
+          <div>Distintivo<b>Pañoleta amarilla</b></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVIDADES -->
+<section class="lh-act" data-screen-label="03 Actividades">
+  <div class="lh-act-inner">
+    <div class="lh-act-head reveal">
+      <span class="eyebrow">Qué hacemos los sábados</span>
+      <h2 class="h-display h-big">Aventuras de manada</h2>
+    </div>
+    <div class="lh-act-grid reveal">
+      <article class="lh-act-card">
+        <div class="img" style="background-image:url('assets/manadas-1.jpeg')"></div>
+        <div class="body">
+          <div class="tag">Campamento</div>
+          <h4>Tres campamentos al año</h4>
+        </div>
+      </article>
+      <article class="lh-act-card">
+        <div class="img" style="background-image:url('assets/manadas-5.jpeg')"></div>
+        <div class="body"><div class="tag">Juego</div><h4>Grandes juegos</h4></div>
+      </article>
+      <article class="lh-act-card">
+        <div class="img" style="background-image:url('assets/manadas-7.jpg')"></div>
+        <div class="body"><div class="tag">Canto</div><h4>Fogatas y canciones</h4></div>
+      </article>
+      <article class="lh-act-card">
+        <div class="img" style="background-image:url('assets/manadas-9.jpg')"></div>
+        <div class="body"><div class="tag">Naturaleza</div><h4>Excursiones</h4></div>
+      </article>
+      <article class="lh-act-card">
+        <div class="img" style="background-image:url('assets/manadas-10.jpg')"></div>
+        <div class="body"><div class="tag">Manualidades</div><h4>Construcción y arte</h4></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORIA DE LA SELVA -->
+<section class="lh-story" data-screen-label="04 Selva">
+  <div class="lh-story-inner reveal">
+    <svg class="paw" viewBox="0 0 64 64" fill="#E8771C">
+      <ellipse cx="16" cy="20" rx="6" ry="8"/>
+      <ellipse cx="32" cy="14" rx="6" ry="8"/>
+      <ellipse cx="48" cy="20" rx="6" ry="8"/>
+      <ellipse cx="10" cy="34" rx="5" ry="7"/>
+      <path d="M32 28 C 20 28, 14 40, 16 50 C 18 58, 32 58, 32 58 C 32 58, 46 58, 48 50 C 50 40, 44 28, 32 28 Z"/>
+    </svg>
+    <span class="eyebrow">El Libro de la Selva</span>
+    <h2 class="h-display h-big">Nosotros, de la misma sangre</h2>
+    <blockquote>"Haremos lo mejor de nosotros"</blockquote>
+    <cite>— Promesa de la Manada</cite>
+    <div class="terms">
+      <div class="term"><b>Akela</b><span>El jefe de la manada</span></div>
+      <div class="term"><b>Baloo</b><span>Maestro de la ley</span></div>
+      <div class="term"><b>Bagheera</b><span>La pantera sabia</span></div>
+      <div class="term"><b>Kaa</b><span>La serpiente eterna</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + HORARIO -->
+<section class="lh-cta" data-screen-label="05 CTA">
+  <div class="lh-cta-inner reveal">
+    <div>
+      <span class="eyebrow on-light">Únete a la manada</span>
+      <h2 class="h-display h-big">Tu hijo pertenece a la selva</h2>
+      <p>Si tiene entre 7 y 11 años, ven un sábado cualquiera al Parque Luis Barragán. Sin compromiso, sin uniforme la primera vez. Solo ropa cómoda, tenis y ganas de aventura.</p>
+      <div class="btn-row">
+        <a href="https://wa.me/525530310438?text=Hola,%20me%20interesa%20inscribir%20a%20mi%20hijo/a%20en%20Lahinis%20o%20Lobatos" class="btn btn-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          WhatsApp
+        </a>
+        <a href="contacto.html" class="btn btn-dark-on-light">Ver contactos
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="schedule">
+      <h3>Datos prácticos</h3>
+      <dl>
+        <dt>Edad</dt><dd>7 a 11 años</dd>
+        <dt>Sábados</dt><dd>16:00 — 18:30 hrs</dd>
+        <dt>Local</dt><dd>Parque Luis Barragán</dd>
+        <dt>Campamentos</dt><dd>3 al año</dd>
+        <dt>Uniforme</dt><dd>Se entrega al formalizar inscripción</dd>
+        <dt>Inscripción</dt><dd>Abierta todo el año</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer data-footer></footer>
+<script src="assets/shared.js"></script>
+</body>
+</html>

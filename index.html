@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grupo Scout 51 · Formamos líderes desde 1957</title>
+<meta name="description" content="Grupo Scout 51. Formamos líderes que cambian el mundo desde 1957. Cada sábado en Parque Luis Barragán, Jardines del Pedregal, CDMX." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css" />
+<style>
+/* ============================================================
+   INICIO — mapa y sendero nocturno
+   ============================================================ */
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: min(92vh, 820px);
+  color: var(--white);
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/sikas-3.jpg') center/cover no-repeat;
+  z-index: 0;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(13,13,13,0.3) 0%, rgba(13,13,13,0.9) 70%, rgba(13,13,13,1) 100%),
+    linear-gradient(180deg, rgba(13,13,13,0.7) 0%, rgba(13,13,13,0.5) 30%, rgba(13,13,13,0.85) 80%, rgba(13,13,13,1) 100%);
+}
+.hero-contour {
+  position: absolute; inset: 0;
+  z-index: 1;
+  opacity: 0.09;
+  pointer-events: none;
+}
+.hero-coords {
+  position: absolute;
+  top: calc(var(--nav-h) + 24px);
+  right: var(--pad-x);
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.55);
+  text-align: right;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+.hero-coords strong {
+  color: var(--gold);
+  font-weight: 500;
+  display: block;
+  letter-spacing: 2.5px;
+}
+.hero-coords::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--red);
+  margin: 10px 0 0 auto;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(120px, 20vh, 200px) var(--pad-x) clamp(140px, 18vh, 180px);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--white);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 48px; height: 1px;
+  background: var(--red);
+}
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(44px, 9vw, 120px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  max-width: 15ch;
+}
+.hero h1 .accent {
+  color: var(--red);
+  font-style: normal;
+}
+.hero-lead {
+  font-size: clamp(16px, 1.4vw, 19px);
+  color: rgba(255,255,255,0.82);
+  max-width: 54ch;
+  line-height: 1.7;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+/* Stats bar pegada al fondo del hero */
+.stats-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 4;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line);
+}
+.stats-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 24px var(--pad-x);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.stat-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line-strong);
+}
+.stat-n {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+.stat-n .acc { color: var(--red); }
+.stat-l {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+@media (max-width: 760px) {
+  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 18px var(--pad-x); }
+  .stat-n { font-size: 22px; }
+  .hero-coords { display: none; }
+  .hero-inner { padding-bottom: 220px; }
+}
+
+/* ===== SECCIONES ===== */
+.secciones {
+  background: var(--black);
+  padding: var(--gap-section) var(--pad-x);
+}
+.section-head {
+  max-width: var(--max);
+  margin: 0 auto clamp(32px, 5vw, 52px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+}
+.section-head h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-top: 14px;
+  color: var(--white);
+}
+.section-head h2 .acc { color: var(--red); }
+.section-head p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 48ch;
+}
+@media (max-width: 860px) { .section-head { grid-template-columns: 1fr; gap: 20px; } }
+
+.sec-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.sec-card {
+  position: relative;
+  aspect-ratio: 3/4.2;
+  border-radius: 8px;
+  overflow: hidden;
+  display: block;
+  color: var(--white);
+  isolation: isolate;
+}
+.sec-card .photo {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .6s cubic-bezier(.2,.8,.2,1), filter .6s;
+  filter: saturate(0.85) contrast(1.05) brightness(0.85);
+}
+.sec-card:hover .photo {
+  transform: scale(1.06);
+  filter: saturate(1) contrast(1.1) brightness(0.95);
+}
+.sec-card::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(13,13,13,0.98) 100%);
+  z-index: 1;
+}
+.sec-card .meta {
+  position: absolute; top: 16px; left: 16px; right: 16px; z-index: 2;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+}
+.sec-card .num { color: var(--gold); }
+.sec-card .content {
+  position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 2;
+}
+.sec-card .age {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--red);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.sec-card .age::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 1px;
+  background: var(--red);
+}
+.sec-card h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+}
+.sec-card .cta {
+  margin-top: 14px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-card .cta svg {
+  width: 16px; height: 16px;
+  transition: transform .3s;
+}
+.sec-card:hover .cta svg { transform: translateX(6px); }
+
+@media (max-width: 960px) { .sec-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .sec-grid { grid-template-columns: 1fr; } .sec-card { aspect-ratio: 16/10; height: 320px; } }
+
+/* ===== QUIÉNES SOMOS ===== */
+.about {
+  background: var(--off-white);
+  color: var(--black);
+  padding: var(--gap-section) var(--pad-x);
+}
+.about-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+.about-text .eyebrow { color: var(--red); }
+.about-text .eyebrow::before { background: var(--red); }
+.about-text h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 14px 0 24px;
+  color: var(--black);
+}
+.about-text p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #2a2a2a;
+  margin-bottom: 16px;
+  max-width: 52ch;
+}
+.about-pull {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(22px, 2.8vw, 32px);
+  line-height: 1.25;
+  color: var(--red);
+  border-left: 3px solid var(--red);
+  padding-left: 18px;
+  margin: 32px 0 0;
+  max-width: 22ch;
+  letter-spacing: -0.005em;
+}
+.about-collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 160px 140px 180px;
+  gap: 10px;
+  height: auto;
+}
+.about-collage div {
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+}
+.about-collage div:nth-child(1) { grid-row: 1 / 3; grid-column: 1; }
+.about-collage div:nth-child(2) { grid-row: 1; grid-column: 2; }
+.about-collage div:nth-child(3) { grid-row: 2 / 4; grid-column: 2; }
+.about-collage div:nth-child(4) { grid-row: 3; grid-column: 1; }
+@media (max-width: 860px) {
+  .about-inner { grid-template-columns: 1fr; }
+  .about-collage { grid-template-rows: 140px 120px 160px; }
+}
+
+/* ===== VALORES (fondo rojo) ===== */
+.valores {
+  background: var(--red);
+  color: var(--white);
+  padding: var(--gap-section) var(--pad-x);
+  position: relative;
+  overflow: hidden;
+}
+.valores::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(135deg,
+      transparent 0, transparent 80px,
+      rgba(255,255,255,0.04) 80px, rgba(255,255,255,0.04) 81px);
+  pointer-events: none;
+}
+.valores > * { position: relative; z-index: 1; }
+.valores-head {
+  max-width: var(--max);
+  margin: 0 auto clamp(32px, 5vw, 52px);
+}
+.valores-head .eyebrow { color: var(--white); }
+.valores-head .eyebrow::before { background: var(--white); }
+.valores-head h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-top: 14px;
+  max-width: 18ch;
+}
+.valores-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.valor {
+  background: var(--red);
+  padding: 40px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+}
+.valor .n {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+}
+.valor .icon {
+  width: 52px; height: 52px;
+  color: var(--white);
+  margin: 8px 0 4px;
+}
+.valor .icon svg { width: 100%; height: 100%; }
+.valor h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(24px, 2.6vw, 30px);
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 1;
+}
+.valor p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.88);
+}
+@media (max-width: 860px) { .valores-grid { grid-template-columns: 1fr; } }
+
+/* ===== HORARIOS ===== */
+.horarios {
+  background: var(--black-2);
+  padding: var(--gap-section) var(--pad-x);
+}
+.horarios-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr;
+  gap: 56px;
+  align-items: start;
+}
+.horarios-inner .head .eyebrow { color: var(--red); }
+.horarios-inner h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 14px 0 18px;
+}
+.horarios-inner .note {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 38ch;
+}
+.htable {
+  border-top: 1px solid var(--line-strong);
+}
+.hrow {
+  display: grid;
+  grid-template-columns: 80px 1.6fr 1.2fr 80px;
+  gap: 16px;
+  padding: 22px 0;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  transition: background .2s;
+}
+.hrow:hover { background: rgba(255,255,255,0.02); }
+.hrow .day {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--red);
+  text-transform: uppercase;
+}
+.hrow .who {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(16px, 1.6vw, 20px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--white);
+}
+.hrow .when {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+.hrow .edad {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  text-align: right;
+}
+@media (max-width: 760px) {
+  .horarios-inner { grid-template-columns: 1fr; gap: 32px; }
+  .hrow { grid-template-columns: 60px 1fr 60px; grid-template-rows: auto auto; gap: 8px 12px; }
+  .hrow .when { grid-column: 2 / 3; }
+  .hrow .edad { grid-row: 1; grid-column: 3; text-align: right; }
+}
+
+/* ===== CTA FINAL ===== */
+.cta-final {
+  position: relative;
+  padding: clamp(80px, 14vw, 160px) var(--pad-x);
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+}
+.cta-final::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('assets/pioneros-2.jpeg') center/cover no-repeat;
+  z-index: -2;
+  filter: saturate(0.7) brightness(0.5);
+}
+.cta-final::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(13,13,13,0.4) 0%, rgba(13,13,13,0.92) 100%);
+  z-index: -1;
+}
+.cta-final .eyebrow {
+  justify-content: center;
+  color: var(--gold);
+}
+.cta-final .eyebrow::before { background: var(--gold); }
+.cta-final h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(44px, 8vw, 104px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin: 18px 0 20px;
+  max-width: 14ch;
+  margin-left: auto; margin-right: auto;
+}
+.cta-final h2 .acc { color: var(--red); }
+.cta-final p {
+  color: rgba(255,255,255,0.82);
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.7;
+  max-width: 50ch;
+  margin: 0 auto 36px;
+}
+.cta-final .meta {
+  margin-top: 28px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+}
+
+</style>
+</head>
+<body data-page="home">
+<nav class="nav" data-nav></nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="hero-bg"></div>
+
+  <!-- topographic contour lines -->
+  <svg class="hero-contour" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <pattern id="contour" x="0" y="0" width="200" height="140" patternUnits="userSpaceOnUse">
+        <path d="M0 70 Q 50 40 100 70 T 200 70" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+        <path d="M0 100 Q 50 70 100 100 T 200 100" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+        <path d="M0 40 Q 50 10 100 40 T 200 40" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="1600" height="900" fill="url(#contour)"/>
+  </svg>
+
+  <div class="hero-coords">
+    <strong>19°21'N · 99°12'W</strong>
+    Parque Luis Barragán<br/>
+    Jardines del Pedregal
+  </div>
+
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Desde 1957 · 19°21'N · 99°12'W</span>
+    <h1>Formamos líderes<br/>que <span class="accent">cambian el mundo</span></h1>
+    <p class="hero-lead">Somos el Grupo Scout 51. Cada sábado, niños y jóvenes de 7 a 18 años viven la aventura del escultismo — al aire libre, en comunidad, con propósito.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/525530310438" class="btn btn-wa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.5-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.1-.2-.6-.5-.5-.7-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.8.1.2 1.9 3 4.7 4.2 1.7.7 2.4.8 3.2.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-10 10c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4a10 10 0 004.8 1.2A10 10 0 0022 12a10 10 0 00-10-10z"/></svg>
+        Escríbenos por WhatsApp
+      </a>
+      <a href="#secciones" class="btn btn-ghost">
+        Conoce las secciones
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- stats bar -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-cell">
+        <span class="stat-n">1957</span>
+        <span class="stat-l">Fundación</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n">140<span class="acc">+</span></span>
+        <span class="stat-l">Miembros</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n">4</span>
+        <span class="stat-l">Secciones</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n">Sáb</span>
+        <span class="stat-l">16:00 — 19:45</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECCIONES ===================== -->
+<section class="secciones" id="secciones" data-screen-label="02 Secciones">
+  <div class="section-head reveal">
+    <div>
+      <span class="eyebrow">Las cuatro secciones</span>
+      <h2>Encuentra<br/>tu <span class="acc">sección</span></h2>
+    </div>
+    <p>El grupo se divide en secciones por edad y género. Cada una con su propia mística, todas unidas los sábados en el Parque Luis Barragán.</p>
+  </div>
+
+  <div class="sec-grid reveal">
+    <a class="sec-card" href="lahinis.html">
+      <div class="photo" style="background-image:url('assets/manadas-1.jpeg')"></div>
+      <div class="meta"><span class="num">· 01 / 04</span><span>Manada</span></div>
+      <div class="content">
+        <span class="age">7 — 11 años</span>
+        <h3>Lahinis<br/>y Lobatos</h3>
+        <span class="cta">Conoce más
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <a class="sec-card" href="sikas.html">
+      <div class="photo" style="background-image:url('assets/sikas-1.jpg')"></div>
+      <div class="meta"><span class="num">· 02 / 04</span><span>Tropa</span></div>
+      <div class="content">
+        <span class="age">11 — 14 años</span>
+        <h3>Sikas y<br/>Centinelas</h3>
+        <span class="cta">Conoce más
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <a class="sec-card" href="pioneros.html">
+      <div class="photo" style="background-image:url('assets/pioneros-7.jpg')"></div>
+      <div class="meta"><span class="num">· 03 / 04</span><span>Comunidad</span></div>
+      <div class="content">
+        <span class="age">14 — 18 años</span>
+        <h3>Pioneros y<br/>Pioneras</h3>
+        <span class="cta">Conoce más
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <a class="sec-card" href="clan.html">
+      <div class="photo" style="background-image:url('assets/clan-2.jpg')"></div>
+      <div class="meta"><span class="num">· 04 / 04</span><span>Clan</span></div>
+      <div class="content">
+        <span class="age">18+ años</span>
+        <h3>Clan<br/>Rover</h3>
+        <span class="cta">Conoce más
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== QUIÉNES SOMOS ===================== -->
+<section class="about" data-screen-label="03 Quiénes somos">
+  <div class="about-inner reveal">
+    <div class="about-text">
+      <span class="eyebrow on-light">Quiénes somos</span>
+      <h2>Un grupo<br/>con historia</h2>
+      <p>El 13 de noviembre de 1957, los Misioneros del Espíritu Santo fundaron el Grupo Scout 51 con tres ramas: Lobatos, Tropa y Clan. Desde entonces, cada sábado, continuamos reuniéndonos en el Parque Luis Barragán con el mismo propósito.</p>
+      <p>Con el tiempo el grupo se volvió mixto, abriendo sus puertas para niñas y jóvenes. Hoy somos cuatro secciones que trabajan en conjunto para formar líderes comprometidos con su comunidad, su país y el mundo.</p>
+      <blockquote class="about-pull">De jóvenes,<br/>para jóvenes.</blockquote>
+    </div>
+    <div class="about-collage">
+      <div style="background-image:url('assets/manadas-4.jpeg')"></div>
+      <div style="background-image:url('assets/pioneros-3.jpeg')"></div>
+      <div style="background-image:url('assets/sikas-5.jpg')"></div>
+      <div style="background-image:url('assets/clan-3.jpeg')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VALORES ===================== -->
+<section class="valores" data-screen-label="04 Valores">
+  <div class="valores-head reveal">
+    <span class="eyebrow">Nuestros valores</span>
+    <h2>Tres pilares<br/>que nos mueven</h2>
+  </div>
+  <div class="valores-grid reveal">
+    <div class="valor">
+      <span class="n">01 / Servicio</span>
+      <div class="icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 8 L24 40 M12 20 L24 14 L36 20 M8 36 Q 24 28 40 36" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Servicio</h3>
+      <p>Aprender a servir a la comunidad y a los demás, dejando el mundo un poco mejor de como lo encontramos.</p>
+    </div>
+    <div class="valor">
+      <span class="n">02 / Compromiso</span>
+      <div class="icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="16"/>
+          <path d="M24 8 L24 40 M8 24 L40 24" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Compromiso</h3>
+      <p>Formar jóvenes comprometidos con su comunidad, su país y el mundo a través de la educación no formal.</p>
+    </div>
+    <div class="valor">
+      <span class="n">03 / Aventura</span>
+      <div class="icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M8 40 L24 10 L40 40 Z M 24 10 L 24 40" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Aventura</h3>
+      <p>Vivir experiencias al aire libre que retan el cuerpo y el espíritu, forjando el carácter y la resiliencia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HORARIOS ===================== -->
+<section class="horarios" data-screen-label="05 Horarios">
+  <div class="horarios-inner reveal">
+    <div class="head">
+      <span class="eyebrow">Cuándo nos vemos</span>
+      <h2>Todos los<br/>sábados</h2>
+      <p class="note">Parque Luis Barragán, Jardines del Pedregal. Llega con ropa cómoda, tenis y una botella de agua.</p>
+    </div>
+    <div class="htable">
+      <div class="hrow">
+        <span class="day">Sáb</span>
+        <span class="who">Lahinis / Lobatos</span>
+        <span class="when">16:00 — 19:45 hrs</span>
+        <span class="edad">7 — 11</span>
+      </div>
+      <div class="hrow">
+        <span class="day">Sáb</span>
+        <span class="who">Sikas / Centinelas</span>
+        <span class="when">16:00 — 19:45 hrs</span>
+        <span class="edad">11 — 14</span>
+      </div>
+      <div class="hrow">
+        <span class="day">Sáb</span>
+        <span class="who">Pioneros / Pioneras</span>
+        <span class="when">16:00 — 19:45 hrs</span>
+        <span class="edad">14 — 18</span>
+      </div>
+      <div class="hrow">
+        <span class="day">Sáb</span>
+        <span class="who">Clan Rover</span>
+        <span class="when">Según convocatoria</span>
+        <span class="edad">18 +</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section class="cta-final" data-screen-label="06 Únete">
+  <span class="eyebrow">Ven cualquier sábado</span>
+  <h2>La aventura<br/>empieza <span class="acc">aquí</span></h2>
+  <p>No necesitas experiencia ni uniforme la primera vez. Solo ropa cómoda, ganas y curiosidad. Te esperamos.</p>
+  <a href="https://wa.me/525530310438" class="btn btn-wa btn-lg">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.5-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.1-.2-.6-.5-.5-.7-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.8.1.2 1.9 3 4.7 4.2 1.7.7 2.4.8 3.2.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-10 10c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4a10 10 0 004.8 1.2A10 10 0 0022 12a10 10 0 00-10-10z"/></svg>
+    Escríbenos por WhatsApp
+  </a>
+  <div class="meta">Parque Luis Barragán · Jardines del Pedregal · CDMX</div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" data-footer></footer>
+
+<!-- Mobile floating WhatsApp -->
+<a href="https://wa.me/525530310438" class="wa-float">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.5-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.1-.2-.6-.5-.5-.7-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.8.1.2 1.9 3 4.7 4.2 1.7.7 2.4.8 3.2.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-10 10c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4a10 10 0 004.8 1.2A10 10 0 0022 12a10 10 0 00-10-10z"/></svg>
+  Escríbenos por WhatsApp
+</a>
+
+<script src="assets/shared.js"></script>
+<link rel="stylesheet" href="assets/home-tweaks.css" />
+<script src="assets/home-tweaks.js"></script>
+</body>
+</html>
