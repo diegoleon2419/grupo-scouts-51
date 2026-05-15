@@ -1,707 +1,568 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lahinis y Lobatos - Grupo Scout 51</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        /* CSS Variables */
-        :root {
-            --black: #1A1A1A;
-            --blue: #1565C0;
-            --gold: #F5C500;
-            --gray-600: #6B6B6B;
-            --gray-800: #2D2D2D;
-            --navy: #1A237E;
-            --off-white: #F8F7F4;
-            --red: #BE1A2D;
-            --whatsapp: #25D366;
-            --white: #FFF;
-        }
-
-        /* Reset & Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Manrope', sans-serif;
-            color: var(--black);
-            background: var(--white);
-            max-width: 1440px;
-            margin: 0 auto;
-            overflow-x: hidden;
-        }
-
-        /* Navbar */
-        .navbar {
-            background: var(--black);
-            height: 72px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 24px;
-        }
-
-        .nav-logo-circle {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: url('Grupo_51.jpeg') center/cover;
-            flex-shrink: 0;
-        }
-
-        .nav-logo-text {
-            font-family: 'Oswald', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 2px;
-        }
-
-        .nav-cta {
-            font-family: 'Oswald', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--black);
-            background: var(--gold);
-            padding: 10px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-family: 'Manrope', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--white);
-        }
-
-        .cta-button {
-            font-family: 'Oswald', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--black);
-            background: var(--gold);
-            padding: 10px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .cta-button:hover {
-            opacity: 0.9;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 480px;
-            background-image: linear-gradient(135deg, rgba(26, 35, 126, 0.8), rgba(26, 26, 26, 0.75)), url('Manadas/Manadas_Aniversario_68.jpeg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 120px 24px 64px 24px;
-            gap: 16px;
-        }
-
-        .hero-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 64px;
-            font-weight: 700;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .hero-subtitle {
-            font-family: 'Oswald', sans-serif;
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--gold);
-            letter-spacing: 3px;
-            text-align: center;
-        }
-
-        .hero-desc {
-            font-family: 'Manrope', sans-serif;
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.85);
-            text-align: center;
-            line-height: 1.7;
-            max-width: 560px;
-        }
-
-        /* Section Logo */
-        .section-logo {
-            background: var(--off-white);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 48px 0;
-        }
-
-        .section-logos {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 32px;
-        }
-
-        .section-logo-img {
-            width: 120px;
-            height: 120px;
-            background-size: cover;
-            background-position: center;
-            border: none;
-            border-radius: 50%;
-        }
-
-        /* About Section */
-        .about-section {
-            background: var(--white);
-            display: flex;
-            padding: 80px 48px;
-            gap: 64px;
-        }
-
-        .about-left {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .about-right {
-            flex: 1;
-        }
-
-        .about-right img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .section-heading {
-            font-family: 'Oswald', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--black);
-        }
-
-        .body-text {
-            font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            color: var(--gray-600);
-            line-height: 1.8;
-        }
-
-        .highlight {
-            border-left: 4px solid var(--navy);
-            padding-left: 20px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            font-weight: 500;
-            font-style: italic;
-            color: var(--black);
-            line-height: 1.7;
-        }
-
-        /* Objetivos Section */
-        .objetivos-section {
-            background: var(--off-white);
-            display: flex;
-            padding: 80px 48px;
-            gap: 64px;
-        }
-
-        .objetivos-left {
-            flex: 1;
-        }
-
-        .objetivos-left img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .objetivos-right {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .quote-block {
-            border-radius: 0 8px 8px 0;
-            background: rgba(0, 0, 0, 0.03);
-            padding: 20px 24px;
-            border-left: 4px solid var(--navy);
-            font-family: 'Manrope', sans-serif;
-            font-size: 18px;
-            font-weight: 500;
-            font-style: italic;
-            color: var(--black);
-            line-height: 1.7;
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            background: var(--off-white);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 80px 48px;
-            gap: 48px;
-            overflow: hidden;
-        }
-
-        .gallery-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--black);
-            text-align: center;
-        }
-
-        .gallery-subtitle {
-            font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            color: var(--gray-600);
-            text-align: center;
-        }
-
-        .gallery-grid {
-            display: flex;
-            gap: 12px;
-            height: 320px;
-            overflow: hidden;
-        }
-
-        .gallery-grid img {
-            width: 420px;
-            height: 320px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        /* Activities Section */
-        .activities-section {
-            background: var(--white);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 80px 48px;
-            gap: 48px;
-        }
-
-        .activities-cards {
-            display: flex;
-            gap: 24px;
-            width: 100%;
-        }
-
-        .activity-card {
-            flex: 1;
-            border-radius: 8px;
-            background: var(--off-white);
-            padding: 40px 28px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-        }
-
-        .activity-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--navy);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--white);
-        }
-
-        .activity-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--black);
-            text-align: center;
-        }
-
-        .activity-desc {
-            font-family: 'Manrope', sans-serif;
-            font-size: 14px;
-            color: var(--gray-600);
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        /* Servicio Section */
-        .servicio-section {
-            background: var(--navy);
-            display: flex;
-            padding: 80px 48px;
-            gap: 64px;
-        }
-
-        .servicio-left {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .servicio-right {
-            flex: 1;
-        }
-
-        .servicio-right img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .section-heading-white {
-            font-family: 'Oswald', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .body-text-white {
-            font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.8;
-        }
-
-        .servicio-list {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .servicio-item {
-            display: flex;
-            gap: 12px;
-            padding: 12px 0;
-        }
-
-        .servicio-item:not(:last-child) {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .servicio-arrow {
-            font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--gold);
-        }
-
-        .servicio-text {
-            font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--navy);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 80px 48px;
-            gap: 24px;
-        }
-
-        .cta-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .cta-desc {
-            font-family: 'Manrope', sans-serif;
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-        }
-
-        .whatsapp-button {
-            background: var(--whatsapp);
-            border-radius: 4px;
-            padding: 16px 36px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .whatsapp-button:hover {
-            opacity: 0.9;
-        }
-
-        .whatsapp-text {
-            font-family: 'Oswald', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 1px;
-        }
-
-        /* Footer */
-        .footer{display:flex;flex-direction:column;align-items:center;background:var(--black);padding:48px 48px 24px 48px;gap:24px}
-        .footer-top{display:flex;align-items:center;justify-content:space-between;width:100%}
-        .footer-logo{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--white)}
-        .footer-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-        .footer-links a{font-size:14px;color:#FFFFFFAA;text-decoration:none}
-        .footer-divider{width:100%;height:1px;background:#FFFFFF1A}
-        .footer-copy{font-size:12px;color:#FFFFFF66}
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                height: auto;
-                padding: 16px 24px;
-                gap: 16px;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .hero-title {
-                font-size: 40px;
-            }
-
-            .hero-subtitle {
-                font-size: 18px;
-            }
-
-            .about-section, .objetivos-section, .servicio-section {
-                flex-direction: column;
-            }
-
-            .gallery-grid {
-                overflow-x: auto;
-            }
-
-            .activities-cards {
-                flex-direction: column;
-            }
-
-            .footer-top {
-                flex-direction: column;
-                gap: 24px;
-                align-items: center;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lahinis y Lobatos · Grupo Scout 51</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css" />
+<style>
+:root {
+  --jungle-deep:#070F0B; --jungle:#0F1F18; --jungle-warm:#1A1810; --leaf:#1F4034; --moss:#5E8A5A;
+  --parch:#F0E8D0; --parch-dim:rgba(240,232,208,0.78);
+  --fire:#E8771C; --fire-bright:#FFB347; --fire-deep:#B14A0D;
+  --bone:#EFE6D2; --gold:#C9A24D; --gold-dim:rgba(201,162,77,0.5);
+  --density: 1;
+  --motion: 1;
+}
+body { background: var(--jungle-deep); color: var(--parch); }
+
+/* Pen-write reveal */
+@keyframes pen-write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+.pen { display: inline-block; position: relative; clip-path: inset(0 100% 0 0); }
+.pen.in { animation: pen-write 1.4s cubic-bezier(.5,.1,.3,1) forwards; }
+.pen.in.d2 { animation-delay: .25s; } .pen.in.d3 { animation-delay: .5s; } .pen.in.d4 { animation-delay: .75s; }
+.no-motion .pen, .no-motion .pen.in { animation: none !important; clip-path: none !important; }
+
+/* === HERO — selva con fogata, hojas, huellas, luciérnagas === */
+.lh-hero { position:relative; min-height: 96vh; padding: calc(var(--nav-h) + 60px) var(--pad-x) 80px; overflow:hidden; isolation:isolate; display:flex; align-items:center; }
+.lh-hero .layer { position:absolute; inset:0; pointer-events:none; }
+.lh-hero .l-photo { z-index:-5; background: url('assets/manadas-4.jpeg') center/cover; filter: brightness(0.32) contrast(1.1) saturate(0.9) hue-rotate(-5deg); transform: translateY(var(--py, 0)); will-change: transform; }
+.lh-hero .l-mist { z-index:-4; background:
+  radial-gradient(ellipse 70% 50% at 50% 100%, rgba(232,119,28,0.35) 0%, transparent 60%),
+  radial-gradient(ellipse 90% 60% at 50% 30%, rgba(7,15,11,0.2) 0%, rgba(7,15,11,0.95) 100%);
+}
+/* Foliage silhouette top */
+.lh-hero .l-leaves { z-index:-2; transform: translateY(calc(var(--py,0) * 0.2)); opacity: calc(0.9 * min(var(--density), 1.2)); }
+.lh-hero .l-leaves svg { width:100%; height: auto; display:block; }
+
+/* Fireflies */
+.lh-hero .l-fireflies { z-index:-1; opacity: calc(0.8 * var(--motion)); }
+.lh-hero .firefly { position:absolute; width:3px; height:3px; border-radius:50%; background: var(--fire-bright); box-shadow: 0 0 8px var(--fire-bright), 0 0 16px rgba(255,179,71,0.6); animation: ffly 9s ease-in-out infinite; }
+@keyframes ffly {
+  0% { transform: translate(0,0); opacity: 0; }
+  10% { opacity: 0.9; }
+  50% { transform: translate(40px,-30px); opacity: 0.4; }
+  90% { opacity: 0.8; }
+  100% { transform: translate(80px,-80px); opacity: 0; }
+}
+.no-motion .firefly { animation: none; opacity: 0.4; }
+
+/* Animal tracks faded in margins */
+.lh-side-tracks { position:absolute; top:0; bottom:0; width:64px; opacity: calc(0.25 * var(--density)); z-index:-1; pointer-events:none; }
+.lh-side-tracks.l { left:0; } .lh-side-tracks.r { right:0; }
+.lh-side-tracks svg { width:100%; height:100%; color: var(--moss); }
+
+.lh-hero-inner { position:relative; z-index:2; max-width: var(--max); margin:0 auto; width:100%; }
+.lh-hero .crest-row { display:flex; gap:24px; align-items:center; margin-bottom: 36px; }
+.lh-hero .crest { width: 80px; height: 80px; background-size: contain; background-position: center; background-repeat: no-repeat; filter: drop-shadow(0 0 24px rgba(232,119,28,0.4)); }
+.lh-hero .crest-1 { background-image: url('assets/logo-lahinis.jpeg'); border-radius: 50%; }
+.lh-hero .crest-divider { width: 1px; height: 60px; background: var(--gold-dim); }
+.lh-hero .crest-2 { background-image: url('assets/logo-manadas.png'); }
+.lh-hero .ey { font-family:'Oswald', sans-serif; color: var(--fire-bright); font-size: 12px; letter-spacing: 5px; text-transform: uppercase; display:inline-flex; align-items:center; gap:14px; font-weight: 700; }
+.lh-hero .ey::before { content:''; width:48px; height:1px; background: var(--fire-bright); }
+.lh-hero h1 { font-family:'Oswald', sans-serif; font-weight: 700; font-size: clamp(44px, 9.5vw, 132px); line-height: 0.95; letter-spacing: 0.02em; text-transform: uppercase; color: var(--parch); margin-top: 22px; }
+.lh-hero h1 .amp { font-family:'Cormorant Garamond', serif; font-style: italic; font-weight: 400; color: var(--fire-bright); font-size: 0.55em; padding: 0 .2em; vertical-align: 0.05em; text-transform: lowercase; letter-spacing: 0; }
+.lh-hero h1 .line2 { display:block; }
+.lh-hero .sub { margin-top: 32px; font-size: clamp(16px, 1.55vw, 20px); color: var(--parch-dim); max-width: 56ch; line-height: 1.7; font-family: var(--body); }
+.lh-hero .meta { margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(232,119,28,0.35); display:flex; gap: 56px; flex-wrap: wrap; }
+.lh-hero .mi strong { display:block; font-family:'Oswald', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 1.5px; color: var(--parch); }
+.lh-hero .mi span { font-family: var(--mono); font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,179,71,0.6); }
+
+/* === SECTION SHARED === */
+.sec { padding: 120px var(--pad-x); position:relative; overflow:hidden; }
+.sec-inner { max-width: var(--max); margin: 0 auto; position:relative; z-index: 2; }
+.sec .ey { font-family:'Oswald',sans-serif; color: var(--fire-bright); font-size:12px; letter-spacing:5px; text-transform:uppercase; display:inline-flex; align-items:center; gap:14px; font-weight:700; }
+.sec .ey::before { content:''; width:48px; height:1px; background: var(--fire-bright); }
+.sec h2 { font-family:'Oswald', sans-serif; font-weight: 700; font-size: clamp(36px, 6vw, 76px); line-height: 1; color: var(--parch); margin-top: 18px; letter-spacing: 0.02em; text-transform: uppercase; }
+.sec h2 em { font-family:'Cormorant Garamond', serif; font-style: italic; font-weight: 400; color: var(--fire-bright); font-size: 0.78em; text-transform: lowercase; letter-spacing: 0; }
+.sec p { color: var(--parch-dim); font-size: 16px; line-height: 1.85; max-width: 64ch; font-family: var(--body); }
+.sec p strong { color: var(--parch); font-weight: 600; }
+
+.sec-pattern { position:absolute; inset:0; pointer-events:none; opacity: calc(0.35 * var(--density)); z-index: 0; }
+.sec-pattern svg { width:100%; height:100%; }
+
+/* === QUÉ ES — hojas y huellas === */
+.lh-que { background: linear-gradient(180deg, var(--jungle-deep) 0%, var(--jungle) 100%); }
+.lh-que .sec-pattern { background-image:
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><g fill='none' stroke='%235E8A5A' stroke-width='0.8' opacity='0.6'><path d='M60 20 Q40 40 40 70 Q40 95 60 100 Q80 95 80 70 Q80 40 60 20 Z M60 30 L60 95'/><path d='M60 50 Q50 55 45 65 M60 50 Q70 55 75 65 M60 70 Q50 75 45 85 M60 70 Q70 75 75 85'/></g></svg>");
+  background-size: 200px;
+  opacity: calc(0.25 * var(--density));
+}
+.lh-que-grid { display:grid; grid-template-columns: 1fr 1.15fr; gap: 80px; align-items: center; }
+.lh-que-photo { position:relative; aspect-ratio: 4/5; overflow:hidden; border:1px solid rgba(232,119,28,0.3); border-radius: 4px; }
+.lh-que-photo img { width:100%; height:100%; object-fit:cover; filter: brightness(0.95) contrast(1.05); }
+.lh-que-photo::before { content:''; position:absolute; top:12px; left:12px; right:12px; bottom:12px; border:1px solid rgba(240,232,208,0.2); pointer-events:none; }
+.lh-que-photo .tag { position:absolute; top: 16px; left: 16px; font-family: var(--mono); font-size: 10px; color: var(--fire-bright); letter-spacing: 2px; padding: 4px 10px; background: rgba(7,15,11,0.85); border:1px solid rgba(232,119,28,0.4); text-transform: uppercase; }
+.lh-que-photo .tag-r { top: auto; bottom: 16px; left: auto; right: 16px; }
+@media (max-width:860px){ .lh-que-grid{grid-template-columns:1fr; gap:40px;} }
+
+/* === MÍSTICA fusionada === */
+.lh-mistica { background: var(--jungle-deep); }
+.lh-mistica .sec-pattern { background:
+  radial-gradient(ellipse 50% 40% at 30% 30%, rgba(255,179,71,0.08), transparent 70%),
+  radial-gradient(ellipse 40% 30% at 75% 75%, rgba(94,138,90,0.1), transparent 70%);
+  opacity: 1;
+}
+.lh-mistica-head { text-align:center; max-width: 720px; margin: 0 auto 80px; }
+.lh-mistica-head .ey { justify-content: center; }
+.lh-mistica-head p { margin: 24px auto 0; }
+
+.lh-fusion { position:relative; max-width: 1080px; margin: 0 auto 80px; }
+.lh-fusion-circles { position:relative; aspect-ratio: 16/8; max-width: 720px; margin: 0 auto; }
+.lh-fusion-circles .c { position:absolute; top:50%; width: 60%; aspect-ratio: 1; border:1.5px solid var(--fire); border-radius:50%; transform: translateY(-50%); display:grid; place-items:center; transition: all .5s ease; }
+.lh-fusion-circles .c.l { left:0; background: radial-gradient(circle at 70% 50%, rgba(255,179,71,0.06), transparent 70%); }
+.lh-fusion-circles .c.r { right:0; background: radial-gradient(circle at 30% 50%, rgba(94,138,90,0.08), transparent 70%); }
+.lh-fusion-circles .c h3 { font-family:'Oswald',sans-serif; font-weight:700; font-size: clamp(22px, 2.6vw, 34px); letter-spacing: 0.05em; color: var(--parch); text-transform: uppercase; }
+.lh-fusion-circles .c .label { display:block; font-family: var(--mono); font-size:10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--fire-bright); margin-top: 8px; }
+.lh-fusion-circles:hover .c.l { box-shadow: 0 0 60px rgba(255,179,71,0.3); border-color: var(--fire-bright); }
+.lh-fusion-circles:hover .c.r { box-shadow: 0 0 60px rgba(94,138,90,0.3); border-color: var(--moss); }
+
+.lh-fusion-center { position:absolute; left:50%; top:50%; transform: translate(-50%,-50%); z-index:2; text-align:center; }
+.lh-fusion-center .union { font-family:'Oswald',sans-serif; font-weight:700; font-size: 13px; letter-spacing: 3px; color: var(--fire-bright); text-transform: uppercase; padding: 8px 18px; background: var(--jungle-deep); border:1px solid var(--fire); border-radius: 999px; }
+
+.lh-fusion-text { display:grid; grid-template-columns: 1fr 1px 1fr; gap: 56px; margin-top: 80px; }
+.lh-fusion-text > .div { background: linear-gradient(180deg, transparent, var(--gold-dim), transparent); }
+.lh-fusion-side { transition: filter .4s ease; }
+.lh-fusion-side:hover { filter: brightness(1.15); }
+.lh-fusion-side h4 { font-family:'Oswald',sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--fire-bright); margin-bottom: 12px; text-transform: uppercase; font-weight: 700; }
+.lh-fusion-side .icons { display:flex; gap: 16px; margin: 24px 0 32px; }
+.lh-fusion-side .icons .icon { width: 44px; height: 44px; display:grid; place-items:center; border:1px solid rgba(232,119,28,0.4); border-radius:50%; color: var(--fire-bright); transition: all .3s; }
+.lh-fusion-side:hover .icons .icon { border-color: var(--fire-bright); color: var(--bone); }
+.lh-fusion-side .icons svg { width:22px; height:22px; }
+.lh-fusion-side ul { list-style: none; padding: 0; display:grid; gap: 12px; }
+.lh-fusion-side li { display:grid; grid-template-columns: 14px 1fr; gap: 12px; font-size: 14px; color: var(--parch-dim); line-height: 1.6; align-items: start; }
+.lh-fusion-side li::before { content:''; width: 6px; height: 6px; margin-top: 8px; background: var(--fire-bright); border-radius:50%; }
+@media (max-width:860px){ .lh-fusion-text{grid-template-columns:1fr; gap:40px;} .lh-fusion-text > .div{display:none;} .lh-fusion-circles{aspect-ratio: 1/1; max-width: 360px;} .lh-fusion-circles .c{width: 70%;} }
+
+/* === PILARES — layouts === */
+.lh-pillars { background: linear-gradient(180deg, var(--jungle-deep) 0%, var(--jungle-warm) 100%); }
+.lh-pillars .sec-pattern { background-image:
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='%235E8A5A' opacity='0.45'><circle cx='30' cy='35' r='1.8'/><circle cx='34' cy='32' r='1.6'/><circle cx='34' cy='38' r='1.6'/><circle cx='31' cy='42' r='1.5'/><circle cx='33' cy='45' r='1.5'/><circle cx='65' cy='65' r='1.8'/><circle cx='69' cy='62' r='1.6'/><circle cx='69' cy='68' r='1.6'/><circle cx='66' cy='72' r='1.5'/><circle cx='68' cy='75' r='1.5'/></g></svg>");
+  background-size: 200px;
+  opacity: calc(0.32 * var(--density));
+}
+.lh-pillars-head { display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-bottom: 64px; flex-wrap: wrap; }
+.lh-pillars-head .layout-label { font-family: var(--mono); font-size: 11px; letter-spacing: 3px; color: var(--fire-bright); text-transform: uppercase; opacity: 0.7; }
+
+/* Grid layout */
+.lh-pillars[data-layout="grid"] .lh-pillars-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(232,119,28,0.3); border:1px solid rgba(232,119,28,0.3); }
+.lh-pillars[data-layout="grid"] .pillar { background: var(--jungle-warm); padding: 40px 32px; }
+.lh-pillars[data-layout="grid"] .pillar .num { font-family:'Oswald',sans-serif; font-size: 12px; letter-spacing: 3px; color: var(--fire-bright); text-transform: uppercase; font-weight: 700; }
+.lh-pillars[data-layout="grid"] .pillar .ic { width: 44px; height:44px; margin: 18px 0; color: var(--parch); }
+.lh-pillars[data-layout="grid"] .pillar h4 { font-family:'Oswald', sans-serif; font-size: 22px; font-weight:700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--parch); margin-bottom: 14px; }
+.lh-pillars[data-layout="grid"] .pillar p { font-size: 14px; line-height: 1.7; }
+@media (max-width:860px){ .lh-pillars[data-layout="grid"] .lh-pillars-list { grid-template-columns: 1fr 1fr; } }
+@media (max-width:520px){ .lh-pillars[data-layout="grid"] .lh-pillars-list { grid-template-columns: 1fr; } }
+
+/* List layout */
+.lh-pillars[data-layout="list"] .lh-pillars-list { display:flex; flex-direction: column; gap: 0; max-width: 980px; margin: 0 auto; }
+.lh-pillars[data-layout="list"] .pillar { display:grid; grid-template-columns: 100px 1fr; gap: 48px; padding: 36px 0; border-top: 1px solid rgba(232,119,28,0.3); align-items: start; transition: all .3s; position: relative; }
+.lh-pillars[data-layout="list"] .pillar:last-child { border-bottom: 1px solid rgba(232,119,28,0.3); }
+.lh-pillars[data-layout="list"] .pillar:hover { background: rgba(255,179,71,0.04); padding-left: 24px; }
+.lh-pillars[data-layout="list"] .pillar .num { font-family:'Oswald', sans-serif; font-size: 64px; font-weight:700; line-height: 1; color: var(--fire-bright); }
+.lh-pillars[data-layout="list"] .pillar .ic { display:none; }
+.lh-pillars[data-layout="list"] .pillar h4 { font-family:'Oswald',sans-serif; font-size: 28px; font-weight:700; letter-spacing: 2px; text-transform: uppercase; color: var(--parch); margin-bottom: 12px; }
+.lh-pillars[data-layout="list"] .pillar p { font-size: 16px; line-height: 1.8; max-width: 64ch; }
+@media (max-width:760px){ .lh-pillars[data-layout="list"] .pillar { grid-template-columns: 60px 1fr; gap: 24px; } .lh-pillars[data-layout="list"] .pillar .num { font-size: 36px; } }
+
+/* Zigzag layout */
+.lh-pillars[data-layout="zigzag"] .lh-pillars-list { display: flex; flex-direction: column; gap: 32px; max-width: 1100px; margin: 0 auto; }
+.lh-pillars[data-layout="zigzag"] .pillar { display:grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 32px 40px; background: var(--jungle-warm); border:1px solid rgba(232,119,28,0.3); border-radius: 6px; align-items: center; }
+.lh-pillars[data-layout="zigzag"] .pillar:nth-child(even) { direction: rtl; }
+.lh-pillars[data-layout="zigzag"] .pillar:nth-child(even) > * { direction: ltr; }
+.lh-pillars[data-layout="zigzag"] .pillar .ic-wrap { display:grid; place-items:center; aspect-ratio: 1/1; border:1px solid rgba(232,119,28,0.4); border-radius:50%; max-width: 200px; margin: 0 auto; }
+.lh-pillars[data-layout="zigzag"] .pillar .num { font-family: var(--mono); font-size: 11px; letter-spacing: 3px; color: var(--fire-bright); text-transform: uppercase; }
+.lh-pillars[data-layout="zigzag"] .pillar .ic { width: 56px; height: 56px; color: var(--parch); margin: 16px 0; }
+.lh-pillars[data-layout="zigzag"] .pillar h4 { font-family:'Oswald',sans-serif; font-size: 26px; font-weight:700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--parch); margin-bottom: 12px; }
+.lh-pillars[data-layout="zigzag"] .pillar p { font-size: 15px; line-height: 1.75; }
+@media (max-width:760px){ .lh-pillars[data-layout="zigzag"] .pillar { grid-template-columns: 1fr; gap: 16px; padding: 28px; direction: ltr; } .lh-pillars[data-layout="zigzag"] .pillar:nth-child(even) { direction: ltr; } .lh-pillars[data-layout="zigzag"] .pillar .ic-wrap { max-width: 100px; } }
+
+/* === GALERÍA === */
+.lh-gallery { background: var(--jungle); }
+.lh-gallery .sec-pattern { background-image:
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='none' stroke='%23E8771C' stroke-width='0.6' opacity='0.4'><path d='M10 50 Q30 20 50 50 Q70 80 90 50' /><path d='M10 70 Q30 40 50 70 Q70 100 90 70' /></g></svg>");
+  background-size: 240px;
+  opacity: calc(0.2 * var(--density));
+}
+.lh-gallery[data-layout="mosaic"] .lh-gallery-grid { display:grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 200px; gap: 8px; margin-top: 56px; }
+.lh-gallery[data-layout="mosaic"] .lh-gallery-grid > div:nth-child(1){grid-column:span 3; grid-row:span 2;}
+.lh-gallery[data-layout="mosaic"] .lh-gallery-grid > div:nth-child(2){grid-column:span 3;}
+.lh-gallery[data-layout="mosaic"] .lh-gallery-grid > div:nth-child(3){grid-column:span 2;}
+.lh-gallery[data-layout="mosaic"] .lh-gallery-grid > div:nth-child(4){grid-column:span 1;}
+.lh-gallery[data-layout="mosaic"] .lh-gallery-grid > div:nth-child(5){grid-column:span 3; grid-row:span 2;}
+.lh-gallery[data-layout="mosaic"] .lh-gallery-grid > div:nth-child(6){grid-column:span 3;}
+
+.lh-gallery[data-layout="ribbon"] .lh-gallery-grid { display:flex; gap: 12px; overflow-x: auto; padding: 56px 0 24px; scroll-snap-type: x mandatory; }
+.lh-gallery[data-layout="ribbon"] .lh-gallery-grid > div { flex: 0 0 60%; aspect-ratio: 4/5; scroll-snap-align: start; min-width: 320px; }
+
+.lh-gallery .lh-gallery-grid > div { background-size: cover; background-position: center; border-radius: 6px; filter: brightness(0.95) contrast(1.05); border:1px solid rgba(232,119,28,0.15); }
+@media (max-width:760px){
+  .lh-gallery[data-layout="mosaic"] .lh-gallery-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows: 180px; }
+  .lh-gallery[data-layout="mosaic"] .lh-gallery-grid > div { grid-column:span 1 !important; grid-row:span 1 !important; }
+}
+
+/* === HORARIO === */
+.lh-horario { background: var(--jungle-warm); padding: 100px var(--pad-x); }
+.lh-horario-card { max-width: 720px; margin: 0 auto; padding: 56px 48px; background: rgba(0,0,0,0.25); border:1px solid rgba(232,119,28,0.4); border-radius: 6px; text-align:center; position:relative; }
+.lh-horario-card::before, .lh-horario-card::after { content:''; position:absolute; width: 28px; height: 28px; border:1px solid var(--fire-bright); }
+.lh-horario-card::before { top:-1px; left:-1px; border-right:0; border-bottom:0; }
+.lh-horario-card::after { bottom:-1px; right:-1px; border-left:0; border-top:0; }
+.lh-horario-card .ey { justify-content: center; }
+.lh-horario-card h3 { font-family:'Oswald',sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight:700; text-transform: uppercase; letter-spacing: 0.02em; color: var(--parch); margin: 16px 0 8px; }
+.lh-horario-card p { color: var(--parch-dim); margin: 0 auto; }
+
+/* === CTA === */
+.lh-cta { background: var(--jungle-deep); padding: 120px var(--pad-x); position:relative; isolation:isolate; overflow:hidden; text-align:center; }
+.lh-cta::before { content:''; position:absolute; inset:0; z-index:-2; background: url('assets/manadas-6.jpeg') center/cover; filter: brightness(0.25) saturate(0.6); }
+.lh-cta::after { content:''; position:absolute; inset:0; z-index:-1; background:
+  radial-gradient(ellipse at 50% 100%, rgba(232,119,28,0.3), transparent 60%),
+  radial-gradient(ellipse at 50% 30%, rgba(7,15,11,0.4), rgba(7,15,11,0.95) 80%);
+}
+.lh-cta .ey { justify-content: center; }
+.lh-cta h2 { font-family:'Oswald',sans-serif; font-size: clamp(40px, 7vw, 84px); font-weight:700; line-height:1; letter-spacing: 0.02em; text-transform:uppercase; color: var(--parch); }
+.lh-cta h2 em { font-family:'Cormorant Garamond', serif; font-style: italic; color: var(--fire-bright); font-weight: 400; font-size: 0.75em; text-transform: lowercase; }
+.lh-cta p { color: rgba(240,232,208,0.85); margin: 24px auto 36px; max-width: 50ch; }
+</style>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <a href="home.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
-        <div class="nav-logo-circle"></div>
-        <span class="nav-logo-text">GRUPO SCOUT 51</span>
-      </a>
-      <div class="nav-links">
-        <a href="nosotros.html">Nosotros</a>
-        <a href="lahinis.html">Lahinis y Lobatos</a>
-        <a href="sikas.html">Sikas y Centinelas</a>
-        <a href="pioneros.html">Pioneros y Pioneras</a>
-        <a href="clan.html">Clan</a>
-        <a href="contacto.html">Contacto</a>
+<body data-page="lahinis">
+<nav data-nav></nav>
+
+<!-- HERO -->
+<section class="lh-hero" data-screen-label="01 Hero">
+  <div class="layer l-photo" data-parallax="0.3"></div>
+  <div class="layer l-mist"></div>
+
+  <!-- Foliage silhouettes top -->
+  <div class="layer l-leaves" style="top:0; bottom:auto; height:auto;">
+    <svg viewBox="0 0 1600 220" preserveAspectRatio="xMidYMin meet">
+      <g fill="#070F0B" stroke="rgba(94,138,90,0.5)" stroke-width="0.8">
+        <!-- Big leaves hanging from top -->
+        <path d="M0 0 L 0 80 Q 40 100 80 80 Q 120 60 100 30 Q 80 0 60 0 Z"/>
+        <path d="M120 0 Q 140 50 180 60 Q 220 70 240 40 Q 250 10 220 0 Z"/>
+        <path d="M280 0 L 280 100 Q 320 110 360 80 Q 380 50 350 20 Q 320 0 300 0 Z"/>
+        <path d="M400 0 Q 420 60 480 70 Q 520 65 530 35 Q 530 5 500 0 Z"/>
+        <path d="M580 0 L 580 70 Q 610 90 650 65 Q 680 35 650 5 Z"/>
+        <path d="M720 0 Q 750 80 800 70 Q 840 55 830 25 Q 820 0 790 0 Z"/>
+        <path d="M880 0 L 880 90 Q 920 100 960 70 Q 990 40 960 10 Q 930 0 910 0 Z"/>
+        <path d="M1020 0 Q 1050 60 1100 60 Q 1140 50 1140 20 Q 1130 0 1100 0 Z"/>
+        <path d="M1180 0 L 1180 75 Q 1220 85 1260 60 Q 1290 30 1260 5 Z"/>
+        <path d="M1310 0 Q 1340 70 1390 70 Q 1430 60 1430 30 Q 1420 0 1390 0 Z"/>
+        <path d="M1470 0 L 1470 90 Q 1510 100 1550 70 Q 1580 40 1560 10 Q 1540 0 1520 0 Z"/>
+        <path d="M1600 0 L 1600 50 Q 1580 25 1590 0 Z"/>
+        <!-- Veins -->
+        <g fill="none" stroke="rgba(94,138,90,0.4)" stroke-width="0.6">
+          <path d="M40 0 L 60 90"/><path d="M180 0 L 200 65"/><path d="M320 0 L 320 95"/>
+          <path d="M460 0 L 480 70"/><path d="M620 0 L 620 75"/><path d="M770 0 L 780 70"/>
+          <path d="M920 0 L 930 85"/><path d="M1080 0 L 1090 60"/><path d="M1220 0 L 1230 70"/>
+          <path d="M1360 0 L 1370 70"/><path d="M1510 0 L 1520 85"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Fireflies -->
+  <div class="layer l-fireflies">
+    <span class="firefly" style="left:12%; top:60%; animation-delay:-1s"></span>
+    <span class="firefly" style="left:25%; top:45%; animation-delay:-3s"></span>
+    <span class="firefly" style="left:38%; top:70%; animation-delay:-5s"></span>
+    <span class="firefly" style="left:55%; top:50%; animation-delay:-2s"></span>
+    <span class="firefly" style="left:72%; top:65%; animation-delay:-4s"></span>
+    <span class="firefly" style="left:85%; top:40%; animation-delay:-6s"></span>
+    <span class="firefly" style="left:18%; top:80%; animation-delay:-7s"></span>
+    <span class="firefly" style="left:65%; top:30%; animation-delay:-8s"></span>
+  </div>
+
+  <!-- Animal tracks on sides -->
+  <div class="lh-side-tracks l">
+    <svg viewBox="0 0 60 800" preserveAspectRatio="none">
+      <g fill="currentColor">
+        <!-- Wolf paws -->
+        <ellipse cx="30" cy="80" rx="6" ry="8"/>
+        <ellipse cx="22" cy="68" rx="2.5" ry="3.5"/><ellipse cx="38" cy="68" rx="2.5" ry="3.5"/>
+        <ellipse cx="18" cy="78" rx="2" ry="3"/><ellipse cx="42" cy="78" rx="2" ry="3"/>
+        <!-- Track 2 -->
+        <ellipse cx="35" cy="200" rx="5" ry="7"/>
+        <ellipse cx="29" cy="190" rx="2" ry="3"/><ellipse cx="41" cy="190" rx="2" ry="3"/>
+        <ellipse cx="26" cy="200" rx="1.8" ry="2.5"/><ellipse cx="44" cy="200" rx="1.8" ry="2.5"/>
+        <!-- Track 3 -->
+        <ellipse cx="25" cy="340" rx="6" ry="8"/>
+        <ellipse cx="17" cy="328" rx="2.5" ry="3.5"/><ellipse cx="33" cy="328" rx="2.5" ry="3.5"/>
+        <ellipse cx="13" cy="338" rx="2" ry="3"/><ellipse cx="37" cy="338" rx="2" ry="3"/>
+        <!-- Gazelle hoofs -->
+        <path d="M28 480 L24 495 L36 495 L32 480 Z"/>
+        <path d="M28 510 L24 525 L36 525 L32 510 Z" opacity="0.7"/>
+        <path d="M28 620 L24 635 L36 635 L32 620 Z"/>
+        <path d="M28 650 L24 665 L36 665 L32 650 Z" opacity="0.7"/>
+        <!-- More wolf -->
+        <ellipse cx="32" cy="740" rx="6" ry="8"/>
+        <ellipse cx="24" cy="728" rx="2.5" ry="3.5"/><ellipse cx="40" cy="728" rx="2.5" ry="3.5"/>
+      </g>
+    </svg>
+  </div>
+  <div class="lh-side-tracks r">
+    <svg viewBox="0 0 60 800" preserveAspectRatio="none">
+      <g fill="currentColor">
+        <ellipse cx="30" cy="120" rx="6" ry="8"/>
+        <ellipse cx="22" cy="108" rx="2.5" ry="3.5"/><ellipse cx="38" cy="108" rx="2.5" ry="3.5"/>
+        <ellipse cx="18" cy="118" rx="2" ry="3"/><ellipse cx="42" cy="118" rx="2" ry="3"/>
+        <path d="M28 250 L24 265 L36 265 L32 250 Z"/>
+        <path d="M28 280 L24 295 L36 295 L32 280 Z" opacity="0.7"/>
+        <ellipse cx="35" cy="400" rx="5" ry="7"/>
+        <ellipse cx="29" cy="390" rx="2" ry="3"/><ellipse cx="41" cy="390" rx="2" ry="3"/>
+        <ellipse cx="26" cy="400" rx="1.8" ry="2.5"/><ellipse cx="44" cy="400" rx="1.8" ry="2.5"/>
+        <ellipse cx="25" cy="540" rx="6" ry="8"/>
+        <ellipse cx="17" cy="528" rx="2.5" ry="3.5"/><ellipse cx="33" cy="528" rx="2.5" ry="3.5"/>
+        <path d="M28 680 L24 695 L36 695 L32 680 Z"/>
+        <path d="M28 710 L24 725 L36 725 L32 710 Z" opacity="0.7"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="lh-hero-inner">
+    <div class="crest-row">
+      <div class="crest crest-1"></div>
+      <div class="crest-divider"></div>
+      <div class="crest crest-2"></div>
+    </div>
+    <span class="ey pen" data-tw="heroEyebrow">Sección Scout · 7 — 11 años</span>
+    <h1>
+      <span class="pen d2" data-tw="heroTitle1">Lahinis</span>
+      <span class="amp pen d3" data-tw="heroAmp">y</span>
+      <span class="line2 pen d4" data-tw="heroTitle2">Lobatos</span>
+    </h1>
+    <p class="sub" data-tone-toggle>
+      <span data-tone="epic">En el corazón de la selva, donde las gacelas corren al amanecer y la manada se reúne en torno al fuego — la primera aventura scout. Juego, naturaleza y los primeros lazos que duran toda la vida.</span>
+      <span data-tone="direct" hidden>Aquí entran niñas y niños de 7 a 11. Juegan, exploran, acampan, hacen amigos que les acompañan años. Una sola sección, dos místicas: gacelas y lobeznos.</span>
+    </p>
+    <div class="meta">
+      <div class="mi"><strong data-tw="metaEdadV">7 — 11</strong><span data-tw="metaEdadL">Edad</span></div>
+      <div class="mi"><strong data-tw="metaDiaV">Sábado</strong><span data-tw="metaDiaL">16:00 — 19:45 hrs</span></div>
+      <div class="mi"><strong data-tw="metaSisV">Manada</strong><span data-tw="metaSisL">Sistema scout</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ ES -->
+<section class="sec lh-que" data-screen-label="02 Qué es">
+  <div class="sec-pattern"></div>
+  <div class="sec-inner lh-que-grid reveal">
+    <div class="lh-que-photo">
+      <span class="tag" data-tw="queTag1">La Manada</span>
+      <span class="tag tag-r" data-tw="queTag2">Sábado 16:00</span>
+      <img src="assets/manadas-3.jpeg" alt="Lahinis y Lobatos">
+    </div>
+    <div>
+      <span class="ey" data-tw="queEy">La sección</span>
+      <h2><span data-tw="queTitle">Juego,<br/>naturaleza<br/>y </span><em data-tw="queTitleAccent">amistad</em></h2>
+      <p data-tone-toggle><span data-tone="epic"><strong>Lahinis y Lobatos</strong> es la primera puerta al escultismo. Es la sección donde el aprendizaje sucede a través del juego — pero juegos con propósito, que enseñan a convivir, a cuidar el entorno y a hacer las cosas por uno mismo.</span><span data-tone="direct" hidden>Lahinis y Lobatos es la sección de los más chicos del grupo. Aquí se juega, sí — pero los juegos enseñan algo. Aprendes a hacer fila, a cuidar tus cosas, a respetar a quien te acompaña, a acampar por primera vez.</span></p>
+      <p style="margin-top:18px" data-tone-toggle><span data-tone="epic">La sección reúne dos órdenes — Lahinis y Lobatos — que comparten manada, juegos y campamentos. Las identidades simbólicas son distintas, pero la promesa, los pilares y los sábados son los mismos.</span><span data-tone="direct" hidden>Son dos órdenes hermanas: <strong>Lahinis</strong> y <strong>Lobatos</strong>. Conviven en la misma sección, los mismos sábados, los mismos campamentos. Cada uno con su mística, pero una sola manada.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- MÍSTICA -->
+<section class="sec lh-mistica" data-screen-label="03 La Mística">
+  <div class="sec-pattern"></div>
+  <div class="sec-inner">
+    <div class="lh-mistica-head reveal">
+      <span class="ey" data-tw="misticaEy">La mística compartida</span>
+      <h2><span data-tw="misticaTitle">Una manada,<br/></span><em data-tw="misticaTitleAccent">dos relatos</em></h2>
+      <p data-tone-toggle style="margin-left:auto; margin-right:auto"><span data-tone="epic">Dos historias que enseñan lo mismo desde dos pieles distintas. <strong>Lahinis</strong> son las gacelas — ligeras, atentas, comunidad por instinto. <strong>Lobatos</strong> son los lobeznos del Libro de la Selva — Akela, Bagheera y la Peña del Consejo. Ambas dicen que se aprende más rápido cuando se aprende juntos.</span><span data-tone="direct" hidden>Dos imágenes para una idea: pertenecer y cuidarse entre todos. <strong>Lahinis</strong> = gacelas, agilidad y comunidad. <strong>Lobatos</strong> = lobeznos, manada y peña del consejo. Cada quien escoge la suya — pero la sección es una sola.</span></p>
+    </div>
+
+    <div class="lh-fusion reveal">
+      <div class="lh-fusion-circles">
+        <div class="c l">
+          <div>
+            <h3 data-tw="circleLahH">Lahinis</h3>
+            <span class="label" data-tw="circleLahL">— Las Gacelas —</span>
+          </div>
+        </div>
+        <div class="c r">
+          <div>
+            <h3 data-tw="circleLobH">Lobatos</h3>
+            <span class="label" data-tw="circleLobL">— La Manada —</span>
+          </div>
+        </div>
+        <div class="lh-fusion-center"><span class="union" data-tw="circleCenter">Una sección</span></div>
       </div>
-      <a href="contacto.html" class="nav-cta">UNETE &rarr;</a>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1 class="hero-title">LAHINIS Y LOBATOS</h1>
-        <p class="hero-subtitle">7 — 11 AÑOS</p>
-        <p class="hero-desc">La mística de El Libro de la Selva — con Akela y Raksha como guías, un mundo de fantasía, juego y aprendizaje.</p>
-    </section>
-
-    <!-- Section Logo -->
-    <section class="section-logo">
-      <div class="section-logos">
-        <div class="section-logo-img" style="background:url('logo_lahinis.jpeg') center/cover"></div>
-        <div class="section-logo-img" style="background:url('logo_manadas_edited.png') center/cover"></div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="about-left">
-            <h2 class="section-heading">BIENVENIDOS A LA MANADA</h2>
-            <p class="body-text">La Manada es la sección más joven del Grupo Scout 51. Aquí, niños y niñas de 7 a 11 años viven la aventura del escultismo a través de la mística de El Libro de la Selva de Rudyard Kipling.</p>
-            <p class="body-text">A través del juego, las historias, las canciones y el contacto con la naturaleza, los integrantes de la Manada aprenden valores como la solidaridad, el respeto y la responsabilidad.</p>
-            <p class="highlight">La Manada se divide en dos subsecciones: las Lahinis (niñas) y los Lobatos (niños), cada una con su propia dinámica pero unidas por la misma mística y aventura.</p>
+      <div class="lh-fusion-text">
+        <div class="lh-fusion-side">
+          <h4 data-tw="sideLahH">Lahinis — las gacelas</h4>
+          <div class="icons">
+            <div class="icon" title="Agilidad"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 22 L 14 12 L 18 18 L 26 8"/><path d="M22 8 L 26 8 L 26 12"/></svg></div>
+            <div class="icon" title="Atención"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="4"/><path d="M2 16 Q 16 6 30 16 Q 16 26 2 16 Z"/></svg></div>
+            <div class="icon" title="Comunidad"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="14" r="3"/><circle cx="22" cy="14" r="3"/><circle cx="16" cy="22" r="3"/></svg></div>
+          </div>
+          <ul>
+            <li><span><strong>Agilidad —</strong> aprender rápido, moverse en grupo, no dejar a nadie atrás.</span></li>
+            <li><span><strong>Atención —</strong> ver lo que pasa alrededor, cuidar a las menores y mayores.</span></li>
+            <li><span><strong>Comunidad —</strong> la manada protege; nadie se queda solo.</span></li>
+          </ul>
         </div>
-        <div class="about-right">
-            <img src="Manadas/Lahinis_Aniversario_68.jpeg" alt="Lahinis Aniversario 68">
-        </div>
-    </section>
 
-    <!-- Objetivos Section -->
-    <section class="objetivos-section">
-        <div class="objetivos-left">
-            <img src="Manadas/9ae7f257-9e7b-4705-8bed-1535dedde3c3.jpg" alt="Manada en acción">
-        </div>
-        <div class="objetivos-right">
-            <h2 class="section-heading">NUESTROS OBJETIVOS</h2>
-            <p class="body-text">En la Manada buscamos que cada niño y niña descubra el mundo que lo rodea, desarrolle su creatividad y aprenda a convivir con los demás en un ambiente seguro y lleno de fantasía.</p>
-            <div class="quote-block">"El cachorro que guarda la Ley de la Manada es artesano de su propia felicidad." — Akela</div>
-            <p class="body-text">Cada actividad está diseñada para que aprendan jugando: trabajo en equipo, respeto por la naturaleza, responsabilidad personal y el valor de la amistad.</p>
-        </div>
-    </section>
+        <div class="div"></div>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section">
-        <h2 class="gallery-title">NUESTRA MANADA EN ACCIÓN</h2>
-        <p class="gallery-subtitle">Momentos de juego, aventura y aprendizaje junto a la familia de la selva.</p>
-        <div class="gallery-grid">
-            <img src="Manadas/Lobatos_Aniversario_68.jpeg" alt="Lobatos Aniversario 68">
-            <img src="WhatsApp Image 2026-02-12 at 17.43.58.jpeg" alt="Manada actividad 1">
-            <img src="WhatsApp Image 2026-02-12 at 17.43.59.jpeg" alt="Manada actividad 2">
-            <img src="Manadas/3e9cb57a-c36a-4f4b-bcc9-55c7367c943d.jpg" alt="Manada actividad 3">
-            <img src="Manadas/WhatsApp Image 2026-02-10 at 20.07.30.jpeg" alt="Manada actividad 4">
-            <img src="Manadas/0152cde4-d602-4447-a98d-904068db55c2.jpg" alt="Manada actividad 5">
-            <img src="Manadas/WhatsApp Image 2026-02-12 at 17.50.39.jpeg" alt="Manada actividad 6">
-            <img src="Manadas/WhatsApp Image 2026-02-12 at 17.51.37.jpeg" alt="Manada actividad 7">
-        </div>
-    </section>
-
-    <!-- Activities Section -->
-    <section class="activities-section">
-        <h2 class="gallery-title">ACTIVIDADES DE LA MANADA</h2>
-        <div class="activities-cards">
-            <div class="activity-card">
-                <div class="activity-icon">
-                    <i data-lucide="tent"></i>
-                </div>
-                <h3 class="activity-title">CAMPAMENTOS</h3>
-                <p class="activity-desc">Acampamos bajo las estrellas, aprendemos sobre la naturaleza y fortalecemos nuestra amistad como familia de la selva.</p>
-            </div>
-            <div class="activity-card">
-                <div class="activity-icon">
-                    <i data-lucide="book-open"></i>
-                </div>
-                <h3 class="activity-title">HISTORIAS</h3>
-                <p class="activity-desc">Vivimos las aventuras de Mowgli, Baloo y Bagheera mientras aprendemos las lecciones de la Ley de la Manada.</p>
-            </div>
-            <div class="activity-card">
-                <div class="activity-icon">
-                    <i data-lucide="gamepad-2"></i>
-                </div>
-                <h3 class="activity-title">JUEGOS</h3>
-                <p class="activity-desc">A través del juego desarrollamos habilidades físicas, mentales y sociales mientras nos divertimos en equipo.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Servicio Section -->
-    <section class="servicio-section">
-        <div class="servicio-left">
-            <h2 class="section-heading-white">LA BUENA ACCIÓN</h2>
-            <p class="body-text-white">Desde pequeños aprendemos el valor del servicio a los demás. La Manada participa activamente en proyectos comunitarios que nos enseñan a ser mejores personas y mejores ciudadanos.</p>
-            <div class="servicio-list">
-                <div class="servicio-item">
-                    <span class="servicio-arrow">→</span>
-                    <span class="servicio-text">Cuidado del medio ambiente y reforestación</span>
-                </div>
-                <div class="servicio-item">
-                    <span class="servicio-arrow">→</span>
-                    <span class="servicio-text">Visitas a casas hogar y asilos</span>
-                </div>
-                <div class="servicio-item">
-                    <span class="servicio-arrow">→</span>
-                    <span class="servicio-text">Campañas de reciclaje y limpieza</span>
-                </div>
-            </div>
-        </div>
-        <div class="servicio-right">
-            <img src="Manadas/DSC09330.jpeg" alt="Servicio comunitario">
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <h2 class="cta-title">ÚNETE A LA MANADA</h2>
-        <p class="cta-desc">Ven a conocernos y vive la aventura de la selva con nosotros.</p>
-        <a href="https://wa.me/5530310438" class="whatsapp-button">
-            <i data-lucide="message-circle"></i>
-            <span class="whatsapp-text">ESCRÍBENOS POR WHATSAPP</span>
-        </a>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-top">
-        <a href="home.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
-          <div style="width:48px;height:48px;border-radius:50%;background:url('Grupo_51.jpeg') center/cover;flex-shrink:0"></div>
-          <span class="footer-logo">GRUPO SCOUT 51</span>
-        </a>
-        <div class="footer-links">
-          <a href="home.html">Inicio</a>
-          <a href="nosotros.html">Nosotros</a>
-          <a href="lahinis.html">Lahinis y Lobatos</a>
-          <a href="sikas.html">Sikas y Centinelas</a>
-          <a href="pioneros.html">Pioneros y Pioneras</a>
-          <a href="clan.html">Clan</a>
-          <a href="contacto.html">Contacto</a>
+        <div class="lh-fusion-side">
+          <h4 data-tw="sideLobH">Lobatos — la manada</h4>
+          <div class="icons">
+            <div class="icon" title="Akela"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 22 Q 10 12 16 12 Q 22 12 24 22 M11 18 Q 11 14 12 14 M21 18 Q 21 14 20 14 M14 24 L 14 26 M18 24 L 18 26"/></svg></div>
+            <div class="icon" title="Peña del Consejo"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 22 L 12 14 L 20 18 L 26 12 L 26 22 Z"/></svg></div>
+            <div class="icon" title="Ley de la Manada"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 6 L 24 6 L 24 26 L 8 26 Z M12 12 L 20 12 M12 16 L 20 16 M12 20 L 18 20"/></svg></div>
+          </div>
+          <ul>
+            <li><span><strong>Akela —</strong> el viejo lobo guía; se aprende de quien sabe y se enseña a quien sigue.</span></li>
+            <li><span><strong>La Peña del Consejo —</strong> donde la manada se reúne, decide y celebra.</span></li>
+            <li><span><strong>La Ley de la Manada —</strong> sencilla, clara, y la misma para todos.</span></li>
+          </ul>
         </div>
       </div>
-      <div class="footer-divider"></div>
-      <p style="font-family:'Manrope',sans-serif;font-style:italic;font-size:16px;color:#FFFFFF99;letter-spacing:1px;">Siempre listos</p>
-      <span class="footer-copy">&copy; 2025 Grupo Scout 51 — Asociación de Scouts de México, A.C.</span>
-    </footer>
+    </div>
+  </div>
+</section>
 
-    <!-- Initialize Lucide Icons -->
-    <script>
-        lucide.createIcons();
-    </script>
+<!-- PILARES -->
+<section class="sec lh-pillars" data-screen-label="04 Pilares" data-layout="grid">
+  <div class="sec-pattern"></div>
+  <div class="sec-inner reveal">
+    <div class="lh-pillars-head">
+      <div>
+        <span class="ey" data-tw="pillarsEy">Lo que hacemos</span>
+        <h2><span data-tw="pillarsTitle">Cuatro pilares,<br/></span><em data-tw="pillarsTitleAccent">un solo juego</em></h2>
+      </div>
+      <span class="layout-label">— Layout: <span data-layout-label>Grid</span> —</span>
+    </div>
+    <div class="lh-pillars-list">
+      <div class="pillar">
+        <span class="num">01</span>
+        <div class="ic-wrap"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="20" r="6"/><circle cx="32" cy="20" r="6"/><path d="M10 38 Q 24 28 38 38"/></svg></div>
+        <h4 data-tw="p1H">Juego con propósito</h4>
+        <p data-tone-toggle><span data-tone="epic">Cada juego enseña algo: trabajar en equipo, respetar turnos, cuidar a los demás. El método scout dice que se aprende mejor cuando se aprende jugando.</span><span data-tone="direct" hidden>Cada juego tiene un para qué. Aprendes a esperar tu turno, a confiar en tu compañero, a perder sin enojarte. Suena básico — pero es lo que falta a los 30.</span></p>
+      </div>
+      <div class="pillar">
+        <span class="num">02</span>
+        <div class="ic-wrap"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 40 L24 12 L40 40 Z M18 32 L30 32"/></svg></div>
+        <h4 data-tw="p2H">Naturaleza</h4>
+        <p data-tone-toggle><span data-tone="epic">Salidas al bosque, caminatas, observación de plantas y animales. Aprender a moverse en el campo sin miedo y sin daño.</span><span data-tone="direct" hidden>Salidas al campo casi cada mes. Aprendes a caminar con tu mochila, a reconocer plantas, a no asustarte con un insecto.</span></p>
+      </div>
+      <div class="pillar">
+        <span class="num">03</span>
+        <div class="ic-wrap"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 38 L24 14 L42 38 Z M16 30 L32 30 M24 14 L24 38"/></svg></div>
+        <h4 data-tw="p3H">Primer campamento</h4>
+        <p data-tone-toggle><span data-tone="epic">El primer campamento es uno de los recuerdos más importantes del escultismo. Aprender a armar la carpa, a cocinar al fuego, a dormir bajo las estrellas con los amigos.</span><span data-tone="direct" hidden>El primer campamento — el que se acuerda 20 años después. Armas tu carpa, cocinas tu cena, te bañas en agua fría y duermes con los amigos.</span></p>
+      </div>
+      <div class="pillar">
+        <span class="num">04</span>
+        <div class="ic-wrap"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="14" r="4"/><path d="M16 38 L20 22 L28 22 L32 38 M20 28 L 28 28"/></svg></div>
+        <h4 data-tw="p4H">Hacer por uno mismo</h4>
+        <p data-tone-toggle><span data-tone="epic">Atarse las agujetas, doblar la ropa, lavar la taza después de comer. Pequeñas autonomías que se vuelven el carácter adulto.</span><span data-tone="direct" hidden>Hacer la cama, lavar tu plato, atarse las agujetas. Cosas chicas que los padres terminan haciendo en casa — aquí las hacen ellos.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="sec lh-gallery" data-screen-label="05 Galería" data-layout="mosaic">
+  <div class="sec-pattern"></div>
+  <div class="sec-inner reveal">
+    <span class="ey" data-tw="galleryEy">La manada en imágenes</span>
+    <h2><span data-tw="galleryTitle">Sábados<br/></span><em data-tw="galleryTitleAccent">en la selva</em></h2>
+    <div class="lh-gallery-grid">
+      <div style="background-image:url('assets/manadas-1.jpeg')"></div>
+      <div style="background-image:url('assets/manadas-3.jpeg')"></div>
+      <div style="background-image:url('assets/manadas-5.jpeg')"></div>
+      <div style="background-image:url('assets/manadas-6.jpeg')"></div>
+      <div style="background-image:url('assets/manadas-7.jpg')"></div>
+      <div style="background-image:url('assets/manadas-8.jpg')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- HORARIO -->
+<section class="lh-horario" data-screen-label="06 Horario">
+  <div class="lh-horario-card reveal">
+    <span class="ey" data-tw="horarioEy">Cuándo nos vemos</span>
+    <h3 data-tw="horarioH">Sábados<br/>16:00 — 19:45 hrs</h3>
+    <p data-tw="horarioP">Parque Luis Barragán · Jardines del Pedregal · CDMX</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="lh-cta" data-screen-label="07 CTA">
+  <span class="ey" data-tw="ctaEy">Únete a la manada</span>
+  <h2><span data-tw="ctaTitle">¿Tu hijo o hija<br/>tiene 7—11 años?<br/></span><em data-tw="ctaTitleAccent">Escríbenos</em></h2>
+  <p data-tw="ctaP">Te esperamos cualquier sábado. No necesitan experiencia ni uniforme la primera vez.</p>
+  <a href="https://wa.me/525530310438" class="btn btn-wa btn-lg">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+    Escríbenos por WhatsApp
+  </a>
+</section>
+
+<footer data-footer></footer>
+<script src="assets/shared.js"></script>
+
+<script>
+(function(){
+  const layers = document.querySelectorAll('.lh-hero [data-parallax]');
+  if (layers.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let raf;
+    window.addEventListener('scroll', () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        layers.forEach(el => {
+          const speed = parseFloat(el.dataset.parallax) || 0.2;
+          el.style.setProperty('--py', (y * speed) + 'px');
+        });
+        raf = null;
+      });
+    }, { passive: true });
+  }
+
+  const pens = document.querySelectorAll('.pen');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.05 });
+  pens.forEach(p => io.observe(p));
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.lh-hero .pen').forEach(p => p.classList.add('in'));
+  });
+
+  window.__lahinisApplyTone = (tone) => {
+    document.querySelectorAll('[data-tone-toggle] [data-tone]').forEach(el => {
+      el.hidden = (el.dataset.tone !== tone);
+    });
+  };
+  window.__lahinisApplyPillars = (mode) => {
+    const sec = document.querySelector('.lh-pillars');
+    if (!sec) return;
+    sec.dataset.layout = mode;
+    const lbl = sec.querySelector('[data-layout-label]');
+    if (lbl) lbl.textContent = ({grid:'Grid', list:'Lista', zigzag:'Zigzag'}[mode] || mode);
+  };
+  window.__lahinisApplyGallery = (mode) => {
+    const sec = document.querySelector('.lh-gallery');
+    if (!sec) return;
+    sec.dataset.layout = mode;
+  };
+  window.__lahinisApplyDensity = (val) => {
+    document.documentElement.style.setProperty('--density', val);
+  };
+  window.__lahinisApplyMotion = (on) => {
+    document.documentElement.style.setProperty('--motion', on ? 1 : 0);
+    document.body.classList.toggle('no-motion', !on);
+  };
+})();
+</script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="assets/tweaks-panel.jsx"></script>
+<script type="text/babel" src="assets/lahinis-tweaks.jsx"></script>
 </body>
 </html>

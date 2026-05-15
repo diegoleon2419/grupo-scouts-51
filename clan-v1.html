@@ -95,11 +95,6 @@ body { background: var(--cl-deep); color: var(--cl-bone); }
 /* === ACTIVIDADES — 3 col === */
 .cl-acts { background: var(--cl-bg); }
 .cl-acts-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
-.cl-acts[data-layout="list"] .cl-acts-grid { display:flex; flex-direction:column; gap:0; max-width:880px; margin:56px auto 0; }
-.cl-acts[data-layout="list"] .cl-act { border-top:1px solid rgba(200,146,60,0.25); border-radius:0; padding:32px 0; background:transparent; display:grid; grid-template-columns:80px 1fr; gap:32px; align-items:start; }
-.cl-acts[data-layout="list"] .cl-act .ic { display:none; }
-.cl-gallery[data-layout="ribbon"] .cl-gallery-grid { display:flex; gap:12px; overflow-x:auto; grid-template-columns:none; grid-auto-rows:auto; padding:24px 0; }
-.cl-gallery[data-layout="ribbon"] .cl-gallery-grid > div { flex:0 0 60%; aspect-ratio:4/5; min-width:320px; grid-column:auto !important; grid-row:auto !important; }
 .cl-act { padding: 40px 32px; background: var(--cl-card); border-top: 3px solid var(--cl-fire); border-radius: 4px; position:relative; }
 .cl-act .num { font-family: 'IM Fell English SC', serif; font-style: italic; font-size: 48px; color: var(--cl-ocre); display: block; line-height:1; }
 .cl-act .ic { width: 44px; height:44px; color: var(--cl-bone); margin: 12px 0 16px; }
@@ -165,10 +160,10 @@ body { background: var(--cl-deep); color: var(--cl-bone); }
 
   <div class="cl-hero-inner">
     <div class="crest"></div>
-    <span class="ey" data-tw="heroEyebrow">Comunidad Rover · 18+ años</span>
-    <h1><span data-tw="heroTitle1">El</span><br/><span class="fire" data-tw="heroTitleFire">Clan</span><br/><span data-tw="heroTitle2">Rover</span></h1>
-    <p class="lead" data-tw="heroLead">La última etapa del camino scout. La que se hace en torno al fuego, entre iguales que ya saben para qué están aquí. Mixto, autónomo, y al servicio de las demás secciones.</p>
-    <p class="saying" data-tw="heroSaying">El Clan es del Clan<br/>y para el Clan.</p>
+    <span class="ey">Comunidad Rover · 18+ años</span>
+    <h1>El<br/><span class="fire">Clan</span><br/>Rover</h1>
+    <p class="lead">La última etapa del camino scout. La que se hace en torno al fuego, entre iguales que ya saben para qué están aquí. Mixto, autónomo, y al servicio de las demás secciones.</p>
+    <p class="saying">El Clan es del Clan<br/>y para el Clan.</p>
     <div class="meta">
       <div class="mi"><strong>18+</strong><span>Edad</span></div>
       <div class="mi"><strong>Entre semana</strong><span>Juntas propias</span></div>
@@ -182,10 +177,10 @@ body { background: var(--cl-deep); color: var(--cl-bone); }
     <img src="assets/clan-2.jpg" alt="Clan Rover">
     <div>
       <span class="ey">El Clan</span>
-      <h2><span data-tw="queTitle">La última</span><br/><span data-tw="queTitleAccent">etapa</span><span style="display:block; font-family:'Oswald',sans-serif; font-size:0.32em; letter-spacing:0.18em; text-transform:uppercase; color:var(--cl-fire); margin-top:14px; font-weight:700" data-tw="queTitleSub">— Y la primera de jefe —</span></h2>
-      <p data-tw="queP1">El Clan es la rama mixta del grupo. Reúne a quienes han recorrido todo el sendero scout y siguen aquí porque encontraron algo que vale la pena: una comunidad de iguales que decide su propio rumbo.</p>
-      <p style="margin-top:18px" data-tw="queP2">Es también la antesala de la jefatura. Muchos de los jefes del grupo hicieron Clan antes de tomar una sección — no porque fuera obligatorio, sino porque el Clan forma justo a quien va a guiar a otros.</p>
-      <blockquote data-tw="queQuote">El Clan es del Clan y para el Clan.</blockquote>
+      <h2>La última<br/>etapa<span style="display:block; font-family:'Oswald',sans-serif; font-size:0.32em; letter-spacing:0.18em; text-transform:uppercase; color:var(--cl-fire); margin-top:14px; font-weight:700">— Y la primera de jefe —</span></h2>
+      <p>El Clan es la rama mixta del grupo. Reúne a quienes han recorrido todo el sendero scout y siguen aquí porque encontraron algo que vale la pena: una comunidad de iguales que decide su propio rumbo.</p>
+      <p style="margin-top:18px">Es también la antesala de la jefatura. Muchos de los jefes del grupo hicieron Clan antes de tomar una sección — no porque fuera obligatorio, sino porque el Clan forma justo a quien va a guiar a otros.</p>
+      <blockquote>El Clan es del Clan y para el Clan.</blockquote>
     </div>
   </div>
 </section>
@@ -213,9 +208,9 @@ body { background: var(--cl-deep); color: var(--cl-bone); }
     </div>
     <div>
       <span class="ey">La mística</span>
-      <h2><span data-tw="misticaTitle">El Clan del</span><br/><span class="fire" data-tw="misticaTitleAccent">Oso Cavernario</span></h2>
+      <h2>El Clan del<br/><span class="fire">Oso<br/>Cavernario</span></h2>
       <p class="ey-line">— Pintado en piedra, transmitido al fuego —</p>
-      <p style="margin-top: 24px" data-tw="misticaP">El oso cavernario es el animal totémico del Clan: solitario cuando hace falta, pero poderoso cuando se reúne con los suyos en torno al fuego. La cueva es su territorio común — un lugar de refugio, de transmisión, de decisiones tomadas entre iguales.</p>
+      <p style="margin-top: 24px">El oso cavernario es el animal totémico del Clan: solitario cuando hace falta, pero poderoso cuando se reúne con los suyos en torno al fuego. La cueva es su territorio común — un lugar de refugio, de transmisión, de decisiones tomadas entre iguales.</p>
 
       <div class="traits">
         <div class="trait">
@@ -238,25 +233,25 @@ body { background: var(--cl-deep); color: var(--cl-bone); }
 <section class="sec cl-acts" data-screen-label="04 Actividades">
   <div class="sec-inner reveal">
     <span class="ey">Cómo trabaja el Clan</span>
-    <h2><span data-tw="actsTitle">Tres frentes</span><br/><span class="fire" data-tw="actsTitleAccent">a la vez</span></h2>
+    <h2>Tres frentes<br/><span class="fire">a la vez</span></h2>
     <div class="cl-acts-grid">
       <div class="cl-act">
         <span class="num">I.</span>
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="14"/><path d="M24 14 L24 24 L31 28 M16 16 L18 18 M30 16 L32 18 M16 32 L18 30 M30 32 L32 30"/></svg>
-        <h4 data-tw="act1H">Juntas entre semana</h4>
-        <p data-tw="act1P">El Clan se reúne entre semana para sus propios proyectos. Ahí planea, conversa, decide y formula. El sábado es de las secciones; entre semana, del Clan.</p>
+        <h4>Juntas entre semana</h4>
+        <p>El Clan se reúne entre semana para sus propios proyectos. Ahí planea, conversa, decide y formula. El sábado es de las secciones; entre semana, del Clan.</p>
       </div>
       <div class="cl-act">
         <span class="num">II.</span>
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 38 L24 14 L42 38 Z M14 38 L34 38 L34 30 L14 30 Z M22 38 L22 32 L26 32 L26 38"/></svg>
-        <h4 data-tw="act2H">Campamentos exclusivos</h4>
-        <p data-tw="act2P">Salidas propias, distintas a las del resto del grupo. Trekking largo, montañismo, exploraciones, retiros. El Clan camina más lejos y carga su propia mochila.</p>
+        <h4>Campamentos exclusivos</h4>
+        <p>Salidas propias, distintas a las del resto del grupo. Trekking largo, montañismo, exploraciones, retiros. El Clan camina más lejos y carga su propia mochila.</p>
       </div>
       <div class="cl-act">
         <span class="num">III.</span>
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 40 L8 22 L16 18 L16 40 M16 40 L16 26 L24 22 L24 40 M24 40 L24 18 L32 14 L32 40 M32 40 L32 26 L40 22 L40 40"/></svg>
-        <h4 data-tw="act3H">Apoyo a secciones</h4>
-        <p data-tw="act3P">Los sábados, los Rovers acompañan a Manada, Tropa y Comunidad — apoyando a los jefes, ayudando con actividades, sirviendo donde haga falta.</p>
+        <h4>Apoyo a secciones</h4>
+        <p>Los sábados, los Rovers acompañan a Manada, Tropa y Comunidad — apoyando a los jefes, ayudando con actividades, sirviendo donde haga falta.</p>
       </div>
     </div>
   </div>
@@ -266,9 +261,9 @@ body { background: var(--cl-deep); color: var(--cl-bone); }
   <div class="sec-inner cl-gran-grid reveal">
     <div>
       <span class="ey">Cada tres años</span>
-      <h2><span data-tw="granTitle">El Gran</span><br/><span class="fire" data-tw="granTitleAccent">Servicio</span></h2>
-      <p style="margin-top:24px" data-tw="granP1">Una vez cada tres años, el Clan organiza un proyecto de servicio de gran escala — concebido, planeado, financiado y ejecutado enteramente por sus integrantes. No hay supervisión externa: es el examen final de lo aprendido en quince años de escultismo.</p>
-      <p style="margin-top:18px" data-tw="granP2">Comunidades rurales, intervenciones ecológicas, infraestructura social. El Gran Servicio es la marca que cada generación de Clan deja antes de cerrar la rama.</p>
+      <h2>El Gran<br/><span class="fire">Servicio</span></h2>
+      <p style="margin-top:24px">Una vez cada tres años, el Clan organiza un proyecto de servicio de gran escala — concebido, planeado, financiado y ejecutado enteramente por sus integrantes. No hay supervisión externa: es el examen final de lo aprendido en quince años de escultismo.</p>
+      <p style="margin-top:18px">Comunidades rurales, intervenciones ecológicas, infraestructura social. El Gran Servicio es la marca que cada generación de Clan deja antes de cerrar la rama.</p>
     </div>
     <div class="stat-block">
       <span class="three">III</span>
@@ -293,8 +288,8 @@ body { background: var(--cl-deep); color: var(--cl-bone); }
 
 <section class="cl-cta" data-screen-label="07 CTA">
   <span class="ey">Únete al Clan</span>
-  <h2 style="margin-top:16px"><span data-tw="ctaTitle">¿Tienes 18 años o más?</span><br/><span class="fire" data-tw="ctaTitleAccent">Escríbenos</span></h2>
-  <p data-tw="ctaP">Si llegas con o sin experiencia scout, hay lugar en torno al fuego. Te esperamos cualquier sábado.</p>
+  <h2 style="margin-top:16px">¿Tienes 18 años<br/>o más? <span class="fire">Escríbenos</span></h2>
+  <p>Si llegas con o sin experiencia scout, hay lugar en torno al fuego. Te esperamos cualquier sábado.</p>
   <a href="https://wa.me/525530310438" class="btn btn-wa btn-lg">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
     Escríbenos por WhatsApp
@@ -303,10 +298,5 @@ body { background: var(--cl-deep); color: var(--cl-bone); }
 
 <footer data-footer></footer>
 <script src="assets/shared.js"></script>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="assets/tweaks-panel.jsx"></script>
-<script type="text/babel" src="assets/clan-tweaks.jsx"></script>
 </body>
 </html>

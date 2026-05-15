@@ -1,0 +1,284 @@
+================================================================
+GRUPO SCOUT 51 — SISTEMA DE DISEÑO Y ESTRUCTURA DE PÁGINAS
+Versión: Abril 2026
+================================================================
+
+
+----------------------------------------------------------------
+PARTE 1: SISTEMA GLOBAL DE DISEÑO
+----------------------------------------------------------------
+
+TIPOGRAFÍA
+- Títulos y headings: Oswald 700 — uppercase, tracking amplio
+- Cuerpo y navegación: Manrope 400–600
+- Datos técnicos, coordenadas, eyebrows: JetBrains Mono
+- Regla: nunca más de dos familias visibles al mismo tiempo en pantalla
+
+PALETA BASE — aplica a todas las páginas
+- Fondo principal:   #0D0D0D  (negro profundo)
+- Texto principal:   #FFFFFF  (blanco)
+- Acento primario:   #BE1A2D  (rojo) — eyebrows, bordes, detalles
+- CTA único:         #F5C500  (dorado) — botón ÚNETE y WhatsApp
+- Fondo alterno:     #1A1A1A  (gris oscuro) — tarjetas y secciones
+- Fondo claro:       #F8F7F4  (off-white) — secciones de descanso visual
+- WhatsApp:          #25D366  (verde) — exclusivo para ese botón
+
+ESPACIADO
+- Padding lateral desktop: 48px mínimo
+- Padding lateral móvil: 20px
+- Separación entre secciones: 80px desktop / 48px móvil
+- Max-width del contenido: 1280px centrado
+
+ELEMENTOS DECORATIVOS GLOBALES
+- Líneas de contorno topográfico: opacity 4–6%, solo en fondos oscuros
+- Coordenadas decorativas: 19°21'N 99°12'W (Parque Luis Barragán)
+- Eyebrows: siempre en JetBrains Mono, uppercase, con línea horizontal 
+  de 32px antes, color rojo #BE1A2D
+- Border-radius: máximo 3px en botones, 8px en tarjetas de foto
+- Bordes: siempre 1px, nunca más gruesos
+
+BOTONES
+- Primario:    fondo dorado #F5C500 / texto negro / Oswald 700 / uppercase
+- Secundario:  sin fondo / borde blanco 1px / texto blanco
+- WhatsApp:    fondo #25D366 / texto blanco / ícono SVG
+- Todos terminan con flecha → al final del texto
+
+NAVBAR — idéntico en todas las páginas
+- Fondo: #0D0D0D con border-bottom 1px blanco a opacity 6%
+- Altura: 64px desktop / 56px móvil
+- Izquierda: logo circular del grupo (32px) + "GRUPO SCOUT 51" en Oswald
+- Centro: Nosotros / Lahinis / Sikas / Pioneros / Clan / Contacto
+- Derecha: botón dorado "ÚNETE →"
+- Móvil: hamburger menu, menú en pantalla completa oscura
+
+FOOTER — idéntico en todas las páginas
+- Fondo: #0D0D0D / border-top 1px blanco opacity 6%
+- Logo izquierda / links centro / copyright derecha
+- Segunda línea: "Asociación de Scouts de México A.C. · Parque Luis 
+  Barragán · CDMX"
+
+MÓVIL — reglas globales
+- Todo se apila verticalmente
+- Tarjetas de secciones: ancho completo, altura 320px
+- Botón de WhatsApp: fijo en la parte inferior de la pantalla
+- Tipografía: H1 máximo 40px, H2 máximo 32px
+
+
+----------------------------------------------------------------
+PARTE 2: PÁGINAS DEL SITIO
+----------------------------------------------------------------
+
+PÁGINA 1 — INICIO
+Propósito: punto de entrada para visitantes nuevos — jóvenes y papás
+Ambiente visual: mapa y sendero nocturno, oscuro, aventurero
+
+Secciones en orden:
+1. Navbar
+2. Hero — foto real del grupo, overlay oscuro, H1 "Formamos líderes 
+   que cambian el mundo", eyebrow "DESDE 1957 · 19°21'N 99°12'W", 
+   dos botones: WhatsApp y "Conoce las secciones →"
+3. Stats bar — pegada al fondo del hero: 1957 FUNDACIÓN / 140+ 
+   MIEMBROS / 4 SECCIONES / SÁB 16:00–19:45
+4. Secciones — 4 tarjetas en fila con foto real, nombre, edad y flecha. 
+   Hover: zoom suave en la foto. Cada tarjeta lleva a su página
+5. Quiénes somos — fondo claro #F8F7F4, dos columnas: texto con historia 
+   breve y frase "De jóvenes, para jóvenes" / collage de 4 fotos
+6. Valores — fondo rojo #BE1A2D, 3 bloques: Servicio / Compromiso / 
+   Aventura, con ícono SVG y texto
+7. Horarios — fondo oscuro, tabla: sección / horario / edad
+8. CTA final — foto de campamento de fondo, H2 "La aventura empieza 
+   aquí", botón WhatsApp grande
+9. Footer
+
+---
+
+PÁGINA 2 — NOSOTROS
+Propósito: para el papá o joven que quiere entender el grupo antes 
+de inscribirse
+Ambiente visual: institucional oscuro, acentos rojos más presentes
+
+Secciones en orden:
+1. Navbar
+2. Hero — foto grupal, H1 "Un grupo de jóvenes, para jóvenes", 
+   eyebrow con año de fundación
+3. Historia — fondo claro, dos columnas: texto de fundación 1957 
+   (Misioneros del Espíritu Santo, Padre Luis Cervantes) / foto histórica
+4. Misión / Visión / Objetivo — fondo oscuro, 3 bloques apilados con 
+   número en mono, título en Oswald y borde izquierdo rojo 3px
+5. Cómo funcionamos — Consejo / Comité / Vocales, explicación simple
+6. Cómo formamos jefes — jefes de 19–24 años, proceso de selección, 
+   genera confianza en papás
+7. Nuestro local — foto del Parque Luis Barragán, dirección, mapa 
+   embebido de Google Maps
+8. CTA — botón WhatsApp "Ven a conocernos →"
+9. Footer
+
+---
+
+PÁGINA 3 — LAHINIS Y LOBATOS
+Propósito: presentar la primera sección a niños de 7–11 años y sus papás
+Ambiente visual: selva profunda nocturna
+
+Color dominante: azul marino #1A237E + amarillo
+Textura: vegetación densa, hojas grandes, verde profundo
+Decorativo: siluetas de Akela, Baloo y Bagheera como ilustraciones 
+de tinta en los márgenes, muy sutiles
+
+Secciones en orden:
+1. Navbar
+2. Hero — foto de la sección, nombre "LAHINIS Y LOBATOS", 
+   edad "7 — 11 AÑOS", fondo con textura de selva oscura
+3. Qué es — descripción de la sección, texto original del sitio
+4. La mística — El Libro de la Selva: Akela, Raksha, Baloo, Bagheera, 
+   Shada. Explicación de cómo viven la fantasía de la selva como 
+   herramienta de juego y aprendizaje
+5. Actividades — Campamentos / Juegos / Trabajo en equipo. 
+   3 bloques con ícono y texto
+6. Galería — 4 a 6 fotos reales de la sección
+7. Horario — Sábados 16:00–19:45 hrs / 7–11 años
+8. CTA — "¿Tienes entre 7 y 11 años? Escríbenos →" → WhatsApp
+9. Footer
+
+---
+
+PÁGINA 4 — SIKAS Y CENTINELAS
+Propósito: presentar la sección a jóvenes de 11–14 años y sus papás
+Ambiente visual: dos místicas que conviven — el cielo nocturno estelar 
+de las constelaciones y la piedra medieval de los Caballeros de la Mesa 
+Redonda. El resultado es un castillo observando las estrellas: piedra 
+oscura, arcos góticos, y sobre ellos un cielo lleno de constelaciones.
+
+Color dominante: azul royal #1565C0 + gris piedra #2C3E50
+Textura: dos capas que se combinan —
+  Capa 1 (fondo): cielo nocturno profundo con mapa estelar, puntos y 
+  líneas de constelación en blanco a opacity 10–20%
+  Capa 2 (decorativo medieval): arcos de piedra, escudos, líneas de 
+  vitrales góticos muy sutiles en los bordes — como si el contenido 
+  estuviera dentro de un castillo abierto al cielo
+
+Decorativo — Constelaciones:
+  - Draco — constelación del dragón
+  - Andrómeda — galaxia y constelación  
+  - Casiopeia — la W característica
+  Aparecen como mapas estelares precisos: puntos (estrellas) y líneas 
+  de conexión en blanco, opacity 15–20%, en el hero y sección de mística
+
+Decorativo — Mesa Redonda:
+  - Silueta de la mesa redonda vista desde arriba como elemento gráfico 
+    central en la sección de mística de Centinelas
+  - Motivos de escudo y espada en los bordes, estilo grabado en piedra, 
+    muy sutiles (opacity 8–12%)
+  - Tipografía de los títulos de Centinelas puede incorporar serifas 
+    o elementos góticos leves para diferenciarse de Sikas
+
+La página presenta las dos ramas con identidad propia dentro de la 
+misma página: Sikas → constelaciones / Centinelas → Mesa Redonda. 
+Visualmente unificadas por el color azul royal y el fondo nocturno.
+
+Secciones en orden:
+1. Navbar
+2. Hero — foto de la sección, nombre "SIKAS Y CENTINELAS", 
+   edad "11 — 14 AÑOS", fondo azul nocturno con constelaciones visibles 
+   y sutil textura de piedra en los bordes
+3. Qué es — descripción: autoconocimiento, independencia, técnica scout
+4. La mística: Sikas — Las constelaciones: Draco, Andrómeda y Casiopeia. 
+   Mapa estelar decorativo como elemento visual principal. Explicación 
+   de cómo las constelaciones guían la identidad de la rama
+5. La mística: Centinelas — Los Caballeros de la Mesa Redonda. 
+   Silueta de la mesa redonda como elemento visual. Explicación de los 
+   valores de caballería aplicados al escultismo
+6. Actividades — Patrullas / Campamentos / Técnicas scout / Servicio. 
+   4 bloques con ícono y texto
+7. Objetivos — Liderazgo / Iniciativa / Trabajo en equipo / Resiliencia
+8. Galería — 4 a 6 fotos reales de la sección
+9. Horario — Sábados 16:00–19:45 hrs / 11–14 años
+10. CTA — "¿Tienes entre 11 y 14 años? Escríbenos →" → WhatsApp
+11. Footer
+
+---
+
+PÁGINA 5 — PIONEROS Y PIONERAS
+Propósito: presentar la sección a jóvenes de 14–18 años
+Ambiente visual: bosque nórdico nocturno, expedición vikinga/celta
+
+Color dominante: rojo oscuro #7B1A1A + madera oscura
+Textura: madera, piedra tallada, bosque denso de noche
+Decorativo: runas vikingas y símbolos celtas en los bordes, muy sutiles. 
+Pioneros → mitología vikinga / Pioneras → mitología celta. 
+Ambos conviven en la misma sección con elementos de cada uno
+
+Secciones en orden:
+1. Navbar
+2. Hero — foto de la sección, nombre "PIONEROS Y PIONERAS", 
+   edad "14 — 18 AÑOS"
+3. Qué es — mayor autonomía, liderazgo real, proyectos de gran alcance
+4. La mística — Pioneros: mitología vikinga / Pioneras: mitología celta. 
+   Breve descripción de cada una y cómo inspiran las actividades
+5. Actividades — Proyectos grandes / Campamentos de supervivencia / 
+   Construcciones / Excursiones culturales y ecológicas
+6. Servicio — proyectos sociales de alto impacto cada año
+7. Galería — 4 a 6 fotos reales
+8. Horario — Sábados 16:00–19:45 hrs / 14–18 años
+9. CTA — "¿Tienes entre 14 y 18 años? Escríbenos →" → WhatsApp
+10. Footer
+
+---
+
+PÁGINA 6 — CLAN
+Propósito: presentar la última etapa a mayores de 18 años
+Ambiente visual: cueva primitiva, fuego, prehistórico
+
+Color dominante: café tierra #3E2723 + ocre + naranja fuego
+Textura: roca, tierra, marcas en piedra
+Decorativo: huellas de oso cavernario, marcas primitivas talladas en 
+piedra, luz cálida de fuego desde el centro
+
+Secciones en orden:
+1. Navbar
+2. Hero — foto del Clan, nombre "CLAN", edad "18+ AÑOS"
+3. Qué es — última etapa, rama mixta, preparación para ser jefe o jefa. 
+   "El Clan es del Clan y para el Clan"
+4. La mística — El Clan del Oso Cavernario. Descripción y cómo 
+   define la dinámica interna
+5. Actividades — Juntas entre semana / Campamentos exclusivos / 
+   Apoyo a otras ramas los sábados
+6. El gran servicio — cada 3 años, organizado enteramente por el Clan
+7. Galería — 4 a 6 fotos reales
+8. CTA — "¿Tienes 18 años o más? Escríbenos →" → WhatsApp
+9. Footer
+
+---
+
+PÁGINA 7 — CONTACTO
+Propósito: el visitante ya quiere unirse — quitarle todos los obstáculos
+Ambiente visual: la más simple del sitio, fondo oscuro, datos claros
+
+Secciones en orden:
+1. Navbar
+2. Título — "Ven cualquier sábado"
+3. WhatsApp — botón grande y obvio, número visible: 55 3031 0438
+4. Datos de contacto:
+   - Email: jefaturadegrupo51@gmail.com
+   - Instagram: @gruposcout51
+   - Facebook: @Scouts51
+   - Teléfono alterno: 55 4876 1332
+5. Horarios — Sábados 16:00 a 19:45 hrs
+6. Ubicación — Parque Luis Barragán, Jardines del Pedregal, CDMX. 
+   Mapa embebido de Google Maps
+7. Footer
+
+---
+
+REGLAS GLOBALES DE CONTENIDO
+- Navbar y Footer idénticos en todas las páginas
+- Botón de WhatsApp presente en todas las páginas
+- Sin formularios de contacto — solo WhatsApp directo
+- Cada página funciona sola si alguien llega desde Google
+- Máximo 8 secciones por página
+- Solo contenido del sitio original — sin texto inventado
+- Sin emojis — íconos SVG cuando sea necesario
+- Idioma: español de México
+
+================================================================
+FIN DEL DOCUMENTO
+================================================================

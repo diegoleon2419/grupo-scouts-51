@@ -18,14 +18,8 @@
   --pn-amber: #C8923C;       /* ámbar de fuego */
   --pn-bone: #E8DBC3;         /* hueso/parchemín */
   --pn-rune: #D4A968;
-  --density: 1;
-  --motion: 1;
 }
 body { background: var(--pn-deep); color: var(--pn-bone); }
-.no-motion .ember, .no-motion *[data-motion] { animation: none !important; }
-.pn-hero .embers { opacity: calc(var(--motion)); }
-.pn-hero .runes-side { opacity: calc(0.18 * var(--density)); }
-.wood-grain { opacity: calc(0.6 * var(--density)); }
 .fraktur { font-family: 'UnifrakturCook', serif; }
 
 /* Wood grain texture as repeating subtle gradient */
@@ -114,20 +108,7 @@ body { background: var(--pn-deep); color: var(--pn-bone); }
 
 /* === ACTIVIDADES === */
 .pn-acts { background: var(--pn-bg); }
-.pn-acts-head { display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
-.pn-acts-head .layout-label { font-family: var(--mono); font-size: 11px; letter-spacing: 3px; color: var(--pn-amber); text-transform: uppercase; opacity: 0.7; }
-.pn-acts[data-layout="grid"] .pn-acts-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 56px; background: rgba(212,169,104,0.2); border:1px solid rgba(212,169,104,0.2); }
-.pn-acts[data-layout="list"] .pn-acts-grid { display:flex; flex-direction:column; max-width: 980px; margin: 56px auto 0; }
-.pn-acts[data-layout="list"] .pn-act { display:grid; grid-template-columns: 80px 1fr; gap: 40px; padding: 32px 0; border-top: 1px solid rgba(212,169,104,0.25); background: transparent; align-items: start; }
-.pn-acts[data-layout="list"] .pn-act:last-child { border-bottom: 1px solid rgba(212,169,104,0.25); }
-.pn-acts[data-layout="list"] .pn-act .ic { display:none; }
-.pn-acts[data-layout="list"] .pn-act .num { font-size: 56px; }
-.pn-acts[data-layout="list"] .pn-act h4 { font-size: 26px; }
-.pn-acts[data-layout="zigzag"] .pn-acts-grid { display:flex; flex-direction:column; gap: 24px; margin-top: 56px; max-width: 1100px; margin-left:auto; margin-right:auto; }
-.pn-acts[data-layout="zigzag"] .pn-act { display:grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: center; border:1px solid rgba(212,169,104,0.25); border-radius: 6px; }
-.pn-acts[data-layout="zigzag"] .pn-act:nth-child(even) { direction: rtl; }
-.pn-acts[data-layout="zigzag"] .pn-act:nth-child(even) > * { direction: ltr; }
-.pn-acts[data-layout="zigzag"] .pn-act .ic { width: 64px; height:64px; margin: 0; }
+.pn-acts-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 56px; background: rgba(212,169,104,0.2); border:1px solid rgba(212,169,104,0.2); }
 .pn-act { background: var(--pn-card); padding: 40px 36px; }
 .pn-act .num { font-family: 'UnifrakturCook', serif; font-size: 38px; color: var(--pn-amber); display:block; }
 .pn-act .ic { width: 44px; height:44px; color: var(--pn-bone); margin: 16px 0; }
@@ -145,10 +126,7 @@ body { background: var(--pn-deep); color: var(--pn-bone); }
 
 /* === GALERÍA === */
 .pn-gallery { background: var(--pn-deep); }
-.pn-gallery[data-layout="mosaic"] .pn-gallery-grid { display:grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 180px; gap: 6px; margin-top: 48px; }
-.pn-gallery[data-layout="ribbon"] .pn-gallery-grid { display:flex; gap: 12px; overflow-x: auto; padding: 48px 0 24px; scroll-snap-type: x mandatory; margin-top: 0; }
-.pn-gallery[data-layout="ribbon"] .pn-gallery-grid > div { flex: 0 0 60%; aspect-ratio: 4/5; scroll-snap-align: start; min-width: 320px; grid-column: auto !important; grid-row: auto !important; }
-.pn-gallery-grid-legacy { display:grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 180px; gap: 6px; margin-top: 48px; }
+.pn-gallery-grid { display:grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 180px; gap: 6px; margin-top: 48px; }
 .pn-gallery-grid > div { background-size: cover; background-position: center; border-radius: 4px; filter: brightness(0.88) saturate(0.85) sepia(0.05); border:1px solid rgba(212,169,104,0.2); }
 .pn-gallery-grid > div:nth-child(1){grid-column:span 4; grid-row:span 2;}
 .pn-gallery-grid > div:nth-child(2){grid-column:span 2;}
@@ -223,13 +201,13 @@ body { background: var(--pn-deep); color: var(--pn-bone); }
     <div class="crests">
       <div class="crest crest-1"></div>
     </div>
-    <span class="ey" data-tw="heroEy">Comunidad Scout · 14 — 18 años</span>
-    <h1><span data-tw="heroTitle1">Pioneros</span><br/><span class="amp" data-tw="heroAmp">y</span> <span data-tw="heroTitle2">Pioneras</span><span class="sub" data-tw="heroSub">— Expedición sin retorno —</span></h1>
-    <p class="lead" data-tone-toggle><span data-tone="epic">La edad en que se elige el camino propio. Aquí los proyectos son grandes, las decisiones son tuyas, y la cordada — esa cuerda que ata a los compañeros de expedición — la formas tú.</span><span data-tone="direct" hidden>14 a 18 años. Planeas, ejecutas y evalúas tus propios proyectos. Los jefes acompañan, no dirigen. Cordadas mixtas, empresas largas, servicio real.</span></p>
+    <span class="ey">Comunidad Scout · 14 — 18 años</span>
+    <h1>Pioneros<br/><span class="amp">y</span> Pioneras<span class="sub">— Expedición sin retorno —</span></h1>
+    <p class="lead">La edad en que se elige el camino propio. Aquí los proyectos son grandes, las decisiones son tuyas, y la cordada — esa cuerda que ata a los compañeros de expedición — la formas tú.</p>
     <div class="meta">
-      <div class="mi"><strong data-tw="metaEdadV">14 — 18</strong><span data-tw="metaEdadL">Edad</span></div>
-      <div class="mi"><strong data-tw="metaDiaV">Sábado</strong><span data-tw="metaDiaL">16:00 — 19:45</span></div>
-      <div class="mi"><strong data-tw="metaProgV">Empresas</strong><span data-tw="metaProgL">Proyectos largos</span></div>
+      <div class="mi"><strong>14 — 18</strong><span>Edad</span></div>
+      <div class="mi"><strong>Sábado</strong><span>16:00 — 19:45</span></div>
+      <div class="mi"><strong>Empresas</strong><span>Proyectos largos</span></div>
     </div>
   </div>
 </section>
@@ -237,10 +215,10 @@ body { background: var(--pn-deep); color: var(--pn-bone); }
 <section class="sec pn-que" data-screen-label="02 Qué es">
   <div class="sec-inner pn-que-grid reveal">
     <div>
-      <span class="ey" data-tw="queEy">La Comunidad</span>
-      <h2><span data-tw="queTitle">Autonomía<br/>real</span><span class="sub" data-tw="queSub">— Liderazgo de verdad —</span></h2>
-      <p data-tone-toggle><span data-tone="epic">La Comunidad de Pioneros y Pioneras es la sección donde los jóvenes asumen el control de sus propios proyectos. Aquí no hay actividades planeadas para ellos: las planean, las ejecutan y las evalúan ellos mismos.</span><span data-tone="direct" hidden>Aquí nadie planea por ti. La Comunidad decide qué hacer, cómo conseguir el dinero, cómo dividirse el trabajo. Los jefes están — detrás.</span></p>
-      <p style="margin-top:18px" data-tone-toggle><span data-tone="epic">Es la etapa de los proyectos de gran alcance — empresas de varios meses, expediciones, construcciones, servicio comunitario de impacto. Los jefes acompañan, pero el rumbo lo marcan los Pioneros.</span><span data-tone="direct" hidden>Empresas de tres a seis meses. Una expedición grande al año. Una construcción real. Un proyecto de servicio del que queda algo después.</span></p>
+      <span class="ey">La Comunidad</span>
+      <h2>Autonomía<br/>real<span class="sub">— Liderazgo de verdad —</span></h2>
+      <p>La Comunidad de Pioneros y Pioneras es la sección donde los jóvenes asumen el control de sus propios proyectos. Aquí no hay actividades planeadas para ellos: las planean, las ejecutan y las evalúan ellos mismos.</p>
+      <p style="margin-top:18px">Es la etapa de los proyectos de gran alcance — empresas de varios meses, expediciones, construcciones, servicio comunitario de impacto. Los jefes acompañan, pero el rumbo lo marcan los Pioneros.</p>
     </div>
     <img src="assets/pioneros-2.jpeg" alt="Pioneros y Pioneras">
   </div>
@@ -250,19 +228,19 @@ body { background: var(--pn-deep); color: var(--pn-bone); }
   <div class="wood-grain"></div>
   <div class="sec-inner">
     <div class="pn-mistica-head reveal">
-      <span class="ey" data-tw="misticaEy">La mística</span>
-      <h2><span data-tw="misticaTitle">Dos senderos,<br/></span><span class="blood" data-tw="misticaAccent">una misma cordada</span><span class="sub" data-tw="misticaSub">— Norte y Oeste —</span></h2>
-      <p data-tw="misticaP">La Comunidad bebe de dos mitologías que describen el mismo coraje desde dos costas distintas. Los Pioneros toman su mística de los relatos vikingos del norte: la expedición, la fuerza colectiva, el honor. Las Pioneras se nutren de la tradición celta del oeste: la conexión con la tierra, la sabiduría circular, la palabra que ata.</p>
+      <span class="ey">La mística</span>
+      <h2>Dos senderos,<br/><span class="blood">una misma cordada</span><span class="sub">— Norte y Oeste —</span></h2>
+      <p>La Comunidad bebe de dos mitologías que describen el mismo coraje desde dos costas distintas. Los Pioneros toman su mística de los relatos vikingos del norte: la expedición, la fuerza colectiva, el honor. Las Pioneras se nutren de la tradición celta del oeste: la conexión con la tierra, la sabiduría circular, la palabra que ata.</p>
     </div>
 
     <div class="pn-orders reveal">
       <div class="pn-order pio">
         <span class="corner-rune">ᚹ</span>
         <div class="badge"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8 L26 8 L20 24 L12 24 Z M16 8 L16 24"/></svg></div>
-        <span class="label" data-tw="pioLabel">Tradición del Norte</span>
-        <h3 data-tw="pioH">Pioneros</h3>
-        <span class="tag" data-tw="pioTag">Mitología vikinga</span>
-        <p data-tw="pioP">El drakkar parte cuando todos reman. La expedición vikinga no era un viaje solitario — era una empresa colectiva donde cada hombre tenía un puesto y una responsabilidad. Esa es la imagen que rige a los Pioneros: una tripulación, no un grupo.</p>
+        <span class="label">Tradición del Norte</span>
+        <h3>Pioneros</h3>
+        <span class="tag">Mitología vikinga</span>
+        <p>El drakkar parte cuando todos reman. La expedición vikinga no era un viaje solitario — era una empresa colectiva donde cada hombre tenía un puesto y una responsabilidad. Esa es la imagen que rige a los Pioneros: una tripulación, no un grupo.</p>
         <div class="symbols">
           <div class="sym">
             <span class="glyph"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 16 L26 16 M10 8 L6 16 L10 24 M22 8 L26 16 L22 24"/></svg></span>
@@ -282,10 +260,10 @@ body { background: var(--pn-deep); color: var(--pn-bone); }
       <div class="pn-order pia">
         <span class="corner-rune" style="font-size:42px">⚜</span>
         <div class="badge"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="12"/><path d="M16 4 L20 16 L16 28 L12 16 Z M4 16 L16 12 L28 16 L16 20 Z"/></svg></div>
-        <span class="label" data-tw="piaLabel">Tradición del Oeste</span>
-        <h3 data-tw="piaH">Pioneras</h3>
-        <span class="tag" data-tw="piaTag">Mitología celta</span>
-        <p data-tw="piaP">El círculo druídico: igualdad entre todas, palabra empeñada, conexión con la tierra. La tradición celta enseña que la fuerza no está en el primero del grupo, sino en la cadena que las une. Las Pioneras adoptan esa imagen del clan femenino que cuida sus raíces.</p>
+        <span class="label">Tradición del Oeste</span>
+        <h3>Pioneras</h3>
+        <span class="tag">Mitología celta</span>
+        <p>El círculo druídico: igualdad entre todas, palabra empeñada, conexión con la tierra. La tradición celta enseña que la fuerza no está en el primero del grupo, sino en la cadena que las une. Las Pioneras adoptan esa imagen del clan femenino que cuida sus raíces.</p>
         <div class="symbols">
           <div class="sym">
             <span class="glyph"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 4 Q 26 8 26 16 Q 26 24 16 28 Q 6 24 6 16 Q 6 8 16 4 M10 12 L22 20 M10 20 L22 12 M16 8 L16 24 M8 16 L24 16"/></svg></span>
@@ -305,38 +283,33 @@ body { background: var(--pn-deep); color: var(--pn-bone); }
   </div>
 </section>
 
-<section class="sec pn-acts" data-screen-label="04 Actividades" data-layout="grid">
+<section class="sec pn-acts" data-screen-label="04 Actividades">
   <div class="sec-inner reveal">
-    <div class="pn-acts-head">
-      <div>
-        <span class="ey" data-tw="actsEy">Empresas y aventuras</span>
-        <h2><span data-tw="actsTitle">Lo que hace<br/></span><span class="blood" data-tw="actsAccent">la comunidad</span><span class="sub" data-tw="actsSub">— Cuatro frentes —</span></h2>
-      </div>
-      <span class="layout-label">— Layout: <span data-layout-label>Grid</span> —</span>
-    </div>
+    <span class="ey">Empresas y aventuras</span>
+    <h2>Lo que hace<br/><span class="blood">la comunidad</span><span class="sub">— Cuatro frentes —</span></h2>
     <div class="pn-acts-grid">
       <div class="pn-act">
         <span class="num">I</span>
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 38 L24 14 L40 38 Z M14 38 L34 38 L34 28 L14 28 Z M22 38 L22 32 L26 32 L26 38"/></svg>
-        <h4 data-tw="act1H">Empresas grandes</h4>
+        <h4>Empresas grandes</h4>
         <p>Proyectos de varios meses con objetivos concretos. Construcciones, expediciones, talleres. La Comunidad lo planea entero — desde el presupuesto hasta el cierre.</p>
       </div>
       <div class="pn-act">
         <span class="num">II</span>
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 32 Q 24 16 40 32 M14 38 L20 32 M28 32 L34 38 M24 22 L24 16"/></svg>
-        <h4 data-tw="act2H">Supervivencia</h4>
+        <h4>Supervivencia</h4>
         <p>Campamentos donde se duerme bajo lo que tú construiste, comes lo que tú cocinaste, navegas con lo que tú leíste. Aprender que no necesitas tanto como crees.</p>
       </div>
       <div class="pn-act">
         <span class="num">III</span>
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 40 L8 18 L18 14 L18 40 M18 40 L18 22 L40 22 L40 40 Z M24 28 L24 40 M30 28 L30 40 M36 28 L36 40"/></svg>
-        <h4 data-tw="act3H">Construcciones</h4>
+        <h4>Construcciones</h4>
         <p>Pionerismo de verdad: torres, puentes, refugios. Madera y cuerda hasta levantar algo en lo que el grupo entero pueda subirse.</p>
       </div>
       <div class="pn-act">
         <span class="num">IV</span>
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="16"/><path d="M24 8 L24 40 M8 24 L40 24 M14 14 Q 24 8 34 14 Q 40 24 34 34 Q 24 40 14 34 Q 8 24 14 14"/></svg>
-        <h4 data-tw="act4H">Excursiones culturales</h4>
+        <h4>Excursiones culturales</h4>
         <p>Salidas a sitios arqueológicos, ecosistemas distintos, comunidades rurales. La Comunidad sale del Pedregal para entender el país en el que vive.</p>
       </div>
     </div>
@@ -346,19 +319,19 @@ body { background: var(--pn-deep); color: var(--pn-bone); }
 <section class="sec pn-servicio" data-screen-label="05 Servicio">
   <div class="sec-inner pn-servicio-grid reveal">
     <div>
-      <span class="ey" data-tw="servEy">Impacto</span>
-      <h2><span data-tw="servTitle">Servicio<br/></span><span class="blood" data-tw="servAccent">de alto<br/>impacto</span><span class="sub" data-tw="servSub">— Una vez al año —</span></h2>
-      <p style="margin-top:24px" data-tw="servP1">Cada año la Comunidad elige un proyecto social grande — apoyo a comunidades rurales, reforestación, intervenciones en albergues. No es una visita puntual: son meses de planeación, recaudación y trabajo en campo, con resultados medibles.</p>
-      <p style="margin-top:18px" data-tw="servP2">Es el momento donde lo aprendido en la sección sale del grupo y se entrega a quien lo necesita.</p>
+      <span class="ey">Impacto</span>
+      <h2>Servicio<br/><span class="blood">de alto<br/>impacto</span><span class="sub">— Una vez al año —</span></h2>
+      <p style="margin-top:24px">Cada año la Comunidad elige un proyecto social grande — apoyo a comunidades rurales, reforestación, intervenciones en albergues. No es una visita puntual: son meses de planeación, recaudación y trabajo en campo, con resultados medibles.</p>
+      <p style="margin-top:18px">Es el momento donde lo aprendido en la sección sale del grupo y se entrega a quien lo necesita.</p>
     </div>
-    <div class="stat"><span data-tw="servStatN" style="display:inline">1</span><span data-tw="servStatL">Proyecto / Año</span></div>
+    <div class="stat">1<span>Proyecto / Año</span></div>
   </div>
 </section>
 
-<section class="sec pn-gallery" data-screen-label="06 Galería" data-layout="mosaic">
+<section class="sec pn-gallery" data-screen-label="06 Galería">
   <div class="sec-inner reveal">
-    <span class="ey" data-tw="galleryEy">La comunidad en imágenes</span>
-    <h2><span data-tw="galleryTitle">Sábados,<br/></span><span class="blood" data-tw="galleryAccent">campamentos<br/>y empresa</span></h2>
+    <span class="ey">La comunidad en imágenes</span>
+    <h2>Sábados,<br/><span class="blood">campamentos<br/>y empresa</span></h2>
     <div class="pn-gallery-grid">
       <div style="background-image:url('assets/pioneros-1.jpeg')"></div>
       <div style="background-image:url('assets/pioneros-2.jpeg')"></div>
@@ -372,16 +345,16 @@ body { background: var(--pn-deep); color: var(--pn-bone); }
 
 <section class="pn-horario" data-screen-label="07 Horario">
   <div class="pn-horario-card reveal">
-    <span class="ey" data-tw="horarioEy">Cuándo nos vemos</span>
-    <h3 data-tw="horarioH">Sábados<br/>16:00 — 19:45 hrs</h3>
-    <p><span data-tw="horarioP">Parque Luis Barragán · Jardines del Pedregal · CDMX</span><br/><span style="font-family:var(--mono); font-size:11px; letter-spacing:2px; color:rgba(200,146,60,0.7);" data-tw="horarioFoot">+ campamentos y empresas según calendario</span></p>
+    <span class="ey">Cuándo nos vemos</span>
+    <h3>Sábados<br/>16:00 — 19:45 hrs</h3>
+    <p>Parque Luis Barragán · Jardines del Pedregal · CDMX<br/><span style="font-family:var(--mono); font-size:11px; letter-spacing:2px; color:rgba(200,146,60,0.7);">+ campamentos y empresas según calendario</span></p>
   </div>
 </section>
 
 <section class="pn-cta" data-screen-label="08 CTA">
-  <span class="ey" data-tw="ctaEy">Únete a la comunidad</span>
-  <h2 style="margin-top:16px"><span data-tw="ctaTitle1">¿Tienes entre<br/>14 </span><span class="amp" data-tw="ctaAmp">y</span><span data-tw="ctaTitle2"> 18 años?</span></h2>
-  <p data-tw="ctaP">Si te imaginas construyendo algo grande con quince personas más que también quieren hacerlo — esta es tu sección. Te esperamos cualquier sábado.</p>
+  <span class="ey">Únete a la comunidad</span>
+  <h2 style="margin-top:16px">¿Tienes entre<br/>14 <span class="amp">y</span> 18 años?</h2>
+  <p>Si te imaginas construyendo algo grande con quince personas más que también quieren hacerlo — esta es tu sección. Te esperamos cualquier sábado.</p>
   <a href="https://wa.me/525530310438" class="btn btn-wa btn-lg">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
     Escríbenos por WhatsApp
@@ -390,38 +363,5 @@ body { background: var(--pn-deep); color: var(--pn-bone); }
 
 <footer data-footer></footer>
 <script src="assets/shared.js"></script>
-<script>
-(function(){
-  window.__pionerosApplyTone = (tone) => {
-    document.querySelectorAll('[data-tone-toggle] [data-tone]').forEach(el => {
-      el.hidden = (el.dataset.tone !== tone);
-    });
-  };
-  window.__pionerosApplyActs = (mode) => {
-    const sec = document.querySelector('.pn-acts');
-    if (!sec) return;
-    sec.dataset.layout = mode;
-    const lbl = sec.querySelector('[data-layout-label]');
-    if (lbl) lbl.textContent = ({grid:'Grid', list:'Lista', zigzag:'Zigzag'}[mode] || mode);
-  };
-  window.__pionerosApplyGallery = (mode) => {
-    const sec = document.querySelector('.pn-gallery');
-    if (!sec) return;
-    sec.dataset.layout = mode;
-  };
-  window.__pionerosApplyDensity = (val) => {
-    document.documentElement.style.setProperty('--density', val);
-  };
-  window.__pionerosApplyMotion = (on) => {
-    document.documentElement.style.setProperty('--motion', on ? 1 : 0);
-    document.body.classList.toggle('no-motion', !on);
-  };
-})();
-</script>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="assets/tweaks-panel.jsx"></script>
-<script type="text/babel" src="assets/pioneros-tweaks.jsx"></script>
 </body>
 </html>

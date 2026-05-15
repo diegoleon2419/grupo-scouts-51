@@ -1,107 +1,605 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sikas y Centinelas — Grupo Scout 51</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <style>
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    :root{--black:#1A1A1A;--blue:#1565C0;--gold:#F5C500;--gray-600:#6B6B6B;--gray-800:#2D2D2D;--navy:#1A237E;--off-white:#F8F7F4;--red:#BE1A2D;--whatsapp:#25D366;--white:#FFFFFF}
-    html{scroll-behavior:smooth}body{font-family:'Manrope',sans-serif;color:var(--black);background:var(--white)}.page{max-width:1440px;margin:0 auto}img{display:block}
-    .navbar{display:flex;align-items:center;justify-content:space-between;background:var(--black);height:72px;padding:0 24px}.nav-logo-circle{width:44px;height:44px;border-radius:50%;background:url('Grupo_51.jpeg') center/cover;flex-shrink:0}.nav-logo-text{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:2px}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{font-size:14px;font-weight:500;color:#FFFFFFD9;text-decoration:none}.nav-links a:hover{color:var(--white)}.nav-cta{font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--black);background:var(--gold);padding:10px 24px;border-radius:4px;text-decoration:none;letter-spacing:1px}
-    .hero{height:480px;background:url('SikasCentinelas/Centienalas_Aniversario_68.jpeg') center/cover;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px 64px 24px;gap:16px}.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#1565C0CC,#1A1A1ABF)}.hero>*{position:relative;z-index:1}
-    .hero-sub{font-family:'Oswald',sans-serif;font-size:24px;font-weight:600;color:var(--gold);letter-spacing:3px;text-align:center}.hero-title{font-family:'Oswald',sans-serif;font-size:64px;font-weight:700;color:var(--white);text-align:center}.hero-desc{font-size:18px;color:#FFFFFFD9;text-align:center;line-height:1.7;max-width:560px}
-    .section-logo{display:flex;align-items:center;justify-content:center;background:var(--off-white);padding:48px 0}.section-logo-img{width:120px;height:120px;border-radius:50%;background:var(--blue);border:none}
-    .about-section{display:flex;background:var(--white);padding:80px 48px;gap:64px}.about-text{flex:1;display:flex;flex-direction:column;gap:20px}.about-text h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700}.about-text>p{font-size:16px;color:var(--gray-600);line-height:1.8}.highlight{border-left:4px solid var(--blue);padding-left:20px}.highlight p{font-size:16px;font-weight:500;font-style:italic;color:var(--black);line-height:1.7}.about-img{flex:1;border-radius:8px;height:400px;object-fit:cover;border:none}
-    .objetivos{display:flex;background:var(--off-white);padding:80px 48px;gap:64px}.obj-img{flex:1;border-radius:8px;height:400px;object-fit:cover;border:none}.obj-content{flex:1;display:flex;flex-direction:column;gap:20px}.obj-content h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700}.obj-content>p{font-size:16px;color:var(--gray-600);line-height:1.8}.quote-block{border-left:4px solid var(--blue);border-radius:0 8px 8px 0;background:#00000008;padding:20px 24px}.quote-block p{font-size:18px;font-weight:500;font-style:italic;color:var(--black);line-height:1.7}
-    .gallery{display:flex;flex-direction:column;align-items:center;background:var(--off-white);padding:80px 48px;gap:48px;overflow:hidden}.gallery h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700}.gal-grid{display:flex;gap:12px;height:320px;overflow:hidden;width:100%}.gal-grid img{width:420px;height:100%;object-fit:cover;border-radius:8px;flex-shrink:0}
-    .activities{display:flex;flex-direction:column;align-items:center;background:var(--white);padding:80px 48px;gap:48px}.activities h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700}.act-grid{display:flex;gap:24px;width:100%}.act-card{flex:1;display:flex;flex-direction:column;align-items:center;gap:16px;background:var(--off-white);border-radius:8px;padding:40px 28px;border:1px solid #0000000F}.act-icon{width:56px;height:56px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center}.act-icon i{width:24px;height:24px;color:var(--white)}.act-card h3{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;text-align:center}.act-card p{font-size:14px;color:var(--gray-600);text-align:center;line-height:1.6}
-    .servicio{display:flex;background:var(--blue);padding:80px 48px;gap:64px}.serv-content{flex:1;display:flex;flex-direction:column;gap:20px}.serv-content h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:var(--white)}.serv-content>p{font-size:16px;color:#FFFFFFD9;line-height:1.8}.serv-list{display:flex;flex-direction:column}.serv-item{display:flex;align-items:center;gap:12px;padding:12px 0}.serv-item:not(:last-child){border-bottom:1px solid #FFFFFF26}.serv-arrow{font-size:16px;font-weight:700;color:var(--gold)}.serv-item span:last-child{font-size:16px;color:#FFFFFFE6}.serv-img{flex:1;border-radius:8px;height:380px;object-fit:cover}
-    .cta{display:flex;flex-direction:column;align-items:center;background:var(--blue);padding:80px 48px;gap:24px}.cta h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:var(--white);text-align:center}.cta>p{font-size:18px;color:#FFFFFFCC;text-align:center}.cta-btn{display:flex;align-items:center;gap:10px;background:var(--whatsapp);color:var(--white);padding:16px 36px;border-radius:4px;text-decoration:none}.cta-btn i{width:20px;height:20px}.cta-btn span{font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;letter-spacing:1px}
-    .footer{display:flex;flex-direction:column;align-items:center;background:var(--black);padding:48px 48px 24px 48px;gap:24px}.footer-top{display:flex;align-items:center;justify-content:space-between;width:100%}.footer-logo{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:var(--white)}.footer-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}.footer-links a{font-size:14px;color:#FFFFFFAA;text-decoration:none}.footer-divider{width:100%;height:1px;background:#FFFFFF1A}.footer-copy{font-size:12px;color:#FFFFFF66}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sikas y Centinelas · Grupo Scout 51</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css" />
+<style>
+:root {
+  --night-deep:#070B1A; --night:#0F162E; --night-warm:#1B1610; --stone:#2A2E44;
+  --parch:#EFE6D2; --parch-dim:rgba(239,230,210,0.78);
+  --star:#F5E6A8; --gold:#C9A24D; --gold-dim:rgba(201,162,77,0.5);
+  --crimson:#A31228; --ember:#E66B1F;
+  --density: 1;     /* 0.4 = sutil, 1 = medio, 1.6 = denso */
+  --motion: 1;      /* 1 = on, 0 = off */
+}
+body { background: var(--night-deep); color: var(--parch); }
+
+/* === Pen-write text reveal === */
+@keyframes pen-write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+.pen { display: inline-block; position: relative; clip-path: inset(0 100% 0 0); }
+.pen.in { animation: pen-write 1.4s cubic-bezier(.5,.1,.3,1) forwards; }
+.pen.in.d2 { animation-delay: .25s; }
+.pen.in.d3 { animation-delay: .5s; }
+.pen.in.d4 { animation-delay: .75s; }
+.no-motion .pen, .no-motion .pen.in { animation: none !important; clip-path: none !important; }
+
+/* === HERO — Castillo nocturno con constelaciones, parallax, runas, embers === */
+.sk-hero { position:relative; min-height: 96vh; padding: calc(var(--nav-h) + 60px) var(--pad-x) 80px; overflow:hidden; isolation:isolate; display:flex; align-items:center; }
+.sk-hero .layer { position:absolute; inset:0; pointer-events:none; }
+.sk-hero .l-photo { z-index:-5; background: url('assets/sikas-2.jpg') center/cover; filter: brightness(0.28) contrast(1.15) saturate(0.6) hue-rotate(-10deg); transform: translateY(var(--py, 0)); will-change: transform; }
+.sk-hero .l-mist { z-index:-4; background:
+  radial-gradient(ellipse 60% 40% at 50% 100%, rgba(230,107,31,0.25) 0%, transparent 60%),
+  radial-gradient(ellipse 80% 60% at 50% 30%, rgba(7,11,26,0.2) 0%, rgba(7,11,26,0.92) 100%);
+}
+.sk-hero .l-stars { z-index:-3; background-image:
+  radial-gradient(1px 1px at 8% 12%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 22% 35%, var(--star) 50%, transparent),
+  radial-gradient(2px 2px at 35% 18%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 48% 42%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 62% 8%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 75% 25%, var(--star) 50%, transparent),
+  radial-gradient(2px 2px at 88% 50%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 13% 68%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 32% 78%, var(--star) 50%, transparent),
+  radial-gradient(2px 2px at 55% 62%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 70% 75%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 92% 82%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 5% 50%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 18% 88%, var(--star) 50%, transparent),
+  radial-gradient(1px 1px at 43% 90%, var(--star) 50%, transparent);
+  opacity: calc(0.6 * var(--density));
+  transform: translateY(calc(var(--py, 0) * 0.4));
+  animation: twinkle 5s ease-in-out infinite;
+}
+@keyframes twinkle { 0%,100%{opacity:calc(0.7*var(--density))} 50%{opacity:calc(0.4*var(--density))} }
+.no-motion .l-stars { animation: none; }
+
+/* Constellation overlay svg */
+.sk-hero .l-const { z-index:-2; opacity: calc(0.55 * var(--density)); transform: translateY(calc(var(--py,0) * 0.3)); }
+.sk-hero .l-const svg { width:100%; height:100%; color: var(--gold); }
+/* Castle silhouette */
+.sk-hero .l-castle { z-index:-2; bottom:0; height: 36%; top:auto; opacity: calc(0.85 * min(var(--density), 1.2)); transform: translateY(calc(var(--py,0) * -0.5)); }
+.sk-hero .l-castle svg { width:100%; height:100%; }
+
+/* Embers */
+.sk-hero .l-embers { z-index:-1; }
+.sk-hero .ember { position:absolute; bottom:0; width:3px; height:3px; border-radius:50%; background: radial-gradient(circle, var(--ember), transparent 70%); animation: e-rise 8s linear infinite; box-shadow: 0 0 8px var(--ember); opacity: calc(0.6 * var(--motion)); }
+@keyframes e-rise { from{transform:translateY(0); opacity:0} 15%{opacity:0.8} 90%{opacity:0.4} to{transform:translateY(-100vh); opacity:0} }
+.no-motion .ember { display:none; }
+
+/* Heraldic side runes */
+.sk-side-runes { position:absolute; top:0; bottom:0; width: 64px; opacity: calc(0.22 * var(--density)); z-index:-1; pointer-events:none; }
+.sk-side-runes.l { left:0; } .sk-side-runes.r { right:0; }
+.sk-side-runes svg { width:100%; height:100%; color: var(--gold); }
+
+.sk-hero-inner { position:relative; z-index:2; max-width: var(--max); margin:0 auto; width:100%; }
+.sk-hero .crest-row { display:flex; gap:24px; align-items:center; margin-bottom: 36px; }
+.sk-hero .crest { width: 80px; height: 80px; background-size: contain; background-position: center; background-repeat: no-repeat; filter: drop-shadow(0 0 24px rgba(245,230,168,0.35)); }
+.sk-hero .crest-1 { background-image: url('assets/logo-centinelas.png'); }
+.sk-hero .crest-divider { width: 1px; height: 60px; background: var(--gold-dim); }
+.sk-hero .crest-2 { background-image: url('assets/logo-centinelas.png'); transform: scaleX(-1); opacity: 0.6; }
+.sk-hero .ey { font-family:'Cinzel', serif; color: var(--gold); font-size: 12px; letter-spacing: 5px; text-transform: uppercase; display:inline-flex; align-items:center; gap:14px; }
+.sk-hero .ey::before { content:''; width:48px; height:1px; background: var(--gold); }
+.sk-hero h1 { font-family:'Cinzel', serif; font-weight: 700; font-size: clamp(44px, 9vw, 128px); line-height: 0.95; letter-spacing: 0.02em; text-transform: uppercase; color: var(--parch); margin-top: 22px; }
+.sk-hero h1 .amp { font-family:'Cormorant Garamond', serif; font-style: italic; font-weight: 400; color: var(--gold); font-size: 0.65em; padding: 0 .2em; vertical-align: 0.05em; }
+.sk-hero h1 .line2 { display:block; }
+.sk-hero .sub { margin-top: 32px; font-size: clamp(16px, 1.55vw, 20px); color: var(--parch-dim); max-width: 56ch; line-height: 1.7; font-family: var(--body); }
+.sk-hero .meta { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--gold-dim); display:flex; gap: 56px; flex-wrap: wrap; }
+.sk-hero .mi strong { display:block; font-family:'Cinzel', serif; font-size: 22px; font-weight: 700; letter-spacing: 1.5px; color: var(--parch); }
+.sk-hero .mi span { font-family: var(--mono); font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(245,230,168,0.6); }
+
+/* === SECTION SHARED === */
+.sec { padding: 120px var(--pad-x); position:relative; overflow:hidden; }
+.sec-inner { max-width: var(--max); margin: 0 auto; position:relative; z-index: 2; }
+.sec .ey { font-family:'Cinzel',serif; color: var(--gold); font-size:12px; letter-spacing:5px; text-transform:uppercase; display:inline-flex; align-items:center; gap:14px; }
+.sec .ey::before { content:''; width:48px; height:1px; background: var(--gold); }
+.sec h2 { font-family:'Cinzel', serif; font-weight: 700; font-size: clamp(36px, 6vw, 76px); line-height: 1; color: var(--parch); margin-top: 18px; letter-spacing: 0.02em; text-transform: uppercase; }
+.sec h2 em { font-family:'Cormorant Garamond', serif; font-style: italic; font-weight: 400; color: var(--gold); font-size: 0.78em; }
+.sec p { color: var(--parch-dim); font-size: 16px; line-height: 1.85; max-width: 64ch; font-family: var(--body); }
+.sec p strong { color: var(--parch); font-weight: 600; }
+
+/* Decorative section backgrounds (pattern layer) */
+.sec-pattern { position:absolute; inset:0; pointer-events:none; opacity: calc(0.35 * var(--density)); z-index: 0; }
+.sec-pattern svg { width:100%; height:100%; }
+
+/* === QUÉ ES — pergamino con coordenadas === */
+.sk-que { background: linear-gradient(180deg, var(--night-deep) 0%, var(--night) 100%); }
+.sk-que .sec-pattern { background-image:
+  /* Map grid */
+  repeating-linear-gradient(0deg, rgba(201,162,77,0.18) 0 1px, transparent 1px 80px),
+  repeating-linear-gradient(90deg, rgba(201,162,77,0.18) 0 1px, transparent 1px 80px);
+  opacity: calc(0.4 * var(--density));
+}
+.sk-que-grid { display:grid; grid-template-columns: 1fr 1.15fr; gap: 80px; align-items: center; }
+.sk-que-photo { position:relative; aspect-ratio: 4/5; overflow:hidden; border:1px solid var(--gold-dim); border-radius: 4px; }
+.sk-que-photo img { width:100%; height:100%; object-fit:cover; filter: brightness(0.85) contrast(1.1) saturate(0.85); }
+.sk-que-photo::before { content:''; position:absolute; top:12px; left:12px; right:12px; bottom:12px; border:1px solid rgba(245,230,168,0.25); pointer-events:none; }
+.sk-que-photo .coord { position:absolute; top: 16px; left: 16px; font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 2px; padding: 4px 10px; background: rgba(7,11,26,0.85); border:1px solid var(--gold-dim); }
+.sk-que-photo .coord-r { top: auto; bottom: 16px; left: auto; right: 16px; }
+@media (max-width:860px){ .sk-que-grid{grid-template-columns:1fr; gap:40px;} }
+
+/* === MÍSTICA — fusión Sikas + Centinelas === */
+.sk-mistica { background: var(--night-deep); }
+.sk-mistica .sec-pattern { background:
+  radial-gradient(ellipse 50% 40% at 30% 30%, rgba(245,230,168,0.08), transparent 70%),
+  radial-gradient(ellipse 40% 30% at 75% 75%, rgba(230,107,31,0.06), transparent 70%);
+  opacity: 1;
+}
+.sk-mistica-head { text-align:center; max-width: 720px; margin: 0 auto 80px; }
+.sk-mistica-head .ey { justify-content: center; }
+.sk-mistica-head p { margin: 24px auto 0; }
+
+/* The fused union diagram */
+.sk-fusion { position:relative; max-width: 1080px; margin: 0 auto 80px; }
+.sk-fusion-circles { position:relative; aspect-ratio: 16/8; max-width: 720px; margin: 0 auto; }
+.sk-fusion-circles .c { position:absolute; top:50%; width: 60%; aspect-ratio: 1; border:1.5px solid var(--gold); border-radius:50%; transform: translateY(-50%); display:grid; place-items:center; transition: all .5s ease; }
+.sk-fusion-circles .c.l { left:0; background: radial-gradient(circle at 70% 50%, rgba(245,230,168,0.05), transparent 70%); }
+.sk-fusion-circles .c.r { right:0; background: radial-gradient(circle at 30% 50%, rgba(230,107,31,0.05), transparent 70%); }
+.sk-fusion-circles .c h3 { font-family:'Cinzel',serif; font-weight:700; font-size: clamp(20px, 2.5vw, 32px); letter-spacing: 0.05em; color: var(--parch); text-transform: uppercase; }
+.sk-fusion-circles .c .label { display:block; font-family: var(--mono); font-size:10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-top: 8px; }
+.sk-fusion-circles:hover .c.l { box-shadow: 0 0 60px rgba(245,230,168,0.25); border-color: var(--star); }
+.sk-fusion-circles:hover .c.r { box-shadow: 0 0 60px rgba(230,107,31,0.3); border-color: var(--ember); }
+
+.sk-fusion-center { position:absolute; left:50%; top:50%; transform: translate(-50%,-50%); z-index:2; text-align:center; }
+.sk-fusion-center .union { font-family:'Cinzel',serif; font-weight:700; font-size: 14px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; padding: 8px 18px; background: var(--night-deep); border:1px solid var(--gold); border-radius: 999px; }
+
+.sk-fusion-text { display:grid; grid-template-columns: 1fr 1px 1fr; gap: 56px; margin-top: 80px; }
+.sk-fusion-text > .div { background: linear-gradient(180deg, transparent, var(--gold-dim), transparent); }
+.sk-fusion-side { transition: filter .4s ease; }
+.sk-fusion-side:hover { filter: brightness(1.15); }
+.sk-fusion-side h4 { font-family:'Cinzel',serif; font-size: 18px; letter-spacing: 3px; color: var(--gold); margin-bottom: 12px; text-transform: uppercase; font-weight: 600; }
+.sk-fusion-side .icons { display:flex; gap: 16px; margin: 24px 0 32px; }
+.sk-fusion-side .icons .icon { width: 44px; height: 44px; display:grid; place-items:center; border:1px solid var(--gold-dim); border-radius:50%; color: var(--gold); transition: all .3s; }
+.sk-fusion-side:hover .icons .icon { border-color: var(--star); color: var(--star); }
+.sk-fusion-side .icons svg { width:22px; height:22px; }
+.sk-fusion-side ul { list-style: none; padding: 0; display:grid; gap: 12px; }
+.sk-fusion-side li { display:grid; grid-template-columns: 14px 1fr; gap: 12px; font-size: 14px; color: var(--parch-dim); line-height: 1.6; align-items: start; }
+.sk-fusion-side li::before { content:''; width: 6px; height: 6px; margin-top: 8px; background: var(--gold); border-radius:50%; }
+@media (max-width:860px){ .sk-fusion-text{grid-template-columns:1fr; gap:40px;} .sk-fusion-text > .div{display:none;} .sk-fusion-circles{aspect-ratio: 1/1; max-width: 360px;} .sk-fusion-circles .c{width: 70%;} }
+
+/* === PILARES — list/grid/zigzag layouts === */
+.sk-pillars { background: linear-gradient(180deg, var(--night-deep) 0%, var(--night-warm) 100%); }
+.sk-pillars .sec-pattern { background-image:
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g fill='none' stroke='%23C9A24D' stroke-width='0.8' opacity='0.4'><path d='M100 30 L130 80 L170 90 L140 130 L150 175 L100 150 L50 175 L60 130 L30 90 L70 80 Z'/></g></svg>");
+  background-size: 220px;
+  opacity: calc(0.3 * var(--density));
+}
+.sk-pillars-head { display:grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-bottom: 64px; flex-wrap: wrap; }
+.sk-pillars-head .layout-label { font-family: var(--mono); font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; opacity: 0.7; }
+
+/* Layout 1: GRID 4×1 (default) */
+.sk-pillars[data-layout="grid"] .sk-pillars-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--gold-dim); border:1px solid var(--gold-dim); }
+.sk-pillars[data-layout="grid"] .pillar { background: var(--night-warm); padding: 40px 32px; }
+.sk-pillars[data-layout="grid"] .pillar .num { font-family:'Cinzel',serif; font-size: 12px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; }
+.sk-pillars[data-layout="grid"] .pillar .ic { width: 44px; height:44px; margin: 18px 0; color: var(--parch); }
+.sk-pillars[data-layout="grid"] .pillar h4 { font-family:'Cinzel', serif; font-size: 22px; font-weight:700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--parch); margin-bottom: 14px; }
+.sk-pillars[data-layout="grid"] .pillar p { font-size: 14px; line-height: 1.7; }
+@media (max-width:860px){ .sk-pillars[data-layout="grid"] .sk-pillars-list { grid-template-columns: 1fr 1fr; } }
+@media (max-width:520px){ .sk-pillars[data-layout="grid"] .sk-pillars-list { grid-template-columns: 1fr; } }
+
+/* Layout 2: VERTICAL LIST numerada */
+.sk-pillars[data-layout="list"] .sk-pillars-list { display:flex; flex-direction: column; gap: 0; max-width: 980px; margin: 0 auto; }
+.sk-pillars[data-layout="list"] .pillar { display:grid; grid-template-columns: 100px 1fr; gap: 48px; padding: 36px 0; border-top: 1px solid var(--gold-dim); align-items: start; transition: all .3s; position: relative; }
+.sk-pillars[data-layout="list"] .pillar:last-child { border-bottom: 1px solid var(--gold-dim); }
+.sk-pillars[data-layout="list"] .pillar:hover { background: rgba(245,230,168,0.04); padding-left: 24px; }
+.sk-pillars[data-layout="list"] .pillar .num { font-family:'Cinzel', serif; font-size: 64px; font-weight:700; line-height: 1; color: var(--gold); }
+.sk-pillars[data-layout="list"] .pillar .ic { display:none; }
+.sk-pillars[data-layout="list"] .pillar h4 { font-family:'Cinzel',serif; font-size: 28px; font-weight:700; letter-spacing: 2px; text-transform: uppercase; color: var(--parch); margin-bottom: 12px; }
+.sk-pillars[data-layout="list"] .pillar p { font-size: 16px; line-height: 1.8; max-width: 64ch; }
+@media (max-width:760px){ .sk-pillars[data-layout="list"] .pillar { grid-template-columns: 60px 1fr; gap: 24px; } .sk-pillars[data-layout="list"] .pillar .num { font-size: 36px; } }
+
+/* Layout 3: ZIGZAG */
+.sk-pillars[data-layout="zigzag"] .sk-pillars-list { display: flex; flex-direction: column; gap: 32px; max-width: 1100px; margin: 0 auto; }
+.sk-pillars[data-layout="zigzag"] .pillar { display:grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 32px 40px; background: var(--night-warm); border:1px solid var(--gold-dim); border-radius: 6px; align-items: center; }
+.sk-pillars[data-layout="zigzag"] .pillar:nth-child(even) { direction: rtl; }
+.sk-pillars[data-layout="zigzag"] .pillar:nth-child(even) > * { direction: ltr; }
+.sk-pillars[data-layout="zigzag"] .pillar .ic-wrap { display:grid; place-items:center; aspect-ratio: 1/1; border:1px solid var(--gold-dim); border-radius:50%; max-width: 200px; margin: 0 auto; }
+.sk-pillars[data-layout="zigzag"] .pillar .num { font-family: var(--mono); font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; }
+.sk-pillars[data-layout="zigzag"] .pillar .ic { width: 56px; height: 56px; color: var(--parch); margin: 16px 0; }
+.sk-pillars[data-layout="zigzag"] .pillar h4 { font-family:'Cinzel',serif; font-size: 26px; font-weight:700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--parch); margin-bottom: 12px; }
+.sk-pillars[data-layout="zigzag"] .pillar p { font-size: 15px; line-height: 1.75; }
+@media (max-width:760px){ .sk-pillars[data-layout="zigzag"] .pillar { grid-template-columns: 1fr; gap: 16px; padding: 28px; direction: ltr; } .sk-pillars[data-layout="zigzag"] .pillar:nth-child(even) { direction: ltr; } .sk-pillars[data-layout="zigzag"] .pillar .ic-wrap { max-width: 100px; } }
+
+/* === GALERÍA — mosaico vs ribbon === */
+.sk-gallery { background: var(--night); }
+.sk-gallery .sec-pattern { background-image:
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='none' stroke='%23C9A24D' stroke-width='0.6' opacity='0.5'><path d='M10 50 L90 50 M50 10 L50 90 M20 30 L80 70 M20 70 L80 30'/><circle cx='50' cy='50' r='30'/><circle cx='50' cy='50' r='15'/></g></svg>");
+  background-size: 280px;
+  opacity: calc(0.18 * var(--density));
+}
+.sk-gallery[data-layout="mosaic"] .sk-gallery-grid { display:grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 200px; gap: 8px; margin-top: 56px; }
+.sk-gallery[data-layout="mosaic"] .sk-gallery-grid > div:nth-child(1){grid-column:span 3; grid-row:span 2;}
+.sk-gallery[data-layout="mosaic"] .sk-gallery-grid > div:nth-child(2){grid-column:span 3;}
+.sk-gallery[data-layout="mosaic"] .sk-gallery-grid > div:nth-child(3){grid-column:span 2;}
+.sk-gallery[data-layout="mosaic"] .sk-gallery-grid > div:nth-child(4){grid-column:span 1;}
+.sk-gallery[data-layout="mosaic"] .sk-gallery-grid > div:nth-child(5){grid-column:span 3; grid-row:span 2;}
+.sk-gallery[data-layout="mosaic"] .sk-gallery-grid > div:nth-child(6){grid-column:span 3;}
+
+.sk-gallery[data-layout="ribbon"] .sk-gallery-grid { display:flex; gap: 12px; overflow-x: auto; padding: 56px 0 24px; scroll-snap-type: x mandatory; }
+.sk-gallery[data-layout="ribbon"] .sk-gallery-grid > div { flex: 0 0 60%; aspect-ratio: 4/5; scroll-snap-align: start; min-width: 320px; }
+
+.sk-gallery .sk-gallery-grid > div { background-size: cover; background-position: center; border-radius: 6px; filter: brightness(0.92) contrast(1.05); border:1px solid rgba(201,162,77,0.2); }
+@media (max-width:760px){
+  .sk-gallery[data-layout="mosaic"] .sk-gallery-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows: 180px; }
+  .sk-gallery[data-layout="mosaic"] .sk-gallery-grid > div { grid-column:span 1 !important; grid-row:span 1 !important; }
+}
+
+/* === HORARIO === */
+.sk-horario { background: var(--night-warm); padding: 100px var(--pad-x); }
+.sk-horario-card { max-width: 720px; margin: 0 auto; padding: 56px 48px; background: rgba(0,0,0,0.25); border:1px solid var(--gold-dim); border-radius: 6px; text-align:center; position:relative; }
+.sk-horario-card::before, .sk-horario-card::after { content:''; position:absolute; width: 28px; height: 28px; border:1px solid var(--gold); }
+.sk-horario-card::before { top:-1px; left:-1px; border-right:0; border-bottom:0; }
+.sk-horario-card::after { bottom:-1px; right:-1px; border-left:0; border-top:0; }
+.sk-horario-card .ey { justify-content: center; }
+.sk-horario-card h3 { font-family:'Cinzel',serif; font-size: clamp(28px, 4vw, 44px); font-weight:700; text-transform: uppercase; letter-spacing: 0.02em; color: var(--parch); margin: 16px 0 8px; }
+.sk-horario-card p { color: var(--parch-dim); margin: 0 auto; }
+
+/* === CTA === */
+.sk-cta { background: var(--night-deep); padding: 120px var(--pad-x); position:relative; isolation:isolate; overflow:hidden; text-align:center; }
+.sk-cta::before { content:''; position:absolute; inset:0; z-index:-2; background: url('assets/sikas-4.jpg') center/cover; filter: brightness(0.22) saturate(0.5); }
+.sk-cta::after { content:''; position:absolute; inset:0; z-index:-1; background:
+  radial-gradient(ellipse at 50% 100%, rgba(230,107,31,0.2), transparent 60%),
+  radial-gradient(ellipse at 50% 30%, rgba(7,11,26,0.4), rgba(7,11,26,0.95) 80%);
+}
+.sk-cta .ey { justify-content: center; }
+.sk-cta h2 { font-family:'Cinzel',serif; font-size: clamp(40px, 7vw, 84px); font-weight:700; line-height:1; letter-spacing: 0.02em; text-transform:uppercase; color: var(--parch); }
+.sk-cta h2 em { font-family:'Cormorant Garamond', serif; font-style: italic; color: var(--gold); font-weight: 400; font-size: 0.75em; }
+.sk-cta p { color: rgba(239,230,210,0.85); margin: 24px auto 36px; max-width: 50ch; }
+</style>
 </head>
-<body>
-<div class="page">
-  <nav class="navbar">
-    <a href="home.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
-      <div class="nav-logo-circle"></div>
-      <span class="nav-logo-text">GRUPO SCOUT 51</span>
-    </a>
-    <div class="nav-links">
-      <a href="nosotros.html">Nosotros</a>
-      <a href="lahinis.html">Lahinis y Lobatos</a>
-      <a href="sikas.html">Sikas y Centinelas</a>
-      <a href="pioneros.html">Pioneros y Pioneras</a>
-      <a href="clan.html">Clan</a>
-      <a href="contacto.html">Contacto</a>
+<body data-page="sikas">
+<nav data-nav></nav>
+
+<!-- HERO -->
+<section class="sk-hero" data-screen-label="01 Hero">
+  <div class="layer l-photo" data-parallax="0.3"></div>
+  <div class="layer l-mist"></div>
+  <div class="layer l-stars"></div>
+  <!-- Constellation lines -->
+  <div class="layer l-const">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
+      <g fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.6">
+        <!-- Connect stars -->
+        <path d="M120 130 L350 280 L550 200 L750 360 L600 480 L380 420 Z"/>
+        <circle cx="120" cy="130" r="2.5" fill="currentColor"/>
+        <circle cx="350" cy="280" r="2" fill="currentColor"/>
+        <circle cx="550" cy="200" r="3" fill="currentColor"/>
+        <circle cx="750" cy="360" r="2" fill="currentColor"/>
+        <circle cx="600" cy="480" r="2.5" fill="currentColor"/>
+        <circle cx="380" cy="420" r="2" fill="currentColor"/>
+        <!-- Cassiopeia W -->
+        <path d="M1100 100 L1180 180 L1240 120 L1320 200 L1400 130"/>
+        <circle cx="1100" cy="100" r="2" fill="currentColor"/>
+        <circle cx="1180" cy="180" r="2.5" fill="currentColor"/>
+        <circle cx="1240" cy="120" r="2" fill="currentColor"/>
+        <circle cx="1320" cy="200" r="2" fill="currentColor"/>
+        <circle cx="1400" cy="130" r="2.5" fill="currentColor"/>
+        <!-- Triangle -->
+        <path d="M880 600 L1080 580 L980 720 Z"/>
+        <circle cx="880" cy="600" r="2" fill="currentColor"/>
+        <circle cx="1080" cy="580" r="2.5" fill="currentColor"/>
+        <circle cx="980" cy="720" r="2" fill="currentColor"/>
+      </g>
+    </svg>
+  </div>
+  <!-- Castle silhouette -->
+  <div class="layer l-castle" data-parallax="-0.2">
+    <svg viewBox="0 0 1600 320" preserveAspectRatio="xMidYMax meet">
+      <g fill="#070B1A" stroke="rgba(201,162,77,0.6)" stroke-width="1.4">
+        <!-- Mountain backdrop -->
+        <path d="M0 320 L0 240 L120 200 L260 220 L400 180 L580 210 L720 170 L900 200 L1080 160 L1260 200 L1400 170 L1600 220 L1600 320 Z" fill="#0A1226"/>
+        <!-- Castle wall -->
+        <path d="M250 320 L250 220 L260 220 L260 200 L300 200 L300 220 L340 220 L340 200 L380 200 L380 220 L420 220 L420 200 L460 200 L460 220 L500 220 L500 320 Z"/>
+        <!-- Tower 1 (left) -->
+        <path d="M300 320 L300 150 L290 150 L290 130 L320 130 L320 150 L310 150 L310 320 Z M295 130 L295 120 L300 110 L305 120 L305 130"/>
+        <!-- Main keep -->
+        <path d="M650 320 L650 100 L640 100 L640 80 L660 80 L660 60 L670 50 L680 60 L680 80 L700 80 L700 100 L690 100 L690 320 Z"/>
+        <path d="M680 60 L680 40 L685 30 L690 40 L690 60"/>
+        <!-- Wall right -->
+        <path d="M800 320 L800 200 L820 200 L820 180 L860 180 L860 200 L900 200 L900 180 L940 180 L940 200 L980 200 L980 180 L1020 180 L1020 200 L1040 200 L1040 320 Z"/>
+        <!-- Tower 2 (right) -->
+        <path d="M1100 320 L1100 130 L1090 130 L1090 110 L1120 110 L1120 130 L1110 130 L1110 320 Z M1095 110 L1095 100 L1100 90 L1105 100 L1105 110"/>
+        <!-- Tower 3 (far right) -->
+        <path d="M1330 320 L1330 170 L1320 170 L1320 150 L1350 150 L1350 170 L1340 170 L1340 320 Z M1325 150 L1325 140 L1330 130 L1335 140 L1335 150"/>
+        <!-- Banner on main keep -->
+        <path d="M685 30 L685 8 L720 8 L720 22 L685 22" fill="#A31228" stroke="rgba(245,230,168,0.6)" stroke-width="0.8"/>
+      </g>
+    </svg>
+  </div>
+  <!-- Embers -->
+  <div class="layer l-embers">
+    <span class="ember" style="left:8%; animation-delay:-1s"></span>
+    <span class="ember" style="left:22%; animation-delay:-3s"></span>
+    <span class="ember" style="left:38%; animation-delay:-5s"></span>
+    <span class="ember" style="left:58%; animation-delay:-2s"></span>
+    <span class="ember" style="left:74%; animation-delay:-4s"></span>
+    <span class="ember" style="left:88%; animation-delay:-6s"></span>
+  </div>
+  <!-- Side runes -->
+  <div class="sk-side-runes l">
+    <svg viewBox="0 0 60 800" preserveAspectRatio="none">
+      <g fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M30 60 L30 100 M20 70 L40 90 M20 90 L40 70"/>
+        <path d="M20 160 L40 160 L40 200 L20 200 Z M30 160 L30 200"/>
+        <path d="M20 260 L30 240 L40 260 L40 300 L20 300 Z"/>
+        <path d="M20 360 L20 400 M20 360 L40 380 L20 400"/>
+        <path d="M20 460 L40 460 M30 460 L30 500"/>
+        <path d="M20 560 L40 560 L20 600 L40 600"/>
+        <path d="M20 660 L20 700 M40 660 L40 700 M20 680 L40 680"/>
+      </g>
+    </svg>
+  </div>
+  <div class="sk-side-runes r">
+    <svg viewBox="0 0 60 800" preserveAspectRatio="none">
+      <g fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M30 60 L20 80 L40 80 Z M30 80 L30 100"/>
+        <path d="M30 160 L30 200 M20 170 L30 180 L40 170"/>
+        <path d="M20 260 L40 280 L20 300"/>
+        <path d="M30 360 L20 380 L30 400 L40 380 Z"/>
+        <path d="M20 460 L40 460 L40 500 L20 500"/>
+        <path d="M30 560 L30 600 M30 580 Q 20 590 20 600"/>
+        <path d="M20 660 L30 680 L20 700 M30 680 L40 680"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="sk-hero-inner">
+    <div class="crest-row">
+      <div class="crest crest-1"></div>
+      <div class="crest-divider"></div>
+      <div class="crest crest-2"></div>
     </div>
-    <a href="contacto.html" class="nav-cta">UNETE &rarr;</a>
-  </nav>
-
-  <section class="hero"><span class="hero-sub">11 — 15 AÑOS</span><h1 class="hero-title">SIKAS Y CENTINELAS</h1><p class="hero-desc">La aventura toma forma — patrullas, campamentos, técnicas de campo y el inicio del liderazgo juvenil.</p></section>
-
-  <section class="section-logo"><div class="section-logo-img"></div></section>
-
-  <section class="about-section">
-    <div class="about-text">
-      <h2>LA EXPERIENCIA SCOUT EN SU MÁXIMA EXPRESIÓN</h2>
-      <p>La sección de Sikas y Centinelas representa el corazón del movimiento scout, donde jóvenes entre 11 y 15 años viven la aventura scout en su forma más auténtica. Es la etapa donde se consolidan los valores, se desarrollan habilidades de liderazgo y se fortalece el compromiso con la comunidad.</p>
-      <p>En esta edad, los scouts tienen la madurez para enfrentar desafíos más complejos, participar en expediciones exigentes y asumir roles de responsabilidad dentro de la tropa. Cada actividad está diseñada para fomentar la autonomía, el trabajo en equipo y el desarrollo personal.</p>
-      <div class="highlight"><p>La división entre Sikas (11-13 años) y Centinelas (13-15 años) permite adaptar las actividades al nivel de desarrollo de cada scout, asegurando que todos tengan experiencias significativas y desafiantes acordes a su edad.</p></div>
+    <span class="ey pen">Sección Scout · 11 — 14 años</span>
+    <h1>
+      <span class="pen d2">Sikas</span>
+      <span class="amp pen d3">y</span>
+      <span class="line2 pen d4">Centinelas</span>
+    </h1>
+    <p class="sub" data-tone-toggle>
+      <span data-tone="epic">Bajo el cielo estrellado y la piedra del castillo, los jóvenes aprenden a guiarse por sí mismos. Una sola sección, dos místicas que conviven bajo la misma promesa scout.</span>
+      <span data-tone="direct" hidden>Aquí entras a una sección donde decides en patrulla, planeas tus campamentos y aprendes lo que se necesita para no depender de nadie. Constelaciones y caballeros — escoge tu insignia.</span>
+    </p>
+    <div class="meta">
+      <div class="mi"><strong>11 — 14</strong><span>Edad</span></div>
+      <div class="mi"><strong>Sábado</strong><span>16:00 — 19:45 hrs</span></div>
+      <div class="mi"><strong>Patrullas</strong><span>Sistema scout</span></div>
     </div>
-    <img class="about-img" src="SikasCentinelas/Aéreo_Centinelas.jpg" alt="Tropa de Centinelas">
-  </section>
+  </div>
+</section>
 
-  <section class="objetivos">
-    <img class="obj-img" src="SikasCentinelas/Sikas_Aniversario_68.jpeg" alt="Sikas en actividad">
-    <div class="obj-content">
-      <h2>OBJETIVOS DE LA SECCIÓN</h2>
-      <p>Nuestra misión es acompañar a cada scout en su desarrollo integral, fortaleciendo su carácter, promoviendo valores de servicio y liderazgo, y brindándoles herramientas para convertirse en ciudadanos comprometidos y responsables.</p>
-      <div class="quote-block"><p>&ldquo;Formamos jóvenes capaces de enfrentar desafíos, liderar con ejemplo y contribuir positivamente a su comunidad. A través de la aventura al aire libre, el servicio y el trabajo en equipo, cada scout descubre su potencial y construye su propio camino.&rdquo;</p></div>
+<!-- QUÉ ES -->
+<section class="sec sk-que" data-screen-label="02 Qué es">
+  <div class="sec-pattern"></div>
+  <div class="sec-inner sk-que-grid reveal">
+    <div class="sk-que-photo">
+      <span class="coord">19°21'12"N</span>
+      <span class="coord coord-r">99°12'04"W</span>
+      <img src="assets/sikas-3.jpg" alt="Sikas y Centinelas">
     </div>
-  </section>
+    <div>
+      <span class="ey">La sección</span>
+      <h2>Aventura<br/>y <em>autonomía</em></h2>
+      <p data-tone-toggle><span data-tone="epic"><strong>Sikas y Centinelas</strong> es la sección donde los jóvenes empiezan a tomar decisiones por sí mismos. Aquí trabajan en patrullas — equipos pequeños y mixtos — para llevar a cabo proyectos, campamentos y técnicas scout.</span><span data-tone="direct" hidden>Sikas y Centinelas es donde dejas de hacer lo que te dicen y empiezas a planear tú. Tu patrulla decide, tu patrulla acampa, tu patrulla se equivoca y aprende. Los jefes están — pero detrás.</span></p>
+      <p style="margin-top:18px" data-tone-toggle><span data-tone="epic">Es la etapa del autoconocimiento, la independencia y el desarrollo del liderazgo. La sección reúne dos órdenes hermanas que conviven con identidades simbólicas propias, pero comparten patrullas, proyectos y sábados.</span><span data-tone="direct" hidden>Es la edad donde te das cuenta de qué se te da bien, qué te cuesta, y qué quieres aprender después. Sin discursos: con técnica, campamento y errores reales.</span></p>
+    </div>
+  </div>
+</section>
 
-  <section class="gallery"><h2>GALERÍA</h2><div class="gal-grid"><img src="SikasCentinelas/IMG_0090.jpeg" alt=""><img src="SikasCentinelas/dclassic_2025-10-01_135839.803.jpg" alt=""><img src="SikasCentinelas/UNADJUSTEDNONRAW_thumb_1306.jpg" alt=""><img src="SikasCentinelas/Copia_de_IMG_6190.jpeg" alt=""><img src="SikasCentinelas/UNADJUSTEDNONRAW_thumb_13b2.jpg" alt=""></div></section>
+<!-- MÍSTICA fusionada -->
+<section class="sec sk-mistica" data-screen-label="03 La Mística">
+  <div class="sec-pattern"></div>
+  <div class="sec-inner">
+    <div class="sk-mistica-head reveal">
+      <span class="ey">La mística compartida</span>
+      <h2>Una sección,<br/><em>dos imágenes</em></h2>
+      <p data-tone-toggle style="margin-left:auto; margin-right:auto"><span data-tone="epic">La sección bebe de dos relatos antiguos que dicen lo mismo desde dos costas distintas: que una persona joven puede aprender a guiar a otras. <strong>Sikas</strong> mira al cielo y a las constelaciones que han orientado a los navegantes desde el principio. <strong>Centinelas</strong> mira a la mesa redonda y al código de honor entre iguales.</span><span data-tone="direct" hidden>Dos imágenes para una misma idea: orientarte y cuidar a los tuyos. <strong>Sikas</strong> son las constelaciones — puntos fijos en la noche. <strong>Centinelas</strong> son los caballeros — palabra empeñada y respaldo a los compañeros.</span></p>
+    </div>
 
-  <section class="activities"><h2>QUÉ HACEMOS</h2><div class="act-grid">
-    <div class="act-card"><div class="act-icon"><i data-lucide="tent"></i></div><h3>CAMPAMENTOS</h3><p>Expediciones de varios días donde los scouts ponen en práctica sus habilidades, aprenden nuevas técnicas y fortalecen vínculos con su patrulla.</p></div>
-    <div class="act-card"><div class="act-icon"><i data-lucide="map"></i></div><h3>EXCURSIONES</h3><p>Salidas y caminatas que desarrollan resistencia física, habilidades de orientación y aprecio por la naturaleza y el medio ambiente.</p></div>
-    <div class="act-card"><div class="act-icon"><i data-lucide="tool"></i></div><h3>TÉCNICAS SCOUT</h3><p>Formación en primeros auxilios, construcciones, orientación, supervivencia, cocina al aire libre y otras habilidades esenciales del escultismo.</p></div>
-  </div></section>
+    <!-- Visual fusion: two interlocking circles -->
+    <div class="sk-fusion reveal">
+      <div class="sk-fusion-circles">
+        <div class="c l">
+          <div>
+            <h3>Sikas</h3>
+            <span class="label">— Las Constelaciones —</span>
+          </div>
+        </div>
+        <div class="c r">
+          <div>
+            <h3>Centinelas</h3>
+            <span class="label">— La Mesa Redonda —</span>
+          </div>
+        </div>
+        <div class="sk-fusion-center"><span class="union">Una sección</span></div>
+      </div>
 
-  <section class="servicio">
-    <div class="serv-content"><h2>SERVICIO Y COMUNIDAD</h2><p>El servicio comunitario es fundamental en la formación scout. Nuestros sikas y centinelas participan activamente en proyectos que benefician a su comunidad, desarrollando empatía, responsabilidad social y compromiso ciudadano.</p><div class="serv-list"><div class="serv-item"><span class="serv-arrow">&rarr;</span><span>Proyectos de reforestación y cuidado ambiental</span></div><div class="serv-item"><span class="serv-arrow">&rarr;</span><span>Apoyo en eventos comunitarios y campañas solidarias</span></div><div class="serv-item"><span class="serv-arrow">&rarr;</span><span>Construcción de infraestructura comunitaria</span></div></div></div>
-    <img class="serv-img" src="SikasCentinelas/IMG_2728.JPG" alt="Servicio comunitario">
-  </section>
+      <!-- Detail per side -->
+      <div class="sk-fusion-text">
+        <div class="sk-fusion-side">
+          <h4>Sikas — las constelaciones</h4>
+          <div class="icons">
+            <div class="icon" title="Draco"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 6 L12 10 L18 8 L24 12 L26 18 L22 24 L16 22 L10 26 L6 22 L8 14 Z"/></svg></div>
+            <div class="icon" title="Andrómeda"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="10"/><path d="M16 6 L16 26 M6 16 L26 16"/></svg></div>
+            <div class="icon" title="Casiopeia"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 22 L10 12 L14 20 L20 12 L26 22"/></svg></div>
+          </div>
+          <ul>
+            <li><span><strong>Draco —</strong> el dragón celeste, protección y vigilancia.</span></li>
+            <li><span><strong>Andrómeda —</strong> coraje frente a lo imposible.</span></li>
+            <li><span><strong>Casiopeia —</strong> la W del cielo norte, orientación y nobleza.</span></li>
+          </ul>
+        </div>
 
-  <section class="cta"><h2>ÚNETE A LA TROPA</h2><p>¿Tienes entre 11 y 15 años y quieres vivir grandes aventuras, desarrollar tu liderazgo y hacer amigos para toda la vida? Únete a nuestra tropa de Sikas y Centinelas.</p><a href="https://wa.me/5530310438" class="cta-btn"><i data-lucide="message-circle"></i><span>ESCRÍBENOS POR WHATSAPP</span></a></section>
+        <div class="div"></div>
 
-  <footer class="footer">
-    <div class="footer-top">
-      <a href="home.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
-        <div style="width:48px;height:48px;border-radius:50%;background:url('Grupo_51.jpeg') center/cover;flex-shrink:0"></div>
-        <span class="footer-logo">GRUPO SCOUT 51</span>
-      </a>
-      <div class="footer-links">
-        <a href="home.html">Inicio</a>
-        <a href="nosotros.html">Nosotros</a>
-        <a href="lahinis.html">Lahinis y Lobatos</a>
-        <a href="sikas.html">Sikas y Centinelas</a>
-        <a href="pioneros.html">Pioneros y Pioneras</a>
-        <a href="clan.html">Clan</a>
-        <a href="contacto.html">Contacto</a>
+        <div class="sk-fusion-side">
+          <h4>Centinelas — la mesa redonda</h4>
+          <div class="icons">
+            <div class="icon" title="Honor"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 4 L24 8 L24 18 Q 24 26 16 28 Q 8 26 8 18 L 8 8 Z"/></svg></div>
+            <div class="icon" title="Lealtad"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="10"/><path d="M10 18 L14 22 L22 12"/></svg></div>
+            <div class="icon" title="Servicio"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 4 L18 14 L28 16 L18 18 L16 28 L14 18 L4 16 L14 14 Z"/></svg></div>
+          </div>
+          <ul>
+            <li><span><strong>Honor —</strong> la palabra dada vale más que cualquier pacto.</span></li>
+            <li><span><strong>Lealtad —</strong> al grupo, a la patrulla y a quien necesite ayuda.</span></li>
+            <li><span><strong>Servicio —</strong> el caballero protege a quien no puede defenderse solo.</span></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="footer-divider"></div>
-    <p style="font-family:'Manrope',sans-serif;font-style:italic;font-size:16px;color:#FFFFFF99;letter-spacing:1px;">Siempre listos</p>
-    <span class="footer-copy">&copy; 2025 Grupo Scout 51 — Asociación de Scouts de México, A.C.</span>
-  </footer>
-</div>
-<script>lucide.createIcons();</script>
+  </div>
+</section>
+
+<!-- PILARES — switchable layout -->
+<section class="sec sk-pillars" data-screen-label="04 Pilares" data-layout="grid">
+  <div class="sec-pattern"></div>
+  <div class="sec-inner reveal">
+    <div class="sk-pillars-head">
+      <div>
+        <span class="ey">Lo que hacemos</span>
+        <h2>Cuatro pilares,<br/><em>una sola promesa</em></h2>
+      </div>
+      <span class="layout-label">— Layout: <span data-layout-label>Grid</span> —</span>
+    </div>
+    <div class="sk-pillars-list">
+      <div class="pillar">
+        <span class="num">01</span>
+        <div class="ic-wrap"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 40 L40 40 M14 40 L24 16 L34 40 M18 30 L30 30"/></svg></div>
+        <h4>Patrullas</h4>
+        <p data-tone-toggle><span data-tone="epic">Equipos de 6–8 jóvenes que trabajan juntos toda la temporada. La patrulla planea, decide y ejecuta. Aquí se aprende a dirigir y a dejar dirigir.</span><span data-tone="direct" hidden>Tu patrulla son seis a ocho — los mismos todo el año. Planean juntos, eligen guía, se reparten tareas. Mandas y obedeces, en distintos momentos.</span></p>
+      </div>
+      <div class="pillar">
+        <span class="num">02</span>
+        <div class="ic-wrap"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 38 L24 14 L42 38 Z M16 30 L32 30 M24 14 L24 38"/></svg></div>
+        <h4>Campamentos</h4>
+        <p data-tone-toggle><span data-tone="epic">Salidas de fin de semana y campamentos largos — vivac, cocina al fuego, navegación. Dormir en lo que tú armaste.</span><span data-tone="direct" hidden>Vivacs de fin de semana y campamentos largos. Tu carpa, tu fuego, tu cena. Aprendes que cargas lo que necesitas — ni más, ni menos.</span></p>
+      </div>
+      <div class="pillar">
+        <span class="num">03</span>
+        <div class="ic-wrap"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="14"/><path d="M24 14 L24 24 L31 28"/></svg></div>
+        <h4>Técnica scout</h4>
+        <p data-tone-toggle><span data-tone="epic">Nudos, primeros auxilios, orientación, supervivencia. Habilidades concretas que duran toda la vida.</span><span data-tone="direct" hidden>Nudos, primeros auxilios, brújula, fuego sin cerillos. No es decoración — son cosas que sirven cuando algo se complica.</span></p>
+      </div>
+      <div class="pillar">
+        <span class="num">04</span>
+        <div class="ic-wrap"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 36 L24 24 L36 36 M16 24 L24 16 L32 24 M20 16 L24 12 L28 16"/></svg></div>
+        <h4>Servicio</h4>
+        <p data-tone-toggle><span data-tone="epic">Proyectos para la comunidad — limpieza de áreas verdes, apoyo a otras secciones, campañas concretas con resultado medible.</span><span data-tone="direct" hidden>Salidas de servicio: limpieza, apoyo a otra sección, campañas. Algo que se note después de que te fuiste.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA — switchable -->
+<section class="sec sk-gallery" data-screen-label="05 Galería" data-layout="mosaic">
+  <div class="sec-pattern"></div>
+  <div class="sec-inner reveal">
+    <span class="ey">La sección en imágenes</span>
+    <h2>Sábados<br/><em>en campo</em></h2>
+    <div class="sk-gallery-grid">
+      <div style="background-image:url('assets/sikas-1.jpg')"></div>
+      <div style="background-image:url('assets/sikas-2.jpg')"></div>
+      <div style="background-image:url('assets/sikas-3.jpg')"></div>
+      <div style="background-image:url('assets/sikas-4.jpg')"></div>
+      <div style="background-image:url('assets/sikas-5.jpg')"></div>
+      <div style="background-image:url('assets/sikas-6.jpg')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- HORARIO -->
+<section class="sk-horario" data-screen-label="06 Horario">
+  <div class="sk-horario-card reveal">
+    <span class="ey">Cuándo nos vemos</span>
+    <h3>Sábados<br/>16:00 — 19:45 hrs</h3>
+    <p>Parque Luis Barragán · Jardines del Pedregal · CDMX</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sk-cta" data-screen-label="07 CTA">
+  <span class="ey">Únete a la sección</span>
+  <h2>¿Tienes entre<br/>11 y 14 años?<br/><em>Escríbenos</em></h2>
+  <p>Te esperamos cualquier sábado. No necesitas experiencia ni uniforme la primera vez.</p>
+  <a href="https://wa.me/525530310438" class="btn btn-wa btn-lg">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+    Escríbenos por WhatsApp
+  </a>
+</section>
+
+<footer data-footer></footer>
+<script src="assets/shared.js"></script>
+
+<!-- Sikas page-level enhancements: parallax + reveal + tone -->
+<script>
+(function(){
+  // Parallax on hero layers
+  const layers = document.querySelectorAll('.sk-hero [data-parallax]');
+  if (layers.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let raf;
+    window.addEventListener('scroll', () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        layers.forEach(el => {
+          const speed = parseFloat(el.dataset.parallax) || 0.2;
+          el.style.setProperty('--py', (y * speed) + 'px');
+        });
+        raf = null;
+      });
+    }, { passive: true });
+  }
+
+  // Pen-write reveal on scroll
+  const pens = document.querySelectorAll('.pen');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.05 });
+  pens.forEach(p => io.observe(p));
+  // Force hero pens visible on load (they're already in viewport)
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.sk-hero .pen').forEach(p => p.classList.add('in'));
+  });
+
+  // Tweaks-controlled tone switch
+  window.__sikasApplyTone = (tone) => {
+    document.querySelectorAll('[data-tone-toggle] [data-tone]').forEach(el => {
+      el.hidden = (el.dataset.tone !== tone);
+    });
+  };
+
+  // Layout switchers
+  window.__sikasApplyPillars = (mode) => {
+    const sec = document.querySelector('.sk-pillars');
+    if (!sec) return;
+    sec.dataset.layout = mode;
+    const lbl = sec.querySelector('[data-layout-label]');
+    if (lbl) lbl.textContent = ({grid:'Grid', list:'Lista', zigzag:'Zigzag'}[mode] || mode);
+  };
+  window.__sikasApplyGallery = (mode) => {
+    const sec = document.querySelector('.sk-gallery');
+    if (!sec) return;
+    sec.dataset.layout = mode;
+  };
+  window.__sikasApplyDensity = (val) => {
+    document.documentElement.style.setProperty('--density', val);
+  };
+  window.__sikasApplyMotion = (on) => {
+    document.documentElement.style.setProperty('--motion', on ? 1 : 0);
+    document.body.classList.toggle('no-motion', !on);
+  };
+})();
+</script>
+
+<!-- React + Tweaks panel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="assets/tweaks-panel.jsx"></script>
+<script type="text/babel" src="assets/sikas-tweaks.jsx"></script>
 </body>
 </html>

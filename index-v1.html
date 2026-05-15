@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grupo Scout 51 · Desde 1957</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css" />
+<link rel="stylesheet" href="assets/home-tweaks.css?v=2" />
+<style>
+/* ===== Home — Red + White primary · Ink text · Gold as thin accent ===== */
+:root {
+  --bark: #15130F;          /* shared ink */
+  --hand: 'Caveat', cursive;
+}
+body { background: #FFFFFF; }
+
+/* Unified section heading treatment — used everywhere */
+.sec-eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 3px;
+  color: var(--red); text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.sec-eyebrow::before { content:''; width:40px; height:1px; background: var(--red); }
+.sec-eyebrow.on-dark { color: #FFFFFF; }
+.sec-eyebrow.on-dark::before { background: #FFFFFF; }
+.sec-h2 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(40px, 5.5vw, 76px); line-height: 0.98;
+  text-transform: uppercase; color: var(--bark);
+  margin-top: 18px; letter-spacing: -0.01em;
+}
+.sec-h2.on-dark { color: #FFFFFF; }
+.sec-h2 em, .sec-h2 span.hand {
+  font-family: var(--hand); font-style: normal; font-weight: 500;
+  color: var(--red); text-transform: none; letter-spacing: 0;
+  font-size: 0.65em; display: inline-block;
+  transform: translateY(-0.08em) rotate(-1.5deg);
+}
+.sec-h2.on-dark em, .sec-h2.on-dark span.hand { color: #FFFFFF; }
+
+/* === HERO === */
+.hero {
+  position: relative;
+  min-height: min(92vh, 860px);
+  color: var(--white);
+  overflow: hidden;
+  background: var(--bark);
+}
+.hero .bg {
+  position: absolute; inset: 0;
+  background-image: url('assets/sikas-3.jpg');
+  background-size: cover; background-position: center 30%;
+}
+.hero .bg::after {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(180deg, #BE1A2D33 0%, #15130F66 45%, #0F1A14F2 100%);
+}
+.hero .contour {
+  position:absolute; inset:0; pointer-events:none; opacity:0.22; mix-blend-mode:screen;
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  max-width: var(--max); margin: 0 auto;
+  padding: clamp(140px, 18vw, 220px) var(--pad-x) clamp(60px, 8vw, 100px);
+  display: grid; grid-template-columns: 1fr; gap: 32px;
+}
+.hero-eyebrow {
+  display:flex; align-items:center; gap:12px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 3px;
+  color: #FFFFFF; text-transform: uppercase;
+}
+.hero-eyebrow::before {
+  content:''; width:40px; height:1px; background:#FFFFFF;
+}
+.hero h1 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(56px, 10vw, 180px); line-height: 0.88;
+  letter-spacing: -0.02em; text-transform: uppercase;
+  max-width: 14ch;
+}
+.hero h1 em {
+  font-family: var(--display); font-style: normal; font-weight: 700;
+  color: var(--red); text-transform: uppercase; letter-spacing: -0.02em;
+  font-size: 1em; display: inline; transform: none;
+}
+.hero .lead {
+  font-size: clamp(17px, 2vw, 20px); line-height: 1.6;
+  color: #FFFFFFDD; max-width: 52ch; margin-top: 12px;
+}
+.hero-actions { display:flex; gap: 20px; flex-wrap: wrap; margin-top: 12px; }
+.hero-actions .btn-primary { background: var(--red); color: #FFFFFF; }
+.hero-actions .btn-primary:hover { background: var(--red-dark); }
+.hero-actions .btn-ghost {
+  background: transparent; color: var(--white); border: 1.5px solid #FFFFFF66;
+  padding: 14px 28px; font-family: var(--display); font-weight: 600;
+  font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; transition: all .3s;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.hero-actions .btn-ghost:hover { background: var(--white); color: var(--bark); border-color: var(--white); }
+.hero-tag {
+  position: absolute; right: clamp(24px, 4vw, 64px); top: clamp(140px, 18vw, 220px);
+  z-index: 3; text-align: right;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px; color: #FFFFFF88;
+  line-height: 1.8;
+}
+.hero-tag b { color: #FFFFFF; font-weight:500; }
+.hero-bottom {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  background: linear-gradient(180deg, transparent, #0F1A14);
+  padding: 40px var(--pad-x) 28px;
+}
+.hero-bottom-inner {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: end;
+}
+.hero-note {
+  font-family: var(--mono); font-size: 12px; color: #FFFFFFDD;
+  line-height: 1.6; max-width: 36ch; letter-spacing: 1px;
+  padding-left: 14px; border-left: 2px solid var(--red);
+}
+.hero-scroll {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+  color: #FFFFFFAA; text-transform: uppercase; text-align: right;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+}
+.hero-scroll .line { width: 1px; height: 40px; background: linear-gradient(180deg, #FFFFFF, transparent); animation: drop 2s ease-in-out infinite; }
+@keyframes drop { 0%,100%{transform:scaleY(0.3); transform-origin:top;} 50%{transform:scaleY(1);} }
+
+@media (max-width: 760px) {
+  .hero-tag { display:none; }
+  .hero-bottom-inner { grid-template-columns: 1fr; }
+}
+
+/* === FIELD NOTES — on white with kraft tag detail === */
+.field-notes {
+  background: #FFFFFF;
+  border-top: 1px solid #15130F12; border-bottom: 1px solid #15130F12;
+  position: relative;
+}
+.field-notes::before {
+  content:''; position:absolute; inset:0;
+  background-image: radial-gradient(circle at 2px 2px, #15130F0A 1px, transparent 0);
+  background-size: 22px 22px;
+  pointer-events:none; opacity: 0.6;
+}
+.field-notes-inner {
+  max-width: var(--max); margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) var(--pad-x);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  position: relative; z-index: 2;
+}
+.fn {
+  display: flex; flex-direction: column; gap: 6px;
+  position: relative;
+}
+.fn + .fn::before {
+  content:''; position:absolute; left:-16px; top:10px; bottom:10px; width:1px;
+  background: repeating-linear-gradient(180deg, #15130F33 0 4px, transparent 4px 8px);
+}
+.fn .n {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(44px, 5vw, 72px); line-height: 1;
+  color: var(--red); letter-spacing: -0.02em;
+}
+.fn .lbl {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--bark); margin-top: 8px;
+}
+.fn .sub { font-size: 13px; color: #6B6558; line-height: 1.5; max-width: 20ch; }
+.fn .hand { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--red); text-transform: uppercase; }
+@media (max-width: 760px) { .field-notes-inner { grid-template-columns: 1fr 1fr; } .fn + .fn::before { display:none; } }
+
+/* === MISSION === */
+.mission {
+  background: #FFFFFF; color: var(--bark);
+  padding: clamp(80px, 12vw, 160px) var(--pad-x);
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid #15130F10;
+}
+.mission-inner {
+  max-width: var(--max); margin: 0 auto; position: relative;
+}
+.mission-head {
+  display: grid; grid-template-columns: 120px 1fr; gap: clamp(24px, 5vw, 56px);
+  align-items: center; margin-bottom: clamp(40px, 6vw, 72px);
+  max-width: 900px;
+}
+.mission .compass {
+  aspect-ratio: 1; border-radius: 50%; border: 1.5px solid var(--red);
+  position: relative; display: grid; place-items: center;
+}
+.mission .compass svg { width: 80%; height: 80%; color: var(--red); }
+.mv-trio {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.mv-card {
+  background: var(--paper); padding: 36px 32px 40px;
+  border-top: 3px solid var(--red);
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative;
+}
+.mv-card .num {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2.5px;
+  color: var(--red); text-transform: uppercase;
+}
+.mv-card h3 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(24px, 2.4vw, 30px); line-height: 1;
+  text-transform: uppercase; letter-spacing: -0.01em; color: var(--bark);
+}
+.mv-card p {
+  font-size: 15px; line-height: 1.65; color: var(--bark); opacity: 0.82;
+}
+.mv-card p strong { color: var(--red); font-weight: 600; }
+.mv-card:nth-child(2) { border-top-color: var(--ink); }
+.mv-card:nth-child(3) { border-top-color: var(--gold); }
+.mv-card:nth-child(2) .num { color: var(--ink); }
+.mv-card:nth-child(3) .num { color: #B8902C; }
+@media (max-width: 860px) {
+  .mv-trio { grid-template-columns: 1fr; }
+  .mission-head { grid-template-columns: 1fr; }
+  .mission .compass { width: 100px; }
+}
+
+/* === SECCIONES — dark bark for contrast === */
+.secciones {
+  background: var(--bark); color: var(--white);
+  padding: clamp(64px, 8vw, 112px) var(--pad-x) clamp(64px, 8vw, 112px);
+  position: relative; overflow: hidden;
+}
+.sec-head {
+  max-width: var(--max); margin: 0 auto clamp(28px, 3.5vw, 44px);
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end;
+  position: relative; z-index: 2;
+}
+.sec-head p { font-size: 17px; line-height: 1.7; color: #FFFFFFCC; max-width: 50ch; }
+@media (max-width: 860px) { .sec-head { grid-template-columns: 1fr; } }
+
+.sec-grid {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  position: relative; z-index: 2;
+}
+.sec-card {
+  position: relative; aspect-ratio: 3/4.4; overflow: hidden;
+  display: block; text-decoration: none; color: var(--white);
+  background: var(--bark);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.sec-card:hover { transform: translateY(-6px); }
+.sec-card .photo {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform .8s ease, filter .8s ease;
+  filter: saturate(0.9) contrast(1.05);
+}
+.sec-card:hover .photo { transform: scale(1.06); filter: saturate(1) contrast(1.1); }
+.sec-card::after {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(180deg, #00000000 35%, #0F1A14F0 100%);
+}
+.sec-card .meta {
+  position: absolute; top: 16px; left: 16px; right: 16px; z-index: 2;
+  display: flex; justify-content: space-between;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+  color: #FFFFFF; text-transform: uppercase;
+}
+.sec-card .badge {
+  position: absolute; top: 56px; left: 16px; z-index: 2;
+  width: 52px; height: 52px; border-radius: 50%;
+  background-size: contain; background-position: center; background-repeat: no-repeat;
+  background-color: #00000044; border: 1px solid #FFFFFF66; padding: 6px;
+  backdrop-filter: blur(4px);
+}
+.sec-card .content {
+  position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 2;
+}
+.sec-card .age {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+  color: #FFFFFF; text-transform: uppercase;
+  padding-bottom: 10px; border-bottom: 1px solid #FFFFFF44;
+  margin-bottom: 10px;
+}
+.sec-card h3 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(22px, 2.6vw, 32px); line-height: 1;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.sec-card .cta {
+  font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #FFFFFF;
+  margin-top: 14px; display: flex; align-items: center; gap: 8px;
+}
+.sec-card .cta svg { width: 18px; height: 18px; transition: transform .3s; }
+.sec-card:hover .cta svg { transform: translateX(6px); }
+@media (max-width: 860px) { .sec-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .sec-grid { grid-template-columns: 1fr; } }
+
+/* === STORY — pure white === */
+.story {
+  background: #FFFFFF; padding: clamp(80px, 12vw, 160px) var(--pad-x);
+  position: relative;
+}
+.story-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.story .imgs { position: relative; aspect-ratio: 4/5; }
+.story .img1 { position:absolute; inset: 0 40px 60px 0; background-image: url('assets/manadas-1.jpeg'); background-size: cover; background-position: center; }
+.story .img2 { position:absolute; right: 0; bottom: 0; width: 55%; aspect-ratio: 4/5; background-image: url('assets/clan-1.jpeg'); background-size: cover; background-position: center; border: 8px solid #FFFFFF; box-shadow: 0 8px 24px #15130F22; }
+.story .tag {
+  position:absolute; top: -14px; left: -14px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+  background: var(--red); color: #FFFFFF; padding: 8px 14px;
+  text-transform: uppercase; z-index: 2;
+}
+.story p { font-size: 17px; line-height: 1.75; color: var(--bark); margin-top: 24px; max-width: 48ch; }
+.story .stamp {
+  display: inline-block; margin-top: 28px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+  color: var(--red); text-transform: uppercase;
+  padding: 6px 10px; border: 1px solid var(--red);
+}
+.story .btn-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 28px; margin-left: 16px; font-family: var(--display); font-weight: 600;
+  font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--red); text-decoration: none; padding-bottom: 6px;
+  border-bottom: 2px solid var(--red);
+}
+@media (max-width: 860px) { .story-inner { grid-template-columns: 1fr; } .story .imgs { aspect-ratio: 5/4; } }
+
+/* === VALORES — white === */
+.valores {
+  background: #FFFFFF; color: var(--bark);
+  padding: clamp(80px, 12vw, 160px) var(--pad-x);
+  position: relative; overflow: hidden;
+  border-top: 1px solid #15130F10;
+  border-bottom: 1px solid #15130F10;
+}
+.valores-head { max-width: var(--max); margin: 0 auto 64px; text-align: center; position: relative; z-index: 2; }
+.valores-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: #15130F1A; border: 1px solid #15130F1A;
+  position: relative; z-index: 2;
+}
+.valor {
+  background: #FFFFFF; padding: 48px 36px;
+  display: flex; flex-direction: column; gap: 20px;
+  min-height: 360px;
+}
+.valor .num { font-family: var(--display); font-weight: 700; font-size: 88px; line-height: 0.9; color: var(--red); opacity: 0.18; }
+.valor .icon { width: 44px; height: 44px; color: var(--red); }
+.valor h3 { font-family: var(--display); font-weight: 700; font-size: 26px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--bark); }
+.valor p { font-size: 15px; line-height: 1.7; color: var(--bark); }
+.valor .note { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--red); margin-top: auto; text-transform: uppercase; }
+@media (max-width: 860px) { .valores-grid { grid-template-columns: 1fr; } }
+
+/* === HORARIOS — red background === */
+.horarios {
+  background: var(--red); color: var(--white);
+  padding: clamp(64px, 10vw, 120px) var(--pad-x);
+  position: relative; overflow: hidden;
+}
+.horarios-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(32px, 5vw, 72px); align-items: start; position: relative; z-index: 2; }
+.horarios .sub { font-size: 16px; color: #FFFFFFDD; margin-top: 20px; line-height: 1.7; max-width: 32ch; }
+.htable { display: flex; flex-direction: column; border-top: 1px solid #FFFFFF33; }
+.hrow { display: grid; grid-template-columns: 60px 1fr 1fr auto; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid #FFFFFF33; }
+.hrow .day { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: #FFFFFFBB; }
+.hrow .who { font-family: var(--display); font-weight: 600; font-size: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+.hrow .when { font-family: var(--mono); font-size: 13px; color: #FFFFFFDD; }
+.hrow .age { font-family: var(--mono); font-size: 11px; color: #FFFFFF; letter-spacing: 1.5px; }
+@media (max-width: 760px) { .horarios-inner { grid-template-columns: 1fr; } .hrow { grid-template-columns: 60px 1fr auto; } .hrow .when { grid-column: 2/4; font-size: 12px; } }
+
+/* === CTA === */
+.cta-home {
+  background: var(--bark); color: var(--white); position: relative; overflow: hidden;
+  padding: clamp(80px, 12vw, 160px) var(--pad-x); text-align: center;
+}
+.cta-home::before {
+  content:''; position:absolute; inset:0; pointer-events:none; opacity:0.35;
+  background-image: url('assets/pioneros-1.jpeg');
+  background-size: cover; background-position: center;
+  filter: saturate(0.3) contrast(1.1) blur(2px);
+}
+.cta-home::after { content:''; position:absolute; inset:0; background: linear-gradient(180deg, #0F1A14CC, #0F1A14EE); }
+.cta-home > * { position: relative; z-index: 2; }
+.cta-home .hand { font-family: var(--mono); font-size: 11px; letter-spacing: 3px; color: #FFFFFF; text-transform: uppercase; display: inline-block; padding-bottom: 8px; border-bottom: 1px solid var(--red); }
+.cta-home h2 { font-family: var(--display); font-weight: 700; font-size: clamp(48px, 8vw, 140px); line-height: 0.9; text-transform: uppercase; letter-spacing: -0.02em; margin-top: 20px; color: #FFFFFF; }
+.cta-home p { font-size: clamp(16px, 2vw, 20px); color: #FFFFFFCC; max-width: 52ch; margin: 24px auto 40px; line-height: 1.7; }
+.cta-home .btn-big {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--red); color: #FFFFFF;
+  padding: 22px 44px; font-family: var(--display); font-weight: 700;
+  font-size: 18px; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; transition: transform .3s, background .2s;
+}
+.cta-home .btn-big:hover { transform: translateY(-3px); background: var(--red-dark); }
+.cta-home .btn-big svg { width: 22px; height: 22px; }
+.cta-home .meta { margin-top: 40px; font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: #FFFFFF77; text-transform: uppercase; }
+</style>
+</head>
+<body data-page="home">
+<nav class="nav" data-nav></nav>
+
+<!-- HERO -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="bg" data-photo="hero-bg"></div>
+  <svg class="contour" viewBox="0 0 1600 900" preserveAspectRatio="none"><defs><pattern id="contourH" width="160" height="90" patternUnits="userSpaceOnUse"><path d="M0 45 Q 40 25 80 45 T 160 45" fill="none" stroke="#F5C500" stroke-width="0.8"/><path d="M0 65 Q 40 45 80 65 T 160 65" fill="none" stroke="#F5C500" stroke-width="0.8"/><path d="M0 25 Q 40 5 80 25 T 160 25" fill="none" stroke="#F5C500" stroke-width="0.8"/></pattern></defs><rect width="1600" height="900" fill="url(#contourH)"/></svg>
+  <div class="hero-tag">
+    <b>19.3066° N · 99.2140° W</b><br/>
+    Pedregal · CDMX<br/>
+    Est. 1957
+  </div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow" data-tw="hero-eyebrow">Desde 1957 · Jardines del Pedregal</span>
+    <h1 data-tw="hero-title">Formamos<br/>líderes<br/><em>que cambian el mundo</em></h1>
+    <p class="lead" data-tw="hero-lead">Somos el Grupo Scout 51. Cada sábado, niños y jóvenes de 7 a 18 años viven la aventura del escultismo — al aire libre, en comunidad, con propósito.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/525530310438" class="btn btn-primary" data-tw="hero-cta">Escríbenos por WhatsApp</a>
+      <a href="#secciones" class="btn-ghost">Conoce las secciones <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-bottom-inner">
+      <div class="hero-note" data-tw="hero-handnote">"No dejes el campamento peor de como lo encontraste." — B.P.</div>
+      <div></div>
+      <div class="hero-scroll"><span>Desliza</span><span class="line"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD NOTES -->
+<section class="field-notes" data-screen-label="02 Datos">
+  <div class="field-notes-inner">
+    <div class="fn">
+      <span class="n" data-tw="stat1-n">1957</span>
+      <span class="lbl" data-tw="stat1-l">Fundación</span>
+      <span class="sub" data-tw="stat1-s">13 de noviembre · Misioneros del Espíritu Santo</span>
+    </div>
+    <div class="fn">
+      <span class="n" data-tw="stat2-n">4</span>
+      <span class="lbl" data-tw="stat2-l">Secciones</span>
+      <span class="sub" data-tw="stat2-s">
+</span>
+    </div>
+    <div class="fn">
+      <span class="n" data-tw="stat3-n">68</span>
+      <span class="lbl" data-tw="stat3-l">Años</span>
+      <span class="hand" data-tw="stat3-h">y los que siguen</span>
+    </div>
+    <div class="fn">
+      <span class="n" data-tw="stat4-n">7—18</span>
+      <span class="lbl" data-tw="stat4-l">Edades</span>
+      <span class="sub" data-tw="stat4-s">Sábados 16:00 — 19:45 hrs</span>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" data-screen-label="03 Misión">
+  <div class="mission-inner">
+    <div class="mission-head">
+      <div class="compass">
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+          <circle cx="50" cy="50" r="48"/>
+          <circle cx="50" cy="50" r="36"/>
+          <path d="M50 8 L54 50 L50 54 L46 50 Z" fill="currentColor" stroke="none"/>
+          <path d="M50 92 L46 50 L50 46 L54 50 Z" fill="currentColor" stroke="none" opacity="0.3"/>
+          <path d="M50 20 L50 14 M50 80 L50 86 M20 50 L14 50 M80 50 L86 50" stroke-width="1.5"/>
+          <text x="50" y="18" text-anchor="middle" font-size="7" font-family="Oswald" font-weight="700" fill="currentColor" stroke="none">N</text>
+        </svg>
+      </div>
+      <div>
+        <span class="sec-eyebrow" data-tw="mis-eyebrow">Qué nos mueve</span>
+        <h2 class="sec-h2" data-tw="mis-title">Misión, visión<br/>y propósito</h2>
+      </div>
+    </div>
+    <div class="mv-trio">
+      <article class="mv-card">
+        <span class="num">01 · Misión</span>
+        <h3 data-tw="mis-title">Qué hacemos</h3>
+        <p data-tw="mis-body" style="color: rgb(199, 64, 78)">Contribuir a la educación de los jóvenes a través de un sistema de valores basado en la <strong>Promesa y la Ley Scout</strong>. Para que cada niña y cada niño que pasa por el grupo deje el mundo en mejores condiciones de como lo encontró.</p>
+      </article>
+      <article class="mv-card">
+        <span class="num">02 · Visión</span>
+        <h3 data-tw="vis-title">A dónde vamos</h3>
+        <p data-tw="vis-body">Ser un grupo scout referente en México: un espacio donde familias, jóvenes y niños encuentren <strong>comunidad, aventura y formación</strong> para la vida, sábado tras sábado.</p>
+      </article>
+      <article class="mv-card">
+        <span class="num">03 · Propósito</span>
+        <h3 data-tw="prop-title">Por qué lo hacemos</h3>
+        <p data-tw="prop-body">Formar <strong>líderes que sirven</strong> — personas íntegras, curiosas y comprometidas con los demás, capaces de dejar huella en su comunidad, su país y el mundo.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIONES -->
+<section class="secciones" id="secciones" data-screen-label="04 Secciones">
+  <div class="sec-head">
+    <div>
+      <span class="sec-eyebrow on-dark" data-tw="sec-eyebrow">Las cuatro secciones</span>
+      <h2 class="sec-h2 on-dark" data-tw="sec-title">Encuentra<br/>tu sección <em data-tw="sec-title-hand">según tu edad</em></h2>
+    </div>
+    <p data-tw="sec-lede">El grupo se divide en secciones por edad y género, cada una con su propia mística. Todas se reúnen los sábados en el Parque Luis Barragán.</p>
+  </div>
+
+  <div class="sec-grid">
+    <a class="sec-card" href="lahinis.html">
+      <div class="photo" data-photo="sec-lahinis" style="background-image:url('assets/manadas-1.jpeg')"></div>
+      <div class="meta"><span>· 01 / 04</span><span>Manada</span></div>
+      <div class="badge" style="background-image:url('assets/logo-manadas.png')"></div>
+      <div class="content">
+        <div class="age">7 — 11 años</div>
+        <h3>Lahinis<br/>y Lobatos</h3>
+        <div class="cta">Conoce más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+    <a class="sec-card" href="sikas.html">
+      <div class="photo" data-photo="sec-sikas" style="background-image:url('assets/sikas-1.jpg')"></div>
+      <div class="meta"><span>· 02 / 04</span><span>Tropa</span></div>
+      <div class="badge" style="background-image:url('assets/logo-centinelas.png')"></div>
+      <div class="content">
+        <div class="age">11 — 15 años</div>
+        <h3>Sikas y<br/>Centinelas</h3>
+        <div class="cta">Conoce más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+    <a class="sec-card" href="pioneros.html">
+      <div class="photo" data-photo="sec-pioneros" style="background-image:url('assets/pioneros-7.jpg')"></div>
+      <div class="meta"><span>· 03 / 04</span><span>Comunidad</span></div>
+      <div class="badge" style="background-image:url('assets/logo-pioneres.png')"></div>
+      <div class="content">
+        <div class="age">15 — 18 años</div>
+        <h3>Pioneros y<br/>Pioneras</h3>
+        <div class="cta">Conoce más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+    <a class="sec-card" href="clan.html">
+      <div class="photo" data-photo="sec-clan" style="background-image:url('assets/clan-2.jpg')"></div>
+      <div class="meta"><span>· 04 / 04</span><span>Clan</span></div>
+      <div class="badge" style="background-image:url('assets/logo-clan.png')"></div>
+      <div class="content">
+        <div class="age">18+ años</div>
+        <h3>Clan<br/>Rover</h3>
+        <div class="cta">Conoce más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" data-screen-label="05 Historia">
+  <div class="story-inner">
+    <div class="imgs">
+      <span class="tag" data-tw="story-tag">68 años en foto</span>
+      <div class="img1" data-photo="story-1"></div>
+      <div class="img2" data-photo="story-2"></div>
+    </div>
+    <div>
+      <span class="sec-eyebrow" data-tw="story-eyebrow">Nuestra historia</span>
+      <h2 class="sec-h2" data-tw="story-title">Una tradición<br/>que no<br/>se apaga</h2>
+      <p data-tw="story-body">El 13 de noviembre de 1957, los Misioneros del Espíritu Santo formaron el Grupo 51 con tres ramas: Lobatos, Tropa y Clan. Hoy, décadas después, seguimos reuniéndonos cada sábado en el Parque Luis Barragán con el mismo propósito.</p>
+      <span class="stamp" data-tw="story-stamp">Desde 1957 · Jardines del Pedregal</span><br/>
+      <a href="nosotros.html" class="btn-link">Conoce nuestra historia →</a>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="valores" data-screen-label="06 Valores">
+  <div class="valores-head">
+    <span class="sec-eyebrow" data-tw="val-eyebrow">Nuestros valores</span>
+    <h2 class="sec-h2" data-tw="val-title">Tres pilares</h2>
+  </div>
+  <div class="valores-grid">
+    <div class="valor">
+      <span class="num">01</span>
+      <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6 L24 42 M12 18 L24 12 L36 18 M8 36 Q 24 30 40 36"/></svg>
+      <h3 data-tw="val1-t">Servicio</h3>
+      <p data-tw="val1-p">Aprender a servir a la comunidad y a los demás, dejando el mundo un poco mejor de como lo encontramos.</p>
+      <span class="note" data-tw="val1-n">"Una buena acción al día"</span>
+    </div>
+    <div class="valor">
+      <span class="num">02</span>
+      <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="16"/><path d="M24 8 L24 40 M8 24 L40 24 M13 13 L35 35 M35 13 L13 35"/></svg>
+      <h3 data-tw="val2-t">Compromiso</h3>
+      <p data-tw="val2-p">Formar jóvenes comprometidos con su comunidad, su país y el mundo a través de la educación no formal.</p>
+      <span class="note" data-tw="val2-n">"Siempre listo"</span>
+    </div>
+    <div class="valor">
+      <span class="num">03</span>
+      <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 40 L24 10 L40 40 Z M 16 30 L 32 30 M 24 10 L 24 40"/></svg>
+      <h3 data-tw="val3-t">Aventura</h3>
+      <p data-tw="val3-p">Vivir experiencias al aire libre que retan el cuerpo y el espíritu, forjando el carácter y la resiliencia.</p>
+      <span class="note" data-tw="val3-n">"El monte es la escuela"</span>
+    </div>
+  </div>
+</section>
+
+<!-- HORARIOS -->
+<section class="horarios" data-screen-label="07 Horarios">
+  <div class="horarios-inner">
+    <div>
+      <span class="sec-eyebrow on-dark" data-tw="hor-eyebrow">Cuándo nos vemos</span>
+      <h2 class="sec-h2 on-dark" data-tw="hor-title">Todos los<br/>sábados</h2>
+      <p class="sub" data-tw="hor-sub">Parque Luis Barragán · Jardines del Pedregal. Llega con ropa cómoda, tenis y una botella de agua.</p>
+    </div>
+    <div class="htable">
+      <div class="hrow">
+        <span class="day">Sáb</span>
+        <span class="who" data-tw="h1-w">Lahinis / Lobatos</span>
+        <span class="when" data-tw="h1-t">16:00 — 19:45 hrs</span>
+        <span class="age" data-tw="h1-a">7—11</span>
+      </div>
+      <div class="hrow">
+        <span class="day">Sáb</span>
+        <span class="who" data-tw="h2-w">Sikas / Centinelas</span>
+        <span class="when" data-tw="h2-t">16:00 — 19:45 hrs</span>
+        <span class="age" data-tw="h2-a">11—15</span>
+      </div>
+      <div class="hrow">
+        <span class="day">Sáb</span>
+        <span class="who" data-tw="h3-w">Pioneros / Pioneras</span>
+        <span class="when" data-tw="h3-t">16:00 — 19:45 hrs</span>
+        <span class="age" data-tw="h3-a">15—18</span>
+      </div>
+      <div class="hrow">
+        <span class="day">Sáb</span>
+        <span class="who" data-tw="h4-w">Clan Rover</span>
+        <span class="when" data-tw="h4-t">Según convocatoria</span>
+        <span class="age" data-tw="h4-a">18+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-home" data-screen-label="08 CTA">
+  <span class="hand" data-tw="cta-hand">ven cualquier sábado</span>
+  <h2 data-tw="cta-title">La aventura<br/>empieza aquí</h2>
+  <p data-tw="cta-body">No necesitas experiencia ni uniforme la primera vez. Solo ropa cómoda y ganas. Te esperamos.</p>
+  <a href="https://wa.me/525530310438" class="btn-big">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v16l4-4h14a2 2 0 002-2V6a2 2 0 00-2-2z"/></svg>
+    Escríbenos por WhatsApp
+  </a>
+  <div class="meta" data-tw="cta-meta">· Parque Luis Barragán · Sábados 16:00 · Desde 1957 ·</div>
+</section>
+
+<footer class="footer" data-footer></footer>
+<script src="assets/shared.js"></script>
+<script src="assets/home-tweaks.js?v=2"></script>
+</body>
+</html>
